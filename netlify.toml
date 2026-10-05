@@ -1,0 +1,52 @@
+[build]
+  base = ""
+  publish = "dist"
+  command = "npm run build"
+  functions = "functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ---------------------------------------------------------------------------
+# Contact form: uses Netlify Forms (built-in), not a custom serverless
+# function. The form on /contact/ carries data-netlify="true" and a matching
+# hidden form-name field, which is all Netlify needs to detect and handle it
+# at build/deploy time — no redirect or functions wiring required here.
+#
+# The functions/ directory below is kept only as a dormant, tested reference
+# implementation (Resend-based) in case a custom backend is wanted again
+# later — it is not called by the live site.
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# Canonical hostname: https://2sbusinesssupport.com (apex, no www) is the
+# canonical domain used throughout the site (sitemap, canonical tags, OG
+# tags, JSON-LD all reference the apex). This redirect sends the www
+# variant to the apex so only one URL is ever indexed/shared.
+# Add both "2sbusinesssupport.com" and "www.2sbusinesssupport.com" as domain
+# aliases in Netlify's Domain settings for this to take effect — see report.
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "https://www.2sbusinesssupport.com/*"
+  to = "https://2sbusinesssupport.com/:splat"
+  status = 301
+  force = true
+
+# NOTE: no catch-all SPA redirect is configured. This is a multi-page static
+# site — every page is its own index.html under dist/, so Netlify serves
+# each URL directly. A catch-all "/* -> /index.html" redirect would be
+# WRONG here and was deliberately not added.
+
+# ---------------------------------------------------------------------------
+# Baseline security headers, safe defaults only. Content-Security-Policy is
+# intentionally NOT set here yet — see the final report's Netlify Readiness
+# section for why, and for the post-deployment hardening step once the
+# email/analytics providers are finalized.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    X-Frame-Options = "DENY"

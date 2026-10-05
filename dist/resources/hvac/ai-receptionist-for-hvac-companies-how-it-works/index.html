@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Receptionist for HVAC Companies: How It Works | 2S Business Support Service</title>
+<meta name="description" content="How an AI receptionist handles HVAC calls — the workflow, inquiry types, what it should never decide, and how integration and failures are handled.">
+<link rel="canonical" href="https://2sbusinesssupport.com/resources/hvac/ai-receptionist-for-hvac-companies-how-it-works/">
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Receptionist for HVAC Companies: How It Works | 2S Business Support Service">
+<meta property="og:description" content="How an AI receptionist handles HVAC calls — the workflow, inquiry types, what it should never decide, and how integration and failures are handled.">
+<meta property="og:url" content="https://2sbusinesssupport.com/resources/hvac/ai-receptionist-for-hvac-companies-how-it-works/">
+<meta property="og:image" content="https://2sbusinesssupport.com/assets/brand/og-default.jpg">
+<meta property="og:site_name" content="2S Business Support Service">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Receptionist for HVAC Companies: How It Works | 2S Business Support Service">
+<meta name="twitter:description" content="How an AI receptionist handles HVAC calls — the workflow, inquiry types, what it should never decide, and how integration and failures are handled.">
+<meta name="twitter:image" content="https://2sbusinesssupport.com/assets/brand/og-default.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Receptionist for HVAC Companies: How It Works","author":{"@type":"Organization","name":"2S Business Support Service"},"publisher":{"@type":"Organization","name":"2S Business Support Service","url":"https://2sbusinesssupport.com"},"mainEntityOfPage":"https://2sbusinesssupport.com/resources/hvac/ai-receptionist-for-hvac-companies-how-it-works/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does an AI receptionist diagnose HVAC problems?","acceptedAnswer":{"@type":"Answer","text":"No. It collects information — symptoms described in the caller's own words, system type, property details — and passes that along. Diagnosing the actual mechanical issue is a technician's job, not the receptionist's."}},{"@type":"Question","name":"Can it handle two calls at the same time?","acceptedAnswer":{"@type":"Answer","text":"Yes, that's one of the practical advantages over a single staff member — it can respond to more than one inquiry at once rather than putting a second caller on hold."}},{"@type":"Question","name":"Does it work the same with every dispatch or CRM system?","acceptedAnswer":{"@type":"Answer","text":"No. Integration depth depends on what your specific software supports and how it's configured — some systems allow direct booking and record updates, others need more manual steps. This is worth confirming specifically for your setup rather than assuming."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://2sbusinesssupport.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://2sbusinesssupport.com/resources/"},{"@type":"ListItem","position":3,"name":"AI Receptionist for HVAC Companies: How It Works","item":"https://2sbusinesssupport.com/resources/hvac/ai-receptionist-for-hvac-companies-how-it-works/"}]}</script>
+</head>
+<body class="">
+
+<header class="sticky top-0 z-50" data-nav-root>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="border-b border-transparent transition-all duration-300" data-nav aria-label="Primary">
+    <div class="container-content flex items-center justify-between h-16 md:h-20">
+      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="2S Business Support Service home">
+        <img src="/assets/brand/emblem.png" alt="2S Business Support Service logo" width="36" height="36" class="w-9 h-9 rounded-full shrink-0" />
+        <span class="hidden lg:block font-head font-bold text-slate2 text-sm tracking-wide leading-tight">2S <span class="text-ink">Business Support</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/services/" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-slate2 hover:text-gold transition-colors">Solutions</a>
+<a href="/industries/" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-slate2 hover:text-gold transition-colors">Industries</a>
+<a href="/about/#ai-systems" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-slate2 hover:text-gold transition-colors">AI Systems</a>
+<a href="/resources/" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-gold transition-colors">Resources</a>
+<a href="/pricing/" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-slate2 hover:text-gold transition-colors">Pricing</a>
+<a href="/about/" class="font-head text-sm uppercase tracking-wide px-1 py-2 text-slate2 hover:text-gold transition-colors">About</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="/contact/" class="btn-primary text-xs md:text-sm px-4 md:px-5 py-2.5">Request a Free Consultation</a>
+      </div>
+
+      <button type="button" class="md:hidden text-ink p-2 -mr-2" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg data-icon-open width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg data-icon-close class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-charcoal z-40 overflow-y-auto" data-open="false" data-mobile-menu>
+    <div class="container-content py-4">
+      <a href="/services/" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">Solutions</a>
+<a href="/industries/" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">Industries</a>
+<a href="/about/#ai-systems" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">AI Systems</a>
+<a href="/resources/" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">Resources</a>
+<a href="/pricing/" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">Pricing</a>
+<a href="/about/" class="block font-head text-lg uppercase tracking-wide py-3 text-slate2 hover:text-gold border-b border-gold/10">About</a>
+      <a href="/contact/" class="btn-primary w-full mt-6">Request a Free Consultation</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<nav aria-label="Breadcrumb" class="container-content pt-6 text-xs md:text-sm"><div class="flex flex-wrap items-center"><a href="/" class="text-muted hover:text-gold">Home</a><span class="text-muted mx-2" aria-hidden="true">/</span><a href="/resources/" class="text-muted hover:text-gold">Resources</a><span class="text-muted mx-2" aria-hidden="true">/</span><span class="text-slate2" aria-current="page">AI Receptionist for HVAC Companies: How It Works</span></div></nav>
+<article class="section pt-8">
+  <div class="container-content max-w-2xl">
+    <p class="eyebrow mb-4">HVAC Automation</p>
+    <h1 class="text-3xl md:text-4xl mb-6">AI Receptionist for HVAC Companies: How It Works</h1>
+
+    
+  <div class="flex items-center gap-2 text-xs text-muted mb-4">
+    <span class="text-emerald font-head uppercase tracking-wide">HVAC Automation</span>
+  </div>
+
+    <p class="text-slate2 text-lg leading-relaxed mb-6">An AI receptionist for an HVAC company answers incoming calls, identifies what the caller needs, collects basic information, and either books an appointment or routes the caller to staff — following rules your business defines in advance, not judgment it makes on its own.</p>
+
+    <div class="card my-10">
+      <p class="text-xs font-head uppercase tracking-wide text-muted mb-4">The general call workflow</p>
+      
+  <div id="article-workflow-hvac-receptionist" class="w-full" data-workflow-diagram>
+    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-x-2 md:gap-y-4 md:flex-wrap py-2">
+      
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="0">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Incoming Call</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="1">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">AI Receptionist Answers</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="2">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Caller Need Identified</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="3">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Basic Information Collected</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="4">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Service / Location Qualification</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="5">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Appropriate Next Step</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="6">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Booking or Staff Escalation</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="7">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Connected System Updated</span>
+        </div>
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-gold/50 rotate-90 md:rotate-0 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg>
+      </div>
+
+      <div class="flex items-center gap-3 md:gap-4 shrink-0">
+        <div class="node-card" data-workflow-node data-index="8">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="font-head text-xs md:text-sm font-semibold text-ink uppercase tracking-wide">Staff Notification When Needed</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <p class="sr-only">Workflow sequence: Incoming Call → AI Receptionist Answers → Caller Need Identified → Basic Information Collected → Service / Location Qualification → Appropriate Next Step → Booking or Staff Escalation → Connected System Updated → Staff Notification When Needed.</p>
+    </div>
+
+    <h2 class="text-xl md:text-2xl mt-10 mb-3">The kinds of inquiries it's built to handle</h2>
+    <ul class="text-slate2 leading-relaxed mb-6 space-y-2 list-disc list-inside">
+      <li>Repair or service requests</li>
+      <li>Maintenance inquiries</li>
+      <li>Installation or replacement inquiries</li>
+      <li>Scheduling requests</li>
+      <li>Service-area questions</li>
+      <li>Business-hours questions</li>
+      <li>Existing appointment questions</li>
+      <li>Urgent or unusual situations — recognized and routed, not resolved by the AI itself</li>
+    </ul>
+
+    <h2 class="text-xl md:text-2xl mt-10 mb-3">What it should not decide</h2>
+    <p class="text-slate2 leading-relaxed mb-6">An AI receptionist should not be presented as diagnosing HVAC equipment or determining whether a situation is physically safe. Those are judgment calls for a qualified technician or your business's approved emergency process — the AI's role is to collect information and route the conversation appropriately, not to make a technical or safety determination itself. Anything urgent, unusual, safety-related, or genuinely out of scope should follow your predefined escalation procedure to a person.</p>
+
+    <h2 class="text-xl md:text-2xl mt-10 mb-3">Practical mechanics</h2>
+    <ul class="text-slate2 leading-relaxed mb-6 space-y-2 list-disc list-inside">
+      <li><strong class="text-ink">After-hours coverage</strong> — the same assistant can be configured to handle calls outside business hours, following its own defined rules for that context</li>
+      <li><strong class="text-ink">Simultaneous inquiries</strong> — it can respond to more than one caller at once, unlike a single staff member</li>
+      <li><strong class="text-ink">Qualification</strong> — gathering system type, symptoms in the caller's own words, and property details before booking or escalating</li>
+      <li><strong class="text-ink">Booking</strong> — offering available appointment windows where your calendar or dispatch system is connected</li>
+      <li><strong class="text-ink">CRM/dispatch integration</strong> — where supported, it can create or update records automatically; not every software integrates the same way, so this depends on what you actually use</li>
+      <li><strong class="text-ink">Human escalation</strong> — a defined path for anything outside the approved scope</li>
+    </ul>
+
+    <h2 class="text-xl md:text-2xl mt-10 mb-3">When things don't go as expected</h2>
+    <p class="text-slate2 leading-relaxed mb-6">A failed integration, incorrect or missing information from the caller, or a question outside the assistant's configured knowledge should all be handled the same way: flagged rather than guessed at. A system that quietly makes something up when it doesn't know the answer is worse than one that plainly says it needs to check and follows up.</p>
+
+    <h2 class="text-xl md:text-2xl mt-10 mb-3">FAQ</h2>
+    <div class="space-y-3" data-faq-group>
+    <div class="faq-item" data-faq-item>
+      <h3>
+        <button type="button" class="faq-trigger" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-0">
+          <span>Does an AI receptionist diagnose HVAC problems?</span>
+          <svg class="w-5 h-5 text-gold shrink-0 transition-transform duration-200" data-faq-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </h3>
+      <div id="faq-panel-0" class="faq-panel" data-faq-panel>
+        <p class="text-slate2 leading-relaxed">No. It collects information — symptoms described in the caller's own words, system type, property details — and passes that along. Diagnosing the actual mechanical issue is a technician's job, not the receptionist's.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-faq-item>
+      <h3>
+        <button type="button" class="faq-trigger" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-1">
+          <span>Can it handle two calls at the same time?</span>
+          <svg class="w-5 h-5 text-gold shrink-0 transition-transform duration-200" data-faq-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </h3>
+      <div id="faq-panel-1" class="faq-panel" data-faq-panel>
+        <p class="text-slate2 leading-relaxed">Yes, that's one of the practical advantages over a single staff member — it can respond to more than one inquiry at once rather than putting a second caller on hold.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" data-faq-item>
+      <h3>
+        <button type="button" class="faq-trigger" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-2">
+          <span>Does it work the same with every dispatch or CRM system?</span>
+          <svg class="w-5 h-5 text-gold shrink-0 transition-transform duration-200" data-faq-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </h3>
+      <div id="faq-panel-2" class="faq-panel" data-faq-panel>
+        <p class="text-slate2 leading-relaxed">No. Integration depth depends on what your specific software supports and how it's configured — some systems allow direct booking and record updates, others need more manual steps. This is worth confirming specifically for your setup rather than assuming.</p>
+      </div>
+    </div></div>
+
+    
+  <div class="mt-10">
+    <p class="font-head font-bold text-ink text-sm uppercase tracking-wide mb-4">Related Resources</p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      
+      <a href="/resources/hvac/how-ai-follows-up-with-hvac-leads-after-hours/" class="card block hover:border-gold/40">
+        <p class="text-xs text-emerald font-head uppercase tracking-wide mb-2">HVAC Automation</p>
+        <p class="font-head font-bold text-ink text-sm">How AI Can Follow Up With HVAC Leads After Hours</p>
+      </a>
+
+      <a href="/resources/hvac/hvac-lead-follow-up-automation-explained/" class="card block hover:border-gold/40">
+        <p class="text-xs text-emerald font-head uppercase tracking-wide mb-2">HVAC Automation</p>
+        <p class="font-head font-bold text-ink text-sm">HVAC Lead Follow-Up Automation Explained</p>
+      </a>
+    </div>
+  </div>
+
+    <div class="border-t border-gold/10 pt-8 mt-10">
+      <a href="/ai-automation-services/" class="link-inline text-sm block mb-6">See AI Automation Services &rarr;</a>
+      <a href="/contact/" class="btn-primary" data-cta="article-hvac-receptionist">Request a Free Consultation</a>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<footer class="border-t border-gold/10 mt-20">
+  <div class="container-content py-12 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+    <div class="max-w-sm">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="/assets/brand/footer-logo.png" alt="2S Business Support Service logo" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full" />
+        <span class="font-head font-bold text-ink text-sm">2S Business Support Service</span>
+      </div>
+      <p class="text-muted text-sm leading-relaxed">Smart Automation. Reliable Support. Real Results.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="space-y-2">
+        <li><a href="/services/" class="text-slate2 hover:text-gold text-sm transition-colors">Solutions</a></li>
+<li><a href="/industries/" class="text-slate2 hover:text-gold text-sm transition-colors">Industries</a></li>
+<li><a href="/about/#ai-systems" class="text-slate2 hover:text-gold text-sm transition-colors">AI Systems</a></li>
+<li><a href="/resources/" class="text-slate2 hover:text-gold text-sm transition-colors">Resources</a></li>
+<li><a href="/pricing/" class="text-slate2 hover:text-gold text-sm transition-colors">Pricing</a></li>
+<li><a href="/about/" class="text-slate2 hover:text-gold text-sm transition-colors">About</a></li>
+<li><a href="/contact/" class="text-slate2 hover:text-gold text-sm transition-colors">Contact</a></li>
+<li><a href="/privacy/" class="text-slate2 hover:text-gold text-sm transition-colors">Privacy</a></li>
+      </ul>
+    </nav>
+    <div class="text-muted text-sm">
+      <p>General inquiries:</p>
+      <a href="mailto:hello@2sbusinesssupport.com" class="text-slate2 hover:text-gold">hello@2sbusinesssupport.com</a>
+      <div class="flex items-center gap-4 mt-4">
+        
+      <a href="https://www.facebook.com/share/1BWpfJJPbL/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"
+         class="text-muted hover:text-gold transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/2sbusinesssupportservices?igsi=czl1bzU4OWRydHVx" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"
+         class="text-muted hover:text-gold transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+
+      <a href="https://www.linkedin.com/in/aiseduardgannaban" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"
+         class="text-muted hover:text-gold transition-colors duration-200">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.35-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.7H9z"/></svg>
+      </a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-gold/10">
+    <div class="container-content py-6 text-muted text-xs">
+      &copy; 2026 2S Business Support Service. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<div data-assistant>
+  <button type="button" data-assistant-toggle aria-expanded="false" aria-controls="assistant-panel"
+    class="assistant-toggle fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-goldglow"
+    aria-label="Ask 2S — open assistant">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B0D0E" stroke-width="2" aria-hidden="true">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+  </button>
+
+  <div id="assistant-panel" data-assistant-panel data-open="false" role="dialog" aria-label="2S Assistant"
+    class="fixed bottom-24 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-charcoal border border-gold/20 rounded-xl overflow-hidden">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gold/10">
+      <div class="flex items-center gap-2">
+        <span class="status-dot" style="background-color:#10B981" aria-hidden="true"></span>
+        <p class="font-head font-bold text-ink text-sm">2S Assistant</p>
+      </div>
+      <button type="button" data-assistant-close aria-label="Close assistant" class="text-muted hover:text-gold p-1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div data-assistant-thread aria-live="polite" class="p-4 space-y-3 overflow-y-auto" style="max-height:320px"></div>
+    <div data-assistant-options class="p-4 pt-0 flex flex-col gap-2"></div>
+  </div>
+</div>
+<script src="/assets/pricing-config.js" defer></script>
+<script src="/assets/roi-formulas.js" defer></script>
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

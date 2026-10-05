@@ -1,0 +1,20 @@
+{
+  "name": "2s-site",
+  "version": "1.0.0",
+  "description": "2S Business Support Service — production website (static, Netlify-ready)",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.js && tailwindcss -i ./src/css/input.css -o ./dist/assets/styles.css --minify && cp ./src/js/roi-formulas.js ./dist/assets/roi-formulas.js && cp ./src/js/main.js ./dist/assets/main.js",
+    "verify": "node verify.js",
+    "test": "node test-contact.js && node test-roi.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

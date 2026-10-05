@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      transition-delay: 0s !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  body {
+    @apply bg-charcoal text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-head font-bold tracking-tight;
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
+  :focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply max-w-content mx-auto px-6 md:px-8;
+  }
+  .section {
+    @apply py-14 md:py-24;
+  }
+  .eyebrow {
+    @apply text-emerald text-xs md:text-sm font-head font-bold uppercase tracking-[0.2em];
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-gold text-charcoal font-head font-semibold uppercase tracking-wide text-sm md:text-base px-6 py-3.5 min-h-[44px] shadow-goldglow hover:bg-champagne hover:-translate-y-0.5 transition-all duration-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border-2 border-gold text-gold font-head font-semibold uppercase tracking-wide text-sm md:text-base px-6 py-3.5 min-h-[44px] hover:bg-gold hover:text-charcoal hover:-translate-y-0.5 transition-all duration-200;
+  }
+  .link-inline {
+    @apply text-emerald underline decoration-emerald/40 underline-offset-4 hover:decoration-emerald;
+  }
+  .card {
+    @apply bg-obsidian border border-gold/15 rounded-xl p-6 md:p-8 hover:border-gold/40 hover:-translate-y-1 transition-all duration-200;
+  }
+  input, select, textarea {
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .status-dot {
+    @apply inline-block w-2.5 h-2.5 rounded-full bg-emerald;
+  }
+  .node-card {
+    @apply flex flex-col items-center gap-2 bg-obsidian border border-gold/20 rounded-lg px-4 py-4 text-center min-w-[120px] transition-colors duration-200;
+  }
+  /* Signature workflow signal states — transient "active" flash, then
+     resolves permanently to "complete" (green). Runs once; see main.js.
+     Scoped to [data-workflow-node] generally (not just .node-card) so
+     other workflow-status layouts — e.g. the hero's pill list — can
+     reuse the same states with their own shape/spacing. */
+  [data-workflow-node][data-signal="active"] {
+    @apply border-gold shadow-goldglow;
+  }
+  [data-workflow-node][data-signal="active"] .status-dot {
+    @apply bg-gold;
+  }
+  [data-workflow-node][data-signal="complete"] {
+    @apply border-emerald2;
+  }
+  [data-workflow-node][data-signal="complete"] .status-dot {
+    @apply bg-emerald2;
+  }
+  .faq-item {
+    @apply border border-gold/15 rounded-lg bg-obsidian;
+  }
+  .article-table-wrap {
+    @apply overflow-x-auto -mx-1 px-1 mb-6;
+  }
+  .article-table {
+    @apply w-full text-sm border-collapse min-w-[480px];
+  }
+  .article-table th {
+    @apply text-left font-head text-xs uppercase tracking-wide text-gold border-b border-gold/20 px-3 py-2.5 whitespace-nowrap;
+  }
+  .article-table td {
+    @apply text-slate2 border-b border-gold/10 px-3 py-2.5 align-top;
+  }
+  .faq-trigger {
+    @apply w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-head font-semibold text-ink min-h-[44px];
+  }
+  /* Panels are visible by default so FAQ content works with no JS.
+     JS (progressive enhancement) applies the collapsed state on init. */
+  .faq-panel {
+    @apply px-5 pb-5;
+  }
+  .faq-panel[data-js-collapsed="true"] {
+    @apply overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0 pb-0;
+  }
+  .faq-panel[data-js-collapsed="true"][data-open="true"] {
+    @apply max-h-96 pb-5;
+  }
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-gold focus:text-charcoal focus:px-4 focus:py-2 focus:rounded-md;
+  }
+
+  /* ---------------------------------------------------------------------
+     Scroll reveal (progressive enhancement — see main.js). Elements are
+     fully visible by default; JS adds .reveal-init only when motion is
+     allowed and IntersectionObserver is supported, then .reveal-visible
+     when the element scrolls into view. Runs once per element.
+     --------------------------------------------------------------------- */
+  .reveal-init {
+    opacity: 0;
+    transform: translateY(14px);
+    transition-property: opacity, transform;
+    transition-duration: 550ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal-init.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------------------------------------------------------------------
+     Mobile menu open/close. visibility is delayed on close so the panel
+     stays interactive/focusable until the fade finishes, and is removed
+     from the tab order once fully hidden.
+     --------------------------------------------------------------------- */
+  #mobile-menu {
+    opacity: 0;
+    transform: translateY(-8px);
+    visibility: hidden;
+    pointer-events: none;
+    transition-property: opacity, transform, visibility;
+    transition-duration: 220ms;
+    transition-timing-function: ease;
+    transition-delay: 0s, 0s, 220ms;
+  }
+  #mobile-menu[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
+  }
+
+  /* ---------------------------------------------------------------------
+     2S Assistant floating widget. Same delayed-visibility technique as
+     the mobile menu: fully removed from layout/tab order when closed,
+     smooth fade+slide when opened.
+     --------------------------------------------------------------------- */
+  .assistant-toggle {
+    background: linear-gradient(135deg, #D4AF37, #10B981);
+  }
+  #assistant-panel {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    visibility: hidden;
+    pointer-events: none;
+    transition-property: opacity, transform, visibility;
+    transition-duration: 220ms;
+    transition-timing-function: ease;
+    transition-delay: 0s, 0s, 220ms;
+  }
+  #assistant-panel[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
+  }
+  .assistant-bubble {
+    @apply bg-obsidian border border-gold/15 rounded-lg px-3.5 py-2.5 text-sm text-slate2 leading-relaxed;
+  }
+  .assistant-option {
+    @apply text-left w-full font-head text-xs font-semibold uppercase tracking-wide text-slate2 border border-gold/20 rounded-md px-3 py-2 hover:border-gold/50 hover:text-ink transition-colors duration-200;
+  }
+
+  /* Success checkmark, entrance-only (scale+fade), then still. */
+  .success-check {
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .success-check[data-shown="true"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Below ~360px the two mini result cards get cramped side by side —
+     stack them. Tailwind's breakpoints are all min-width, so this one
+     narrow-viewport exception is handled with a manual max-width rule. */
+  @media (max-width: 359px) {
+    [data-roi-mini-grid] {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero network sphere. Pure CSS keyframe animation — the site's existing
+     global prefers-reduced-motion override (animation-duration: 0.001ms)
+     freezes both of these automatically; no extra reduced-motion code
+     needed here. The centered logo lives outside this rotating layer.
+     --------------------------------------------------------------------- */
+  @keyframes sphere-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .sphere-rotate {
+    animation: sphere-spin 90s linear infinite;
+  }
+  @keyframes sphere-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .sphere-node-pulse {
+    animation: sphere-pulse 3.2s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
