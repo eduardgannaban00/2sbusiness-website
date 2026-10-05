@@ -74,6 +74,42 @@
     padding-block: clamp(4rem, 6vw, 6rem);
   }
 
+  /* Content-driven repairs for the two pages called out in human QA. */
+  .page-industries main > section,
+  .page-services main > section {
+    padding-block: clamp(3rem, 4.5vw, 4.5rem);
+  }
+  .page-industries main > section:first-of-type,
+  .page-services main > section:first-of-type {
+    padding-top: clamp(2.5rem, 3.5vw, 3.75rem) !important;
+    padding-bottom: clamp(2.75rem, 4vw, 4rem);
+  }
+  .page-industries main > section:last-of-type,
+  .page-services main > section:nth-of-type(4) {
+    padding-block: clamp(2.25rem, 3.5vw, 3.5rem);
+  }
+  .page-services main > section:last-of-type {
+    padding-block: clamp(3rem, 4vw, 4.25rem);
+  }
+  .page-industries footer,
+  .page-services footer { margin-top: 2.5rem !important; }
+
+  /* Demos remain spacious enough for their module cards, while category
+     separators and the closing transition stop consuming full-section gaps. */
+  .page-demos main > section:not(:first-of-type) {
+    padding-block: clamp(3.5rem, 5vw, 5rem);
+  }
+  .page-demos main > section:last-of-type { padding-block: clamp(3rem, 4vw, 4.25rem); }
+  .page-demos footer { margin-top: 3rem !important; }
+
+  .page-pricing main > section:not(:first-of-type),
+  .page-about main > section:not(:first-of-type),
+  .page-resources main > section:not(:first-of-type),
+  .page-contact main > section:not(:first-of-type),
+  .page-article main > section:not(:first-of-type) {
+    padding-block: clamp(3.25rem, 5vw, 5rem);
+  }
+
   @media (max-width: 767px) {
     .page-home .section:not(.home-hero):not(.home-final-cta) {
       padding-block: 3.5rem;
@@ -105,6 +141,25 @@
     .page-article main > section:not(:first-of-type) {
       padding-block: 3.5rem;
     }
+    .page-industries main > section,
+    .page-services main > section {
+      padding-block: 2.5rem;
+    }
+    .page-industries main > section:first-of-type,
+    .page-services main > section:first-of-type {
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.75rem;
+    }
+    .page-industries main > section:last-of-type,
+    .page-services main > section:nth-of-type(4) {
+      padding-block: 2rem;
+    }
+    .page-services main > section:last-of-type { padding-block: 2.75rem; }
+    .page-industries footer,
+    .page-services footer { margin-top: 1.5rem !important; }
+    .page-demos main > section:not(:first-of-type) { padding-block: 3rem; }
+    .page-demos main > section:last-of-type { padding-block: 2.75rem; }
+    .page-demos footer { margin-top: 2rem !important; }
   }
 }
 
