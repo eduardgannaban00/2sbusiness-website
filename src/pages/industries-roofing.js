@@ -74,7 +74,7 @@ ${visibleBreadcrumbs(crumbs)}
       </a>
       <div class="card opacity-60">
         <p class="font-head font-bold text-ink mb-2">CRM &amp; Appointment Automation</p>
-        <p class="text-slate2 text-sm leading-relaxed">Pipeline and scheduling automation \u2014 coming soon.</p>
+        <p class="text-slate2 text-sm leading-relaxed">Pipeline and scheduling automation shaped around roofing lead and estimate workflows.</p>
       </div>
     </div>
   </div>

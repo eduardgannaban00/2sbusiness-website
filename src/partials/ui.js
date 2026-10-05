@@ -52,17 +52,21 @@ function workflowDiagram(id, steps, options) {
  * main.js applying the collapsed state — see main.js).
  */
 function faqAccordion(items, pageUrl) {
+  const idPrefix = `faq-${String(pageUrl || "page")
+    .replace(/^https?:\/\/[^/]+/, "")
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/^-|-$/g, "") || "home"}`;
   const html = items
     .map(
       (item, i) => `
     <div class="faq-item" data-faq-item>
       <h3>
-        <button type="button" class="faq-trigger" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-${i}">
+        <button type="button" id="${idPrefix}-trigger-${i}" class="faq-trigger" data-faq-trigger aria-expanded="false" aria-controls="${idPrefix}-panel-${i}">
           <span>${item.q}</span>
           <svg class="w-5 h-5 text-gold shrink-0 transition-transform duration-200" data-faq-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
       </h3>
-      <div id="faq-panel-${i}" class="faq-panel" data-faq-panel>
+      <div id="${idPrefix}-panel-${i}" class="faq-panel" data-faq-panel role="region" aria-labelledby="${idPrefix}-trigger-${i}">
         <p class="text-slate2 leading-relaxed">${item.a}</p>
       </div>
     </div>`
@@ -101,7 +105,7 @@ function socialLinks(social, extraClass) {
     .map(
       (key) => `
       <a href="${social[key]}" target="_blank" rel="noopener noreferrer" aria-label="${labels[key]}" title="${labels[key]}"
-         class="${extraClass || "text-muted hover:text-gold transition-colors duration-200"}">
+         class="inline-flex items-center justify-center min-w-11 min-h-11 ${extraClass || "text-muted hover:text-gold transition-colors duration-200"}">
         ${icons[key]}
       </a>`
     )
@@ -176,7 +180,7 @@ function industrySelector(industries) {
     .map(
       (ind, i) => `
       <button type="button" role="tab" id="industry-tab-${ind.id}" aria-controls="industry-panel-${ind.id}"
-        aria-selected="${i === 0 ? "true" : "false"}" data-industry-tab="${ind.id}"
+        aria-selected="${i === 0 ? "true" : "false"}" tabindex="${i === 0 ? "0" : "-1"}" data-industry-tab="${ind.id}"
         class="industry-tab font-head text-sm font-semibold uppercase tracking-wide px-4 py-2.5 rounded-md border transition-colors duration-200 ${
           i === 0 ? "border-gold bg-gold text-charcoal" : "border-gold/20 text-slate2 hover:border-gold/40"
         }">${ind.label}</button>`

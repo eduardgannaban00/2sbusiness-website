@@ -57,10 +57,11 @@ const related = relatedResources([
 const stageTable = `
 <div class="article-table-wrap">
   <table class="article-table">
+    <caption class="sr-only">Roofing pipeline stages and suitable automation actions</caption>
     <thead>
       <tr>
-        <th>Pipeline Stage</th>
-        <th>What Automation Can Do Here</th>
+        <th scope="col">Pipeline Stage</th>
+        <th scope="col">What Automation Can Do Here</th>
       </tr>
     </thead>
     <tbody>

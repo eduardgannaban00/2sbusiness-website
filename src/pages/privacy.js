@@ -21,12 +21,12 @@ ${visibleBreadcrumbs(crumbs)}
 
       <div>
         <h2 class="text-xl font-head font-bold text-ink mb-2">Analytics</h2>
-        <p>We use website analytics to understand which pages are visited and how people navigate the site \u2014 for example, which pages lead to a completed consultation request. Analytics data is used in aggregate to improve the site and does not include the content of anything you type into the contact form.</p>
+        <p>The site may use website analytics when an analytics service is configured. Any such measurement is intended to understand page visits and navigation in aggregate. The contact form's field contents are not intentionally sent as analytics events.</p>
       </div>
 
       <div>
         <h2 class="text-xl font-head font-bold text-ink mb-2">Third-party processors</h2>
-        <p>We use service providers to host the website, protect the form from abuse, and deliver inquiry notifications by email. These providers process information only as needed to provide those services. We do not sell submitted inquiry information or share it with third parties for their own marketing purposes.</p>
+        <p>To operate the site and contact form in production, we may use service providers for hosting, abuse protection, and email delivery. Those providers process information only as needed to provide those services. We do not sell submitted inquiry information or share it with third parties for their own marketing purposes.</p>
       </div>
 
       <div>
@@ -45,10 +45,7 @@ ${visibleBreadcrumbs(crumbs)}
       </div>
 
       <div>
-        <p class="text-muted text-sm">This policy may be updated as our tools or processes change. Last reviewed: ${new Date().toLocaleDateString(
-          "en-US",
-          { year: "numeric", month: "long" }
-        )}.</p>
+        <p class="text-muted text-sm">This policy may be updated as our tools or processes change. Last reviewed: October 2026.</p>
       </div>
     </div>
   </div>

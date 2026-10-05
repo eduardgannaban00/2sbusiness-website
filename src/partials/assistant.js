@@ -9,14 +9,14 @@ function renderAssistant() {
     </svg>
   </button>
 
-  <div id="assistant-panel" data-assistant-panel data-open="false" role="dialog" aria-label="2S Assistant"
+  <div id="assistant-panel" data-assistant-panel data-open="false" role="dialog" aria-label="2S Assistant" aria-hidden="true"
     class="fixed bottom-24 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-charcoal border border-gold/20 rounded-xl overflow-hidden">
     <div class="flex items-center justify-between px-4 py-3 border-b border-gold/10">
       <div class="flex items-center gap-2">
         <span class="status-dot" style="background-color:#10B981" aria-hidden="true"></span>
         <p class="font-head font-bold text-ink text-sm">2S Assistant</p>
       </div>
-      <button type="button" data-assistant-close aria-label="Close assistant" class="text-muted hover:text-gold p-1">
+      <button type="button" data-assistant-close aria-label="Close assistant" class="text-muted hover:text-gold p-2 -mr-2 min-w-11 min-h-11 inline-flex items-center justify-center">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>

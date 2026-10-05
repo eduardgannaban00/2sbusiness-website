@@ -68,7 +68,7 @@ ${visibleBreadcrumbs(crumbs)}
         ${
           dentalDemoUrl
             ? `<a href="${dentalDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="dental-demo">Try the Dental AI Demo</a>`
-            : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5"><span class="status-dot" aria-hidden="true"></span>Live demo link coming soon</span>`
+            : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5">Preview unavailable</span>`
         }
       </div>
 
@@ -89,7 +89,7 @@ ${visibleBreadcrumbs(crumbs)}
         ${
           hrDemoUrl
             ? `<a href="${hrDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="hr-demo">Try the HR Intelligence Demo</a>`
-            : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5"><span class="status-dot" aria-hidden="true"></span>Live demo link coming soon</span>`
+            : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5">Preview unavailable</span>`
         }
       </div>
     </div>

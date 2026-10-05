@@ -49,7 +49,7 @@ ${visibleBreadcrumbs(crumbs)}
         <input id="business_name" name="business_name" type="text" required maxlength="200" autocomplete="organization"
           class="w-full bg-charcoal border border-gold/20 rounded-md px-4 py-3 text-ink focus-visible:border-gold" />
       </div>
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid sm:grid-cols-2 gap-4">
         <div>
           <label for="email" class="block text-sm font-head text-slate2 mb-1.5">Email <span class="text-gold">*</span></label>
           <input id="email" name="email" type="email" required maxlength="200" autocomplete="email"
@@ -80,7 +80,7 @@ ${visibleBreadcrumbs(crumbs)}
       </div>
 
       <p class="text-slate2 text-sm">Preferred consultation date and time. Choose a time that works for you \u2014 we'll confirm availability by email.</p>
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid sm:grid-cols-2 gap-4">
         <div>
           <label for="preferred_date" class="block text-sm font-head text-slate2 mb-1.5">Preferred date <span class="text-gold">*</span></label>
           <input id="preferred_date" name="preferred_date" type="date" required

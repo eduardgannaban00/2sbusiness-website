@@ -53,11 +53,12 @@ const related = relatedResources([
 const costTable = `
 <div class="article-table-wrap">
   <table class="article-table">
+    <caption class="sr-only">Common AI receptionist cost categories and billing models</caption>
     <thead>
       <tr>
-        <th>Cost Category</th>
-        <th>What It Covers</th>
-        <th>Typically Billed As</th>
+        <th scope="col">Cost Category</th>
+        <th scope="col">What It Covers</th>
+        <th scope="col">Typically Billed As</th>
       </tr>
     </thead>
     <tbody>

@@ -47,10 +47,11 @@ const related = relatedResources([
 const comparisonTable = `
 <div class="article-table-wrap">
   <table class="article-table">
+    <caption class="sr-only">Comparison of fast responses and useful responses to roofing leads</caption>
     <thead>
       <tr>
-        <th>Fast Response</th>
-        <th>Useful Response</th>
+        <th scope="col">Fast Response</th>
+        <th scope="col">Useful Response</th>
       </tr>
     </thead>
     <tbody>

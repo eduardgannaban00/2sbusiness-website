@@ -111,16 +111,66 @@ Validation completed:
 - `npm audit`: 5 high vulnerabilities remain in the existing Tailwind 3 dependency tree; fixing them requires a major Tailwind upgrade and is deferred.
 - Browser smoke: not run; no browser automation was available in this local-only milestone.
 
+## Milestone 4
+
+Milestone 4 prepares a local release candidate without deploying, changing
+DNS, configuring production services, or sending email. The generated site now
+has a 27-route release quality gate covering unique metadata and canonicals,
+Open Graph and Twitter metadata, one H1 per page, valid JSON-LD, internal-link
+integrity, non-orphan routes, unique IDs, form label targets, safe external
+links, sitemap parity, demo registry safety, pricing assets, contact-form
+portability, secret signatures, source-map exclusion, and required artifacts.
+
+SEO, answer-engine, and AI-discovery work includes direct homepage answers for
+what 2S does, what a Business OS is, compatibility with existing tools, human
+oversight, consultation flow, and industry scope. `llms.txt` provides a concise,
+accurate index of canonical pages, services, demos, contact information, and
+non-fabrication guidance. It contains no private implementation details.
+
+Static accessibility and responsive improvements include unique FAQ control
+relationships, tab roving focus, mobile-menu focus containment and state
+labels, larger icon targets, assistant visibility state, and stacked contact
+form fields on narrow screens. Non-home routes no longer request the
+homepage-only ROI formulas. The build copies all reviewed root static files and
+no longer prints obsolete manual build steps.
+
+Local preview is dependency-free: run `npm.cmd run preview` after the build and
+open `http://localhost:4173/`. Rendered browser and screenshot QA remains
+`PENDING HUMAN QA` because browser automation is unavailable in this workspace.
+The exact viewport, screenshot, keyboard, interaction, and responsive checklist
+is recorded in `LOCAL-RELEASE-QA.md`.
+
+The npm audit still reports five high-severity findings through the Tailwind
+3 development/build dependency chain (`tailwindcss` -> `chokidar` / `fast-glob`
+/ `micromatch` -> `braces`). These packages are not shipped to browsers; only
+the generated CSS is shipped. npm's supported remediation is Tailwind 4, a
+breaking major upgrade, so it is deferred rather than introduced into the
+release candidate.
+
+Milestone 4 validation:
+
+- `npm ci`: PASS
+- `npm test`: PASS — 44 contact/security checks, 37 ROI checks, existing
+  regression suites, generated release-quality checks, and route verifier
+- `npm run build`: PASS — 27 routes and required release artifacts generated
+- `npm run verify`: PASS — 0 errors, 0 warnings, 27 sitemap URLs
+- Local preview smoke: PASS — key pages, `llms.txt`, sitemap, CSS, and JS returned 200
+- External demo availability: PASS — all 11 registry URLs returned HTTP 200
+- Stale-copy, Netlify-marker, secret-signature, source-map, and diff checks: PASS
+- Rendered browser screenshots and interaction QA: PENDING HUMAN QA
+
 ## Remaining work
 
 - P0: configure and preview-test Cloudflare, Resend, Turnstile, and the native
   rate-limiter binding before production cutover.
-- P1: complete rendered browser QA and verify every technical demo endpoint.
+- P1: complete the documented rendered browser and screenshot QA checklist.
+- P1: verify every external technical demo endpoint immediately before launch.
 - P1: verify CSP and contact success/failure states in the rendered preview.
-- P2: complete AEO/GEO, security hardening, and performance budgets.
-- P3: optional content, industry, and interaction polish.
+- P2: define production performance monitoring and budgets after hosting is available.
+- P3: optional additional content, industry, and interaction polish.
 
 ## Next milestone
 
 Cloudflare preview deployment, controlled email delivery testing, final browser
-QA, DNS changes, and production cutover remain out of scope for Milestone 3.
+QA, DNS changes, and production cutover remain explicitly out of scope for this
+local release-candidate milestone.

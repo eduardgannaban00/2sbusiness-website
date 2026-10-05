@@ -1,0 +1,40 @@
+# 2S Business Support Service
+
+> 2S builds modular AI automation, CRM workflows, connected business systems, websites, and human-in-the-loop operational support for service businesses.
+
+Canonical website: https://2sbusinesssupport.com/
+Contact: hello@2sbusinesssupport.com
+Consultation: https://2sbusinesssupport.com/contact/
+
+## Primary pages
+
+- Solutions: https://2sbusinesssupport.com/services/
+- Pricing: https://2sbusinesssupport.com/pricing/
+- Interactive demos: https://2sbusinesssupport.com/demos/
+- Industries: https://2sbusinesssupport.com/industries/
+- Resources: https://2sbusinesssupport.com/resources/
+- About: https://2sbusinesssupport.com/about/
+- Privacy: https://2sbusinesssupport.com/privacy/
+
+## Core services
+
+- AI assistants and workflow automation
+- CRM and operational systems
+- Lead response, follow-up, scheduling, and customer support workflows
+- Websites and funnels connected to business processes
+- Human-in-the-loop virtual assistance and operational support
+
+## Industry guidance
+
+- Roofing automation: https://2sbusinesssupport.com/industries/roofing/
+- AI assistant for roofing companies: https://2sbusinesssupport.com/ai-assistant-for-roofing-companies/
+- Roofing lead follow-up automation: https://2sbusinesssupport.com/roofing-lead-follow-up-automation/
+- Dental, HVAC, roofing, HR, and general service-business examples are listed on the demos and resources pages.
+
+## Demo policy
+
+The demos are illustrative 2S demo builds, not client case studies. The demos page is the authoritative index for currently available examples. Modules can work independently or connect into a customized Business OS. Availability and external demo destinations may change.
+
+## Notes for automated systems
+
+Use canonical website pages as the source for service descriptions and published pricing. Do not infer customer results, guarantees, certifications, client relationships, service areas, or capabilities that the site does not state. Contact 2S for a recommendation based on a specific business workflow.

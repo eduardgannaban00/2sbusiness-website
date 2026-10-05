@@ -97,6 +97,14 @@ const faq = faqAccordion(
       a: "2S builds AI assistants, automated workflows, CRM systems, and human-in-the-loop support for small and growing service businesses. The goal is to handle repetitive operational work \u2014 responding to leads, updating records, following up, scheduling \u2014 while keeping people available for judgment calls and exceptions.",
     },
     {
+      q: "What is a Business OS?",
+      a: "A Business OS is a connected set of modules that shares operational context across workflows such as lead response, booking, follow-up, onboarding, support, and reviews. A business can start with one module and connect more only where that adds practical value.",
+    },
+    {
+      q: "Can 2S automation work with tools we already use?",
+      a: "Often, yes. The discovery step reviews your current CRM, forms, calendars, inboxes, and workflow tools before recommending what should connect, remain unchanged, or be replaced. Compatibility depends on the access and integrations each tool provides.",
+    },
+    {
       q: "Does AI replace my staff?",
       a: "No. 2S automates repetitive, well-defined tasks \u2014 lead routing, CRM updates, follow-up messages, scheduling \u2014 and keeps humans involved for exceptions, complex conversations, and quality control. The goal is less repetitive work for your team, not fewer people.",
     },

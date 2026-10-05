@@ -61,11 +61,12 @@ const comparisonRows = [
 const comparisonTable = `
 <div class="article-table-wrap">
   <table class="article-table">
+    <caption class="sr-only">Comparison of tasks handled by AI and human receptionists</caption>
     <thead>
       <tr>
-        <th>Task</th>
-        <th>AI Receptionist</th>
-        <th>Human Receptionist</th>
+        <th scope="col">Task</th>
+        <th scope="col">AI Receptionist</th>
+        <th scope="col">Human Receptionist</th>
       </tr>
     </thead>
     <tbody>

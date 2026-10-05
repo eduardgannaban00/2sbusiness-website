@@ -38,6 +38,8 @@ function renderPage({
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${description}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#111416">
 <link rel="canonical" href="${canonical}">
 <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png">
@@ -71,7 +73,7 @@ ${renderFooter()}
 ${renderAssistant()}
 <script src="/assets/pricing-config.js" defer></script>
 <script src="/assets/demo-config.js" defer></script>
-<script src="/assets/roi-formulas.js" defer></script>
+${path === "/" ? '<script src="/assets/roi-formulas.js" defer></script>' : ""}
 <script src="/assets/main.js" defer></script>
 </body>
 </html>`;

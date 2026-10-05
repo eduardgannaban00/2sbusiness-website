@@ -27,13 +27,20 @@
     var iconClose = toggle.querySelector("[data-icon-close]");
     var setMenuOpen = function (open) {
       menu.setAttribute("data-open", String(open));
+      menu.setAttribute("aria-hidden", String(!open));
       toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       iconOpen.classList.toggle("hidden", open);
       iconClose.classList.toggle("hidden", !open);
       document.body.classList.toggle("overflow-hidden", open);
     };
     toggle.addEventListener("click", function () {
-      setMenuOpen(menu.getAttribute("data-open") !== "true");
+      var opening = menu.getAttribute("data-open") !== "true";
+      setMenuOpen(opening);
+      if (opening) {
+        var firstLink = menu.querySelector("a");
+        if (firstLink) firstLink.focus();
+      }
     });
     menu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
@@ -44,6 +51,19 @@
       if (e.key === "Escape" && menu.getAttribute("data-open") === "true") {
         setMenuOpen(false);
         toggle.focus();
+      }
+      if (e.key === "Tab" && menu.getAttribute("data-open") === "true") {
+        var focusable = Array.prototype.slice.call(menu.querySelectorAll("a"));
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     });
   }
@@ -90,6 +110,7 @@
       tabs.forEach(function (tab) {
         var isActive = tab.getAttribute("data-industry-tab") === id;
         tab.setAttribute("aria-selected", String(isActive));
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
         tab.classList.toggle("border-gold", isActive);
         tab.classList.toggle("bg-gold", isActive);
         tab.classList.toggle("text-charcoal", isActive);
@@ -561,7 +582,7 @@
     },
     receptionist: {
       message:
-        "Our AI receptionist handles common questions and booking-related conversations. We have two live demos you can try right now.",
+        "Our AI receptionist handles common questions and booking-related conversations. Explore the demo portfolio to see examples across industries and workflows.",
       options: [
         { label: "Try the Dental AI Demo", href: demoUrl("dental"), external: true },
         { label: "Try the HR Intelligence Demo", href: demoUrl("hr"), external: true },
@@ -652,6 +673,7 @@
 
     function openPanel() {
       panel.setAttribute("data-open", "true");
+      panel.setAttribute("aria-hidden", "false");
       toggle.setAttribute("aria-expanded", "true");
       if (!started) {
         started = true;
@@ -664,6 +686,7 @@
 
     function closePanel() {
       panel.setAttribute("data-open", "false");
+      panel.setAttribute("aria-hidden", "true");
       toggle.setAttribute("aria-expanded", "false");
       toggle.focus();
     }

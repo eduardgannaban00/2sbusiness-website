@@ -9,7 +9,8 @@
   "scripts": {
     "build": "node build.js && tailwindcss -i ./src/css/input.css -o ./dist/assets/styles.css --minify && node scripts/copy-assets.js",
     "verify": "node verify.js",
-    "test": "node test-contact.js && node test-roi.js && node test-verify.js && node test-demos.js"
+    "preview": "node scripts/serve-dist.js",
+    "test": "node test-contact.js && node test-roi.js && node test-verify.js && node test-demos.js && npm run build && node test-quality.js && npm run verify"
   },
   "keywords": [],
   "author": "",
