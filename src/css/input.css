@@ -173,6 +173,54 @@
     .page-demos main > section:last-of-type { padding-block: 2.75rem; }
     .page-demos footer { margin-top: 2rem !important; }
   }
+
+  /* Real short-height desktop treatment. This is intentionally limited to
+     Home so laptop browser chrome cannot push the primary hero actions below
+     the fold while the approved sphere remains a major anchor. */
+  @media (min-width: 900px) and (max-height: 850px) {
+    .page-home .home-hero {
+      min-height: 0;
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+    .page-home .home-hero-title {
+      font-size: clamp(2.75rem, 4.1vw, 3.5rem);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+    .page-home .home-hero-copy > p {
+      font-size: 1rem;
+      line-height: 1.45;
+      margin-bottom: 1.25rem;
+    }
+    .page-home .home-hero-copy .flex.flex-wrap {
+      gap: .65rem;
+      margin-bottom: 1rem;
+    }
+    .page-home .home-hero-copy .btn-primary,
+    .page-home .home-hero-copy .btn-secondary {
+      padding-block: .7rem;
+    }
+    .page-home .home-hero-signals {
+      padding-top: .75rem;
+    }
+    .page-home .hero-sphere {
+      width: clamp(370px, min(34vw, 46vh), 450px) !important;
+      height: clamp(370px, min(34vw, 46vh), 450px) !important;
+    }
+    .page-home .home-hero-status {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .35rem;
+      margin-top: .25rem;
+    }
+    .page-home .home-hero-status [data-workflow-node] {
+      min-height: 44px;
+      padding: .45rem .35rem;
+    }
+    .page-home .home-hero-status [data-workflow-node] .text-sm {
+      font-size: .6rem;
+    }
+  }
 }
 
 @layer components {
