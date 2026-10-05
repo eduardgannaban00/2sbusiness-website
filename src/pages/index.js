@@ -1,5 +1,9 @@
 const { workflowDiagram, faqAccordion, heroSphere, industrySelector } = require("../partials/ui");
 const config = require("../data/site-config");
+const { getPublicDemoUrl } = require("../data/demo-registry");
+
+const dentalDemoUrl = getPublicDemoUrl("dental");
+const hrDemoUrl = getPublicDemoUrl("hr");
 
 const heroWorkflow = workflowDiagram(
   "hero-workflow",
@@ -329,7 +333,7 @@ const content = `
         </span>
         <p class="font-head font-bold text-ink text-xl mb-2">2S Dental AI Receptionist</p>
         <p class="text-slate2 text-sm leading-relaxed mb-4">Handles common dental inquiries, guides booking-related conversations, and supports after-hours response.</p>
-        <a href="${config.dentalDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="home-dental-demo">Launch Interactive Demo</a>
+        <a href="${dentalDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="home-dental-demo">Launch Interactive Demo</a>
       </div>
       <div class="card">
         <span class="inline-flex items-center gap-1.5 text-[11px] font-head font-bold uppercase tracking-wide text-emerald2 mb-3">
@@ -337,10 +341,23 @@ const content = `
         </span>
         <p class="font-head font-bold text-ink text-xl mb-2">2S HR Intelligence</p>
         <p class="text-slate2 text-sm leading-relaxed mb-4">Candidate screening, AI interviews, and evaluation scorecards for a structured recruitment workflow.</p>
-        <a href="${config.hrDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="home-hr-demo">Launch Interactive Demo</a>
+        <a href="${hrDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="home-hr-demo">Launch Interactive Demo</a>
       </div>
     </div>
-    <a href="/about/#ai-systems" class="link-inline text-sm inline-block mt-8">See all AI systems &rarr;</a>
+    <a href="/demos/" class="link-inline text-sm inline-block mt-8">Explore the full demo portfolio &rarr;</a>
+  </div>
+</section>
+
+<section data-reveal class="section">
+  <div class="container-content">
+    <div class="card border-gold/40 md:flex items-center justify-between gap-8">
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-3">Business OS Modules</p>
+        <h2 class="text-2xl md:text-3xl mb-4">Start with the workflows your business actually needs.</h2>
+        <p class="text-slate2 leading-relaxed">2S modules can work on their own or connect into a customized Business OS—from lead response and booking to follow-up, support, onboarding, and reviews.</p>
+      </div>
+      <a href="/demos/" class="btn-primary shrink-0 mt-6 md:mt-0" data-cta="home-demos">Explore Interactive Demos</a>
+    </div>
   </div>
 </section>
 

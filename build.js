@@ -2,11 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const { renderPage, breadcrumbSchema, config } = require("./src/partials/layout");
 const pricingConfig = require("./src/data/pricing-config");
+const { demos } = require("./src/data/demo-registry");
 
 const pages = [
   require("./src/pages/index"),
   require("./src/pages/services"),
   require("./src/pages/pricing"),
+  require("./src/pages/demos"),
   require("./src/pages/ai-automation-services"),
   require("./src/pages/industries"),
   require("./src/pages/industries-roofing"),
@@ -108,6 +110,11 @@ fs.mkdirSync(path.join(distDir, "assets"), { recursive: true });
 fs.writeFileSync(
   path.join(distDir, "assets", "pricing-config.js"),
   `window.PricingConfig = ${JSON.stringify(pricingConfig)};\n`,
+  "utf8"
+);
+fs.writeFileSync(
+  path.join(distDir, "assets", "demo-config.js"),
+  `window.DemoRegistry = ${JSON.stringify(demos)};\n`,
   "utf8"
 );
 

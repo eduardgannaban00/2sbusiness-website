@@ -70,6 +70,7 @@ ${content}
 ${renderFooter()}
 ${renderAssistant()}
 <script src="/assets/pricing-config.js" defer></script>
+<script src="/assets/demo-config.js" defer></script>
 <script src="/assets/roi-formulas.js" defer></script>
 <script src="/assets/main.js" defer></script>
 </body>

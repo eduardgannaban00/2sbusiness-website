@@ -18,7 +18,7 @@ module.exports = {
   nav: [
     { label: "Solutions", href: "/services/" },
     { label: "Industries", href: "/industries/" },
-    { label: "AI Systems", href: "/about/#ai-systems" },
+    { label: "Demos", href: "/demos/" },
     { label: "Resources", href: "/resources/" },
     { label: "Pricing", href: "/pricing/" },
     { label: "About", href: "/about/" },
@@ -27,7 +27,7 @@ module.exports = {
     company: [
       { label: "Solutions", href: "/services/" },
       { label: "Industries", href: "/industries/" },
-      { label: "AI Systems", href: "/about/#ai-systems" },
+      { label: "Demos", href: "/demos/" },
       { label: "Resources", href: "/resources/" },
       { label: "Pricing", href: "/pricing/" },
       { label: "About", href: "/about/" },
@@ -49,8 +49,4 @@ module.exports = {
     footer: "/assets/brand/footer-logo.png", // larger branding area — footer
     sphere: "/assets/brand/sphere-logo.png", // stable, centered mark inside the hero sphere
   },
-  // Real, live Dental AI Receptionist demo URL.
-  dentalDemoUrl: "https://2s-dental-ai-demo.vercel.app",
-  // Real, live HR Intelligence demo URL (supplied directly, not invented).
-  hrDemoUrl: "https://2s-hr-ai-interview.vercel.app",
 };

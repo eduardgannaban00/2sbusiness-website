@@ -46,6 +46,31 @@ ${visibleBreadcrumbs(crumbs)}
 
 <section data-reveal class="section">
   <div class="container-content">
+    <p class="eyebrow mb-3">Packaged Demo Examples</p>
+    <h2 class="text-2xl md:text-3xl mb-4">A few ways an automation package can be sized</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">These package examples help make the interactive demos concrete. A customized Business OS can combine multiple modules and is scoped separately after consultation.</p>
+    <div data-reveal-group class="grid md:grid-cols-3 gap-6">
+      ${pricingConfig.demoPackages
+        .map(
+          (plan, i) => `
+        <div class="card flex flex-col ${i === 1 ? "border-gold/40" : ""}">
+          <p class="font-head font-bold text-ink text-xl mb-1">${plan.label}</p>
+          <p class="text-gold font-head font-bold text-2xl mb-1">${plan.setup} setup</p>
+          <p class="text-slate2 text-sm mb-4">${plan.monthly}/month</p>
+          <p class="text-muted text-xs uppercase tracking-wide">Includes</p>
+          <p class="text-slate2 text-sm mt-2">${plan.minutes}</p>
+        </div>`
+        )
+        .join("\n")}
+    </div>
+  </div>
+</section>
+
+<section data-reveal class="section">
+  <div class="container-content">
+    <p class="eyebrow mb-3">Custom Business OS</p>
+    <h2 class="text-2xl md:text-3xl mb-4">Build the combination that fits your business</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">The following categories describe custom work, ongoing support, and broader system builds. They are intentionally separate from the packaged demo examples above.</p>
     <div data-reveal-group class="grid md:grid-cols-3 gap-6">
       <div class="card flex flex-col">
         <p class="font-head font-bold text-ink text-xl mb-1">Build</p>

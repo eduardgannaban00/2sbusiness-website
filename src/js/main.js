@@ -515,6 +515,14 @@
      call and keep the rendering code below untouched. No API key belongs
      in this file regardless of backend.
      --------------------------------------------------------------------- */
+  function demoUrl(id) {
+    var registry = window.DemoRegistry || [];
+    var demo = registry.find(function (item) {
+      return item.id === id && item.status === "verified" && item.technicalUrl;
+    });
+    return demo ? demo.technicalUrl : "/demos/";
+  }
+
   var assistantNodes = {
     root: {
       message: "Hi! I'm the 2S Assistant. What would you like to improve in your business?",
@@ -550,8 +558,8 @@
       message:
         "Our AI receptionist handles common questions and booking-related conversations. We have two live demos you can try right now.",
       options: [
-        { label: "Try the Dental AI Demo", href: "https://2s-dental-ai-demo.vercel.app", external: true },
-        { label: "Try the HR Intelligence Demo", href: "https://2s-hr-ai-interview.vercel.app", external: true },
+        { label: "Try the Dental AI Demo", href: demoUrl("dental"), external: true },
+        { label: "Try the HR Intelligence Demo", href: demoUrl("hr"), external: true },
         { label: "Book a consultation", href: "/contact/" },
         { label: "\u2190 Back to menu", next: "root" },
       ],

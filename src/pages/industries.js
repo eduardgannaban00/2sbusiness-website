@@ -12,7 +12,7 @@ ${visibleBreadcrumbs(crumbs)}
   <div class="container-content max-w-2xl">
     <p class="eyebrow mb-4">Industries</p>
     <h1 class="text-4xl md:text-5xl mb-6">Industry-specific automation</h1>
-    <p class="text-slate2 text-lg leading-relaxed">2S's core services apply across service businesses generally. We're building deeper, industry-specific guidance one vertical at a time \u2014 starting with roofing, dental, and HVAC.</p>
+    <p class="text-slate2 text-lg leading-relaxed">2S's core services apply across service businesses generally. The modules are adapted to each industry's customer journey and operating constraints \u2014 with deeper guidance currently focused on roofing, dental, and HVAC.</p>
   </div>
 </section>
 

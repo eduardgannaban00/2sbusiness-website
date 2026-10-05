@@ -12,7 +12,7 @@ ${visibleBreadcrumbs(crumbs)}
   <div class="container-content max-w-3xl">
     <p class="eyebrow mb-4">Services</p>
     <h1 class="text-4xl md:text-5xl mb-6">AI automation and business operations support</h1>
-    <p class="text-slate2 text-lg leading-relaxed">2S builds around three pillars: AI assistants and workflow automation, GoHighLevel CRM systems, and human-in-the-loop operations. Together they handle repetitive work while keeping people available for judgment calls and exceptions.</p>
+    <p class="text-slate2 text-lg leading-relaxed">2S builds modular business systems around three pillars: AI assistants and workflow automation, CRM and operational systems, and human-in-the-loop support. Modules can work independently or connect into a customized Business OS based on what your business actually needs.</p>
   </div>
 </section>
 

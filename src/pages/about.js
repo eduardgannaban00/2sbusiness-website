@@ -1,5 +1,9 @@
 const { visibleBreadcrumbs } = require("../partials/ui");
 const config = require("../data/site-config");
+const { getPublicDemoUrl } = require("../data/demo-registry");
+
+const dentalDemoUrl = getPublicDemoUrl("dental");
+const hrDemoUrl = getPublicDemoUrl("hr");
 
 const crumbs = [
   { name: "Home", href: "/" },
@@ -12,7 +16,7 @@ ${visibleBreadcrumbs(crumbs)}
   <div class="container-content max-w-2xl">
     <p class="eyebrow mb-4">About</p>
     <h1 class="text-4xl md:text-5xl mb-6">About 2S Business Support Service</h1>
-    <p class="text-slate2 text-lg leading-relaxed mb-6">2S Business Support Service builds AI assistants, workflow automation, CRM systems, and human-in-the-loop support for small and growing service businesses.</p>
+    <p class="text-slate2 text-lg leading-relaxed mb-6">2S Business Support Service builds AI assistants, workflow automation, CRM systems, and human-in-the-loop support for small and growing service businesses. The goal is a practical Business OS made from the modules that fit—not a one-size-fits-all bundle.</p>
     <p class="text-slate2 leading-relaxed mb-6">Our approach starts from a simple principle: automate what machines do well \u2014 repetitive, well-defined, high-volume work \u2014 and keep people involved where judgment, exceptions, and quality matter. We'd rather build a smaller number of workflows that actually hold up in daily use than a long feature list that looks impressive and doesn't get used.</p>
     <p class="text-slate2 leading-relaxed">We started by validating this approach deeply in roofing, and have since expanded the same underlying systems into dental and HVAC \u2014 with more industries planned as each vertical proves out.</p>
   </div>
@@ -62,8 +66,8 @@ ${visibleBreadcrumbs(crumbs)}
         </ul>
         <p class="text-muted text-xs leading-relaxed mb-5">This demo is illustrative only and is not intended for medical diagnosis, emergencies, or clinical advice.</p>
         ${
-          config.dentalDemoUrl
-            ? `<a href="${config.dentalDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="dental-demo">Try the Dental AI Demo</a>`
+          dentalDemoUrl
+            ? `<a href="${dentalDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="dental-demo">Try the Dental AI Demo</a>`
             : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5"><span class="status-dot" aria-hidden="true"></span>Live demo link coming soon</span>`
         }
       </div>
@@ -83,8 +87,8 @@ ${visibleBreadcrumbs(crumbs)}
         </ul>
         <p class="text-muted text-xs leading-relaxed mb-5">This demo is illustrative only and is not a hiring decision or employment recommendation.</p>
         ${
-          config.hrDemoUrl
-            ? `<a href="${config.hrDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="hr-demo">Try the HR Intelligence Demo</a>`
+          hrDemoUrl
+            ? `<a href="${hrDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="hr-demo">Try the HR Intelligence Demo</a>`
             : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5"><span class="status-dot" aria-hidden="true"></span>Live demo link coming soon</span>`
         }
       </div>
