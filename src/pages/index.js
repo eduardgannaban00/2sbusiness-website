@@ -125,17 +125,17 @@ const faq = faqAccordion(
 );
 
 const content = `
-<section data-reveal class="section pt-16 md:pt-24">
-  <div class="container-content grid lg:grid-cols-2 gap-12 items-center">
-    <div>
+<section data-reveal class="section home-hero pt-20 md:pt-28">
+  <div class="container-content home-hero-inner grid lg:grid-cols-[0.9fr_1.1fr] gap-10 xl:gap-16 items-center">
+    <div class="home-hero-copy">
       <p class="eyebrow mb-4">Automate &middot; Streamline &middot; Grow</p>
-      <h1 class="text-4xl md:text-5xl leading-[1.1] mb-6">Automate the Work.<br>Keep the Human Touch.</h1>
-      <p class="text-slate2 text-lg leading-relaxed mb-8 max-w-lg">2S builds AI automation, connected business systems, websites, and reliable support around the way service businesses actually work.</p>
-      <div class="flex flex-wrap gap-4 mb-8">
+      <h1 class="home-hero-title text-5xl md:text-6xl xl:text-7xl leading-[1.03] mb-7">Automate the Work.<br>Keep the Human Touch.</h1>
+      <p class="text-slate2 text-lg md:text-xl leading-relaxed mb-9 max-w-xl">2S builds AI automation, connected business systems, websites, and reliable support around the way service businesses actually work.</p>
+      <div class="flex flex-wrap gap-4 mb-10">
         <a href="/contact/" class="btn-primary" data-cta="hero-primary">Book a Free Consultation</a>
         <a href="/services/" class="btn-secondary" data-cta="hero-secondary">Explore Solutions</a>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="home-hero-signals grid grid-cols-2 sm:grid-cols-4 gap-0">
         <div><p class="font-head font-bold text-gold text-sm uppercase tracking-wide">More Leads</p><p class="text-muted text-xs mt-1">Capture &amp; convert</p></div>
         <div><p class="font-head font-bold text-gold text-sm uppercase tracking-wide">Less Admin</p><p class="text-muted text-xs mt-1">Get time back</p></div>
         <div><p class="font-head font-bold text-emerald2 text-sm uppercase tracking-wide">Faster Follow-Up</p><p class="text-muted text-xs mt-1">Nothing sits idle</p></div>
@@ -143,20 +143,20 @@ const content = `
       </div>
     </div>
 
-    <div>
-      ${heroSphere(340)}
-      <div class="space-y-2.5 mt-8" data-signature-workflow>
+    <div class="home-hero-art">
+      ${heroSphere(500)}
+      <div class="home-hero-status grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-3" data-signature-workflow>
         ${heroStatusList}
       </div>
     </div>
   </div>
 </section>
 
-<section data-reveal id="service-matrix" class="section bg-obsidian/40 scroll-mt-24">
+<section data-reveal id="service-matrix" class="section home-solutions bg-obsidian/40 scroll-mt-24">
   <div class="container-content">
     <p class="eyebrow mb-3">What We Do</p>
-    <h2 class="text-2xl md:text-3xl mb-10 max-w-2xl">Your business. One connected system.</h2>
-    <div data-reveal-group class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <h2 class="section-title text-3xl md:text-5xl mb-12 max-w-3xl">Your business. One connected system.</h2>
+    <div data-reveal-group class="home-solution-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="card">
         <p class="font-head font-bold text-ink mb-2">AI Automation</p>
         <p class="text-slate2 text-sm leading-relaxed mb-3">Automate repetitive work and customer follow-up with AI assistants and connected workflows.</p>
@@ -182,33 +182,33 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section">
+<section data-reveal class="section home-industries">
   <div class="container-content">
     <p class="eyebrow mb-3">Choose Your Industry</p>
-    <h2 class="text-2xl md:text-3xl mb-8 max-w-2xl">See how our AI systems work for your business.</h2>
+    <h2 class="section-title text-3xl md:text-5xl mb-10 max-w-3xl">See how our AI systems work for your business.</h2>
     ${industries}
   </div>
 </section>
 
-<section data-reveal id="lead-automation" class="section bg-obsidian/40 scroll-mt-24">
+<section data-reveal id="lead-automation" class="section home-workflow bg-obsidian/40 scroll-mt-24">
   <div class="container-content">
     <p class="eyebrow mb-3">Lead Automation</p>
-    <h2 class="text-2xl md:text-3xl mb-4 max-w-2xl">From New Lead to Next Step \u2014 Automatically</h2>
-    <p class="text-slate2 leading-relaxed max-w-2xl mb-10">Incoming leads can be captured, qualified, followed up with, routed, and tracked \u2014 without being left sitting in an inbox.</p>
-    <div class="card">
+    <h2 class="section-title text-3xl md:text-5xl mb-5 max-w-3xl">From New Lead to Next Step \u2014 Automatically</h2>
+    <p class="text-slate2 text-lg leading-relaxed max-w-2xl mb-12">Incoming leads can be captured, qualified, followed up with, routed, and tracked \u2014 without being left sitting in an inbox.</p>
+    <div class="workflow-stage">
       <p class="text-xs font-head uppercase tracking-wide text-muted mb-4">Live automation flow</p>
       ${heroWorkflow}
     </div>
   </div>
 </section>
 
-<section data-reveal id="roi-calculator" class="section scroll-mt-24">
+<section data-reveal id="roi-calculator" class="section home-roi scroll-mt-24">
   <div class="container-content">
     <p class="eyebrow mb-3">Automation Opportunity</p>
-    <h2 class="text-2xl md:text-3xl mb-4 max-w-2xl">What Could Automated Lead Recovery Be Worth?</h2>
-    <p class="text-slate2 leading-relaxed max-w-2xl mb-10">Estimate how many missed leads could realistically be recovered \u2014 and what that could be worth against the cost of automating it.</p>
+    <h2 class="section-title text-3xl md:text-5xl mb-5 max-w-3xl">What Could Automated Lead Recovery Be Worth?</h2>
+    <p class="text-slate2 text-lg leading-relaxed max-w-2xl mb-12">Estimate how many missed leads could realistically be recovered \u2014 and what that could be worth against the cost of automating it.</p>
 
-    <div class="card md:grid md:grid-cols-2 md:gap-10" data-roi-calculator>
+    <div class="roi-stage md:grid md:grid-cols-2 md:gap-12" data-roi-calculator>
       <div class="space-y-7">
         <div>
           <div class="flex items-baseline justify-between mb-2">
@@ -330,10 +330,10 @@ const content = `
   </div>
 </section>
 
-<section data-reveal id="ai-systems-preview" class="section bg-obsidian/40">
+<section data-reveal id="ai-systems-preview" class="section home-demos bg-obsidian/40">
   <div class="container-content">
     <p class="eyebrow mb-3">Real Working Systems</p>
-    <h2 class="text-2xl md:text-3xl mb-10 max-w-2xl">Featured AI Systems</h2>
+    <h2 class="section-title text-3xl md:text-5xl mb-12 max-w-3xl">Featured AI Systems</h2>
     <div data-reveal-group class="grid md:grid-cols-2 gap-6">
       <div class="card">
         <span class="inline-flex items-center gap-1.5 text-[11px] font-head font-bold uppercase tracking-wide text-emerald2 mb-3">
@@ -356,9 +356,9 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section">
+<section data-reveal class="section home-modules">
   <div class="container-content">
-    <div class="card border-gold/40 md:flex items-center justify-between gap-8">
+    <div class="home-module-stage md:flex items-center justify-between gap-10">
       <div class="max-w-2xl">
         <p class="eyebrow mb-3">Business OS Modules</p>
         <h2 class="text-2xl md:text-3xl mb-4">Start with the workflows your business actually needs.</h2>
@@ -369,7 +369,7 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section">
+<section data-reveal class="section home-practice">
   <div class="container-content grid md:grid-cols-2 gap-10 items-start">
     <div>
       <p class="eyebrow mb-3">In practice</p>
@@ -400,7 +400,7 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section bg-obsidian/40">
+<section data-reveal class="section home-process bg-obsidian/40">
   <div class="container-content">
     <p class="eyebrow mb-3">How 2S Works</p>
     <h2 class="text-2xl md:text-3xl mb-10">From repetitive work to reliable automation</h2>
@@ -414,7 +414,7 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section">
+<section data-reveal class="section home-principles">
   <div class="container-content">
     <p class="eyebrow mb-3">Why 2S</p>
     <h2 class="text-2xl md:text-3xl mb-8 max-w-2xl">Powerful automation needs control</h2>
@@ -426,7 +426,7 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section bg-obsidian/40">
+<section data-reveal class="section home-resources bg-obsidian/40">
   <div class="container-content">
     <p class="eyebrow mb-3">Resources</p>
     <h2 class="text-2xl md:text-3xl mb-8">Automation guides</h2>
@@ -451,9 +451,11 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section cta-aurora">
+<section data-reveal class="section home-final-cta cta-aurora">
   <div class="container-content text-center">
-    <h2 class="text-2xl md:text-3xl mb-6">Ready to build a smarter business?</h2>
+    <p class="eyebrow mb-4">Get Started</p>
+    <h2 class="section-title text-4xl md:text-6xl mb-6">Ready to build a smarter business?</h2>
+    <p class="text-slate2 text-lg max-w-2xl mx-auto mb-9">Let&rsquo;s find the right combination of systems for your goals. No pressure, no obligation.</p>
     <a href="/contact/" class="btn-primary" data-cta="final-cta">Book a Free Consultation</a>
   </div>
 </section>

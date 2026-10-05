@@ -49,9 +49,9 @@
     overflow: hidden;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at 78% 12%, rgba(16, 185, 129, 0.16), transparent 32rem),
-      radial-gradient(ellipse at 16% 82%, rgba(212, 175, 55, 0.08), transparent 29rem),
-      linear-gradient(135deg, #080B0B 0%, #0D1211 48%, #101614 74%, #080B0B 100%);
+      radial-gradient(ellipse at 82% 12%, rgba(16, 185, 129, 0.26), transparent 38rem),
+      radial-gradient(ellipse at 8% 78%, rgba(212, 175, 55, 0.16), transparent 34rem),
+      linear-gradient(135deg, #080B0B 0%, #0D1714 42%, #11241d 70%, #080B0B 100%);
   }
   .atmosphere-glow {
     position: absolute;
@@ -59,11 +59,11 @@
     height: 42rem;
     border-radius: 999px;
     filter: blur(70px);
-    opacity: 0.38;
+    opacity: 0.56;
     background: radial-gradient(circle, rgba(16, 185, 129, 0.28), transparent 68%);
   }
-  .atmosphere-glow-a { top: -20rem; right: -12rem; }
-  .atmosphere-glow-b { bottom: -24rem; left: -16rem; background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 68%); }
+  .atmosphere-glow-a { top: -16rem; right: -8rem; width: 52rem; height: 52rem; }
+  .atmosphere-glow-b { bottom: -18rem; left: -12rem; width: 48rem; height: 48rem; background: radial-gradient(circle, rgba(212, 175, 55, 0.17), transparent 68%); }
   .atmosphere-lines { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.7; }
   .atmosphere-line,
   .atmosphere-trace {
@@ -92,7 +92,7 @@
   .atmosphere-node-b { fill: #D4AF37; animation-delay: -2.5s; }
   .atmosphere-node-c { animation-delay: -4.5s; }
 
-  .atmosphere-home .atmosphere-lines { opacity: 0.72; }
+  .atmosphere-home .atmosphere-lines { opacity: 0.9; }
   .atmosphere-demos { background: linear-gradient(135deg, #080B0B 0%, #0D1211 36%, #10251e 72%, #080B0B 100%); }
   .atmosphere-demos .atmosphere-lines { transform: rotate(-7deg) scale(1.12); opacity: 0.96; }
   .atmosphere-demos .atmosphere-glow-a { opacity: 0.55; background: radial-gradient(circle, rgba(212,175,55,0.22), transparent 68%); }
@@ -113,10 +113,10 @@
   .atmosphere-contact .atmosphere-lines { opacity: 0.52; }
 
   .cta-aurora { position: relative; isolation: isolate; overflow: hidden; }
-  .cta-aurora::before { content: ""; position: absolute; inset: -8rem 20% -10rem; z-index: -1; background: radial-gradient(ellipse, rgba(16,185,129,0.14), transparent 67%); animation: atmosphere-breathe 10s ease-in-out infinite; }
+  .cta-aurora::before { content: ""; position: absolute; inset: -10rem 8% -12rem; z-index: -1; background: radial-gradient(ellipse at 50% 48%, rgba(16,185,129,0.28), transparent 63%), radial-gradient(ellipse at 75% 65%, rgba(212,175,55,0.2), transparent 42%); animation: atmosphere-breathe 10s ease-in-out infinite; }
 
-  .hero-sphere { position: relative; margin-inline: auto; aspect-ratio: 1; }
-  .sphere-aura { position: absolute; inset: 4%; border-radius: 50%; background: radial-gradient(ellipse at 32% 28%, rgba(212,175,55,0.26), transparent 26%), radial-gradient(ellipse at 42% 72%, rgba(16,185,129,0.3), transparent 48%), radial-gradient(circle, rgba(16,185,129,0.16), transparent 65%); filter: blur(20px); opacity: 0.95; }
+  .hero-sphere { position: relative; margin-inline: auto; aspect-ratio: 1; width: min(500px, 45vw) !important; }
+  .sphere-aura { position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(ellipse at 32% 28%, rgba(212,175,55,0.42), transparent 26%), radial-gradient(ellipse at 42% 72%, rgba(16,185,129,0.52), transparent 48%), radial-gradient(circle, rgba(16,185,129,0.3), transparent 65%); filter: blur(28px); opacity: 1; }
   .sphere-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
   .sphere-shell { fill: url(#sphere-body); stroke: url(#sphere-rim); stroke-width: 2.2; filter: drop-shadow(0 0 22px rgba(16,185,129,0.22)); }
   .sphere-rim { fill: none; stroke-linecap: round; pointer-events: none; }
@@ -152,9 +152,10 @@
 
   .container-content {
     @apply max-w-content mx-auto px-6 md:px-8;
+    max-width: 1280px;
   }
   .section {
-    @apply py-14 md:py-24;
+    @apply py-20 md:py-32;
   }
   .eyebrow {
     @apply text-emerald text-xs md:text-sm font-head font-bold uppercase tracking-[0.2em];
@@ -169,7 +170,9 @@
     @apply text-emerald underline decoration-emerald/40 underline-offset-4 hover:decoration-emerald;
   }
   .card {
-    @apply bg-obsidian border border-gold/15 rounded-xl p-6 md:p-8 hover:border-gold/40 hover:-translate-y-1 transition-all duration-200;
+    @apply bg-obsidian border border-gold/15 rounded-xl p-7 md:p-9 hover:border-gold/40 hover:-translate-y-1 transition-all duration-200;
+    background: linear-gradient(145deg, rgba(16, 30, 25, 0.92), rgba(8, 15, 14, 0.86));
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
   }
   input, select, textarea {
     transition: border-color 200ms ease, box-shadow 200ms ease;
@@ -229,6 +232,78 @@
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-gold focus:text-charcoal focus:px-4 focus:py-2 focus:rounded-md;
   }
+
+  /* ---------------------------------------------------------------------
+     Visual correction pass: larger editorial compositions for the home
+     page. The markup keeps the existing functional hooks; these layers
+     supply the concept-board scale, light and section rhythm.
+     --------------------------------------------------------------------- */
+  .section-title { text-wrap: balance; }
+  .home-hero,
+  .home-solutions,
+  .home-industries,
+  .home-workflow,
+  .home-roi,
+  .home-demos,
+  .home-modules,
+  .home-practice,
+  .home-process,
+  .home-principles,
+  .home-resources,
+  .home-final-cta { position: relative; isolation: isolate; overflow: hidden; }
+
+  .home-hero { min-height: 760px; display: grid; align-items: center; }
+  .home-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 78% 35%, rgba(16,185,129,0.24), transparent 33%), radial-gradient(ellipse at 14% 78%, rgba(212,175,55,0.22), transparent 38%); }
+  .home-hero::after { content: ""; position: absolute; width: 76%; height: 26rem; right: -20%; bottom: -9rem; z-index: -1; transform: rotate(-18deg); background: linear-gradient(90deg, transparent, rgba(212,175,55,0.18), rgba(16,185,129,0.25), transparent); filter: blur(26px); }
+  .home-hero-inner { position: relative; z-index: 1; }
+  .home-hero-title { text-wrap: balance; max-width: 720px; }
+  .home-hero-copy { position: relative; z-index: 2; }
+  .home-hero-art { position: relative; min-height: 560px; display: grid; place-items: center; }
+  .home-hero-art::before { content: ""; position: absolute; inset: 3% -8% 16%; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,0.18), transparent 62%); filter: blur(18px); z-index: -1; }
+  .home-hero-art::after { content: ""; position: absolute; inset: 10% -15% 20% 30%; border: 1px solid rgba(212,175,55,0.3); border-left-color: transparent; border-radius: 50%; transform: rotate(-22deg); z-index: -1; box-shadow: 0 0 50px rgba(212,175,55,0.12); }
+  .home-hero-status { width: min(560px, 100%); }
+  .home-hero-status [data-workflow-node] { min-height: 54px; justify-content: center; padding: .7rem .75rem; border-radius: .35rem; background: rgba(8, 16, 14, .72); border-color: rgba(212,175,55,.22); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+  .home-hero-status [data-workflow-node] .text-sm { font-size: .68rem; line-height: 1.2; text-align: center; }
+  .home-hero-signals { border-top: 1px solid rgba(212,175,55,.2); padding-top: 1.2rem; }
+  .home-hero-signals > div { padding-right: 1rem; min-height: 3.5rem; }
+
+  .home-solutions { background: linear-gradient(135deg, rgba(16,30,25,.92), rgba(8,11,11,.75)); }
+  .home-solutions::before { content: ""; position: absolute; width: 120%; height: 18rem; top: 25%; left: -12%; transform: rotate(-13deg); background: linear-gradient(90deg, transparent 4%, rgba(212,175,55,.28) 40%, rgba(16,185,129,.18) 62%, transparent 88%); filter: blur(22px); z-index: -1; }
+  .home-solution-grid .card { min-height: 250px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(160deg, rgba(17,38,30,.82), rgba(8,13,12,.75)); }
+  .home-solution-grid .card:nth-child(2) { transform: translateY(2rem); }
+  .home-solution-grid .card:nth-child(3) { transform: translateY(-1rem); }
+  .home-solution-grid .card:nth-child(4) { transform: translateY(1.25rem); }
+
+  .home-industries { background: radial-gradient(ellipse at 82% 50%, rgba(16,185,129,.18), transparent 42%); }
+  .home-industries::before { content: ""; position: absolute; inset: 8% -10% 8% 44%; z-index: -1; opacity: .78; background-image: linear-gradient(30deg, transparent 48%, rgba(16,185,129,.28) 49%, transparent 50%), linear-gradient(150deg, transparent 48%, rgba(212,175,55,.24) 49%, transparent 50%), radial-gradient(circle at 20% 32%, rgba(212,175,55,.95) 0 2px, transparent 3px), radial-gradient(circle at 62% 56%, rgba(16,185,129,.9) 0 2px, transparent 3px), radial-gradient(circle at 84% 22%, rgba(212,175,55,.85) 0 2px, transparent 3px); background-size: 180px 180px, 220px 220px, 180px 180px, 220px 220px, 240px 240px; }
+  .home-industries [data-industry-selector] { position: relative; z-index: 1; }
+
+  .home-workflow { background: linear-gradient(180deg, rgba(16,30,25,.82), rgba(8,11,11,.84)); }
+  .workflow-stage { position: relative; padding: 2rem; border: 1px solid rgba(212,175,55,.28); border-radius: 1.25rem; background: linear-gradient(135deg, rgba(14,35,27,.94), rgba(8,14,13,.84)); box-shadow: 0 24px 80px rgba(0,0,0,.25), inset 0 0 80px rgba(16,185,129,.07); }
+  .workflow-stage::after { content: ""; position: absolute; inset: 22% -8% auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,.75), rgba(16,185,129,.65), transparent); box-shadow: 0 0 18px rgba(212,175,55,.5); }
+  .workflow-stage .node-card { min-width: 145px; min-height: 112px; justify-content: center; background: rgba(9,19,16,.94); border-color: rgba(212,175,55,.32); }
+
+  .home-roi { background: radial-gradient(ellipse at 20% 35%, rgba(16,185,129,.17), transparent 38%), radial-gradient(ellipse at 82% 70%, rgba(212,175,55,.14), transparent 36%); }
+  .roi-stage { position: relative; padding: 2rem; border: 1px solid rgba(212,175,55,.28); border-radius: 1.25rem; background: linear-gradient(145deg, rgba(15,31,25,.95), rgba(8,13,12,.92)); box-shadow: 0 25px 90px rgba(0,0,0,.28); }
+  .roi-stage #roi-net-benefit { font-size: clamp(2.75rem, 5vw, 5rem); line-height: 1; }
+  .roi-stage [data-roi-result-card] { background: rgba(7,17,14,.74); }
+
+  .home-demos { background: linear-gradient(135deg, rgba(8,11,11,.76), rgba(14,38,29,.86)); }
+  .home-demos::before { content: ""; position: absolute; width: 38rem; height: 38rem; right: -10rem; top: 5%; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,.18), rgba(16,185,129,.12) 40%, transparent 70%); filter: blur(18px); z-index: -1; }
+  .home-demos .card { min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; }
+
+  .home-module-stage { position: relative; padding: 3rem; border-top: 1px solid rgba(212,175,55,.45); border-bottom: 1px solid rgba(16,185,129,.4); background: linear-gradient(105deg, rgba(14,35,27,.8), transparent 72%); }
+  .home-module-stage::before { content: ""; position: absolute; inset: auto 0 -4rem 30%; height: 8rem; border-radius: 50%; background: rgba(16,185,129,.2); filter: blur(28px); z-index: -1; }
+  .home-process { background: linear-gradient(180deg, rgba(16,30,25,.88), rgba(8,11,11,.74)); }
+  .home-process .card, .home-principles .card { min-height: 150px; }
+  .home-resources { background-color: rgba(13,25,21,.88); background-image: linear-gradient(rgba(16,185,129,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,.1) 1px, transparent 1px); background-size: 82px 82px; perspective: 900px; }
+  .home-resources::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8%; height: 55%; transform: perspective(700px) rotateX(58deg); transform-origin: bottom; background-image: linear-gradient(rgba(16,185,129,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,.16) 1px, transparent 1px); background-size: 72px 52px; opacity: .5; z-index: -1; }
+  .home-final-cta { min-height: 430px; display: grid; align-items: center; background: linear-gradient(180deg, rgba(8,11,11,.55), rgba(10,37,28,.9)); }
+  .home-final-cta::after { content: ""; position: absolute; left: -10%; right: -10%; bottom: 6%; height: 5rem; transform: rotate(-7deg); background: linear-gradient(90deg, transparent, rgba(16,185,129,.38), rgba(212,175,55,.42), transparent); filter: blur(16px); z-index: -1; }
+
+  footer { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(8,11,11,.74), rgba(13,25,21,.96)); }
+  footer::before { content: ""; position: absolute; inset: 0 0 0 52%; background-image: radial-gradient(rgba(16,185,129,.35) 1px, transparent 1px), radial-gradient(rgba(212,175,55,.26) 1px, transparent 1px); background-position: 0 0, 18px 18px; background-size: 36px 36px; opacity: .42; mask-image: linear-gradient(90deg, transparent, #000); }
+  footer > * { position: relative; z-index: 1; }
 
   /* ---------------------------------------------------------------------
      Scroll reveal (progressive enhancement — see main.js). Elements are
@@ -334,6 +409,17 @@
     .hero-sphere .sphere-node-5 { display: none; }
     .hero-sphere { width: min(285px, 84vw) !important; }
     .sphere-aura { opacity: 0.72; }
+    .home-hero { min-height: 0; }
+    .home-hero-art { min-height: 390px; margin-top: 1rem; }
+    .home-hero-title { font-size: clamp(2.65rem, 12vw, 4rem); }
+    .home-hero-signals { row-gap: 1rem; }
+    .home-hero-signals > div { padding-right: .6rem; }
+    .home-solution-grid .card:nth-child(n) { transform: none; }
+    .home-solution-grid .card { min-height: 210px; }
+    .workflow-stage, .roi-stage, .home-module-stage { padding: 1.35rem; }
+    .workflow-stage::after { display: none; }
+    .home-industries::before { inset: 35% -35% 0 15%; opacity: .38; }
+    .home-final-cta { min-height: 360px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
