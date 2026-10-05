@@ -20,7 +20,7 @@ function renderNav(currentPath) {
   return `
 <header class="sticky top-0 z-50" data-nav-root>
   <a href="#main" class="skip-link">Skip to content</a>
-  <nav class="border-b border-transparent transition-all duration-300" data-nav aria-label="Primary">
+  <nav class="bg-charcoal border-b border-transparent transition-all duration-300" data-nav aria-label="Primary">
     <div class="container-content flex items-center justify-between h-16 md:h-20">
       <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="${config.entityName} home">
         <img src="${config.logo.emblem}" alt="${config.entityName} logo" width="36" height="36" class="w-9 h-9 rounded-full shrink-0" />

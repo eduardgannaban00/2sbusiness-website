@@ -70,12 +70,12 @@ ${visibleBreadcrumbs(crumbs)}
   <div class="container-content">
     <p class="eyebrow mb-3">Custom Business OS</p>
     <h2 class="text-2xl md:text-3xl mb-4">Build the combination that fits your business</h2>
-    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">The following categories describe custom work, ongoing support, and broader system builds. They are intentionally separate from the packaged demo examples above.</p>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">Custom systems are scoped around the workflows, integrations, volume, support requirements and modules your business actually needs. We recommend the right combination after consultation and provide a clear quote before implementation.</p>
     <div data-reveal-group class="grid md:grid-cols-3 gap-6">
       <div class="card flex flex-col">
         <p class="font-head font-bold text-ink text-xl mb-1">Build</p>
-        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.build.startingPriceText}</p>
-        <p class="text-slate2 text-sm leading-relaxed mb-4">Websites, funnels, CRM foundations, and lead-capture systems.</p>
+        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.build.pricingLabel}</p>
+        <p class="text-slate2 text-sm leading-relaxed mb-4">${pricingConfig.build.description}</p>
         <p class="text-muted text-xs font-head uppercase tracking-wide mb-2">Typical scope</p>
         <ul class="text-slate2 text-sm space-y-1.5 mb-6 flex-1">
           <li>Website &amp; funnel development</li>
@@ -91,8 +91,8 @@ ${visibleBreadcrumbs(crumbs)}
       <div class="card flex flex-col border-gold/40 relative">
         <span class="absolute -top-3 left-6 text-[10px] font-head font-bold uppercase tracking-wide text-charcoal bg-gold rounded px-2 py-1">Recommended</span>
         <p class="font-head font-bold text-ink text-xl mb-1">Automate</p>
-        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.automate.startingPriceText}</p>
-        <p class="text-slate2 text-sm leading-relaxed mb-4">AI and workflow automation designed to reduce repetitive work and improve lead and operational workflows.</p>
+        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.automate.pricingLabel}</p>
+        <p class="text-slate2 text-sm leading-relaxed mb-4">${pricingConfig.automate.description}</p>
         <p class="text-muted text-xs font-head uppercase tracking-wide mb-2">Typical scope</p>
         <ul class="text-slate2 text-sm space-y-1.5 mb-6 flex-1">
           <li>AI workflows</li>
@@ -107,8 +107,8 @@ ${visibleBreadcrumbs(crumbs)}
 
       <div class="card flex flex-col">
         <p class="font-head font-bold text-ink text-xl mb-1">Support &amp; Scale</p>
-        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.supportScale.startingPriceText}</p>
-        <p class="text-slate2 text-sm leading-relaxed mb-4">Ongoing operational support for businesses that need reliable people, systems, or both.</p>
+        <p class="font-head font-bold text-gold text-2xl mb-3">${pricingConfig.supportScale.pricingLabel}</p>
+        <p class="text-slate2 text-sm leading-relaxed mb-4">${pricingConfig.supportScale.description}</p>
         <p class="text-muted text-xs font-head uppercase tracking-wide mb-2">Typical scope</p>
         <ul class="text-slate2 text-sm space-y-1.5 mb-6 flex-1">
           <li>Virtual assistance</li>

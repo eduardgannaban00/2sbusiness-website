@@ -24,6 +24,14 @@ assert.strictEqual(demoPage.path, "/demos/");
 assert.ok(demoPage.content.includes("Explore the Business OS"));
 assert.ok(demoPage.content.includes("Preview Unavailable"));
 
+const pricingPage = require("./src/pages/pricing");
+assert.ok(pricingPage.content.includes("Custom Quote"));
+assert.strictEqual((pricingPage.content.match(/Custom Quote/g) || []).length, 3);
+assert.ok(pricingPage.content.includes("workflows, integrations, volume, support requirements"));
+assert.ok(!pricingPage.content.includes("From $999"));
+assert.ok(!pricingPage.content.includes("From $899"));
+assert.ok(!pricingPage.content.includes("$399/mo"));
+
 assert.deepStrictEqual(pricing.demoPackages, [
   { label: "Starter", setup: "$499", monthly: "$199", minutes: "100 AI minutes" },
   { label: "Growth", setup: "$799", monthly: "$299", minutes: "300 AI voice minutes" },

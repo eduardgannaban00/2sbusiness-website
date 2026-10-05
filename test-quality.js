@@ -35,6 +35,15 @@ const titles = new Set();
 const descriptions = new Set();
 const canonicals = new Set();
 const inbound = new Map([...routeSet].map((route) => [route, 0]));
+const pricingHtml = routes.get("/pricing/");
+assert.ok(pricingHtml, "pricing route must be generated");
+for (const stalePrice of ["From $999", "From $999 setup + $399/mo", "From $899/mo", "$399/mo", "$899/mo"]) {
+  assert.ok(!pricingHtml.includes(stalePrice), `pricing page contains stale custom price ${stalePrice}`);
+}
+for (const packagePrice of ["$499", "$199", "$799", "$299", "$1,299", "$499"]) {
+  assert.ok(pricingHtml.includes(packagePrice), `pricing page lost packaged price ${packagePrice}`);
+}
+assert.strictEqual((pricingHtml.match(/Custom Quote/g) || []).length, 3, "custom pricing cards must use Custom Quote");
 
 for (const [route, html] of routes) {
   const title = match(html, /<title>([^<]+)<\/title>/, `${route}: missing title`);
@@ -47,6 +56,8 @@ for (const [route, html] of routes) {
   descriptions.add(description);
   canonicals.add(canonical);
   assert.strictEqual(canonical, `${config.url}${route}`, `${route}: canonical mismatch`);
+  assert.ok(/<nav[^>]*class="[^"]*bg-charcoal/.test(html), `${route}: header must have an opaque charcoal background`);
+  assert.ok(!html.includes("bg-charcoal/90"), `${route}: header still uses transparent scroll background`);
   assert.ok(/<meta name="robots" content="index, follow">/.test(html), `${route}: missing robots directive`);
   for (const tag of ["og:title", "og:description", "og:url", "og:image", "twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
     assert.ok(html.includes(`\"${tag}\"`), `${route}: missing ${tag}`);

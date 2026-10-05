@@ -19,7 +19,7 @@ function run() {
   }
 
   // 1. Default values (Monthly Leads 100, Value $500, Missed 20%, Conversion 10%,
-  //    Recovery 50%, Admin Hours Saved 10, Staff Cost $20, Automation Cost $399)
+  //    Recovery 50%, Admin Hours Saved 10, Staff Cost $20, Automation Cost $0)
   const defaults = {
     monthlyLeads: 100,
     avgCustomerValue: 500,
@@ -28,7 +28,7 @@ function run() {
     recoveryPct: 50,
     adminHoursSaved: 10,
     staffHourlyCost: 20,
-    automationCost: 399,
+    automationCost: 0,
   };
   const r1 = computeROI(defaults);
   check("default: missedLeads = 20", approx(r1.missedLeads, 20));
@@ -37,9 +37,9 @@ function run() {
   check("default: potentialAdditionalRevenue = $500", approx(r1.potentialAdditionalRevenue, 500));
   check("default: laborSavingsValue = $200", approx(r1.laborSavingsValue, 200));
   check("default: estimatedMonthlyValue = $700", approx(r1.estimatedMonthlyValue, 700));
-  check("default: estimatedNetBenefit = $301", approx(r1.estimatedNetBenefit, 301));
-  check("default: valueToCostMultiple ≈ 1.754", approx(r1.valueToCostMultiple, 700 / 399, 0.001));
-  check("default: estimatedROI ≈ 75.44%", approx(r1.estimatedROI, ((700 - 399) / 399) * 100, 0.01));
+  check("default: estimatedNetBenefit = $700", approx(r1.estimatedNetBenefit, 700));
+  check("default: valueToCostMultiple is null", r1.valueToCostMultiple === null);
+  check("default: estimatedROI is null", r1.estimatedROI === null);
 
   // 2. Zero automation cost — must show null (not Infinity, not a fabricated number)
   const r2 = computeROI({ ...defaults, automationCost: 0 });
@@ -104,16 +104,17 @@ function run() {
   check("decimals: laborSavingsValue matches hand-computed value", approx(r6.laborSavingsValue, expectedLabor, 0.01));
 
   // 7. Net benefit calculation, independently re-derived
-  const r7 = computeROI(defaults);
-  const handNetBenefit = r7.estimatedMonthlyValue - defaults.automationCost;
+  const mathScenario = { ...defaults, automationCost: 250 };
+  const r7 = computeROI(mathScenario);
+  const handNetBenefit = r7.estimatedMonthlyValue - mathScenario.automationCost;
   check("net benefit: estimatedNetBenefit = estimatedMonthlyValue - automationCost", approx(r7.estimatedNetBenefit, handNetBenefit));
 
   // 8. Value-to-cost calculation, independently re-derived
-  const handMultiple = r7.estimatedMonthlyValue / defaults.automationCost;
+  const handMultiple = r7.estimatedMonthlyValue / mathScenario.automationCost;
   check("value-to-cost: matches estimatedMonthlyValue / automationCost", approx(r7.valueToCostMultiple, handMultiple));
 
   // 9. True ROI percentage calculation, independently re-derived
-  const handROI = ((r7.estimatedMonthlyValue - defaults.automationCost) / defaults.automationCost) * 100;
+  const handROI = ((r7.estimatedMonthlyValue - mathScenario.automationCost) / mathScenario.automationCost) * 100;
   check("ROI %: matches ((value - cost) / cost) × 100", approx(r7.estimatedROI, handROI, 0.01));
 
   // Extra: conversion rate is never assumed to improve — recovered leads use

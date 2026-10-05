@@ -1,6 +1,5 @@
 const { visibleBreadcrumbs, faqAccordion, articleMeta, relatedResources, articleSchema } = require("../partials/ui");
 const config = require("../data/site-config");
-const pricingConfig = require("../data/pricing-config");
 const { getPublicDemoUrl } = require("../data/demo-registry");
 
 const crumbs = [
@@ -105,7 +104,7 @@ ${visibleBreadcrumbs(crumbs)}
 
     ${articleMeta("Dental Automation", DATE_PUBLISHED, DATE_MODIFIED)}
 
-    <p class="text-slate2 text-lg leading-relaxed mb-6">An AI receptionist for a dental practice typically involves several distinct cost components rather than one flat number: setup/configuration, a recurring monthly service fee, usage-based telephony and messaging costs, and any custom integration work. As a concrete reference point, 2S's Automate package \u2014 which includes AI receptionist setup \u2014 is priced ${pricingConfig.automate.startingPriceText.toLowerCase()}.</p>
+    <p class="text-slate2 text-lg leading-relaxed mb-6">An AI receptionist for a dental practice typically involves several distinct cost components rather than one flat number: setup/configuration, a recurring service fee, usage-based telephony and messaging costs, and any custom integration work. 2S scopes its Automate work around the practice's workflows and provides a clear quote after consultation.</p>
 
     <h2 class="text-xl md:text-2xl mt-10 mb-3">Cost components, at a glance</h2>
     <p class="text-slate2 leading-relaxed mb-4">These are the categories that typically make up the total cost. We don't publish invented industry-average dollar ranges for the usage-based and integration categories below, since actual costs vary by provider and practice \u2014 but here's what each one represents:</p>
@@ -127,7 +126,7 @@ ${visibleBreadcrumbs(crumbs)}
     </ul>
 
     <h2 class="text-xl md:text-2xl mt-10 mb-3">2S's approved pricing</h2>
-    <p class="text-slate2 leading-relaxed mb-6">2S's Automate package \u2014 which covers AI receptionist setup along with related workflow automation \u2014 is priced <strong class="text-ink">${pricingConfig.automate.startingPriceText}</strong>. This is a starting point, not a fixed quote; the exact cost for your practice depends on the factors above and is confirmed in a written proposal before any build work begins, with any third-party telephony or messaging costs disclosed at that stage.</p>
+    <p class="text-slate2 leading-relaxed mb-6">2S's Automate package covers AI receptionist setup along with related workflow automation, but it is a custom-quote service rather than a fixed public price. The exact cost for your practice depends on the factors above and is confirmed in a written proposal before any build work begins, with any third-party telephony or messaging costs disclosed at that stage.</p>
 
     <h2 class="text-xl md:text-2xl mt-10 mb-3">A note on security and privacy</h2>
     <p class="text-slate2 leading-relaxed mb-6">Any AI receptionist handling patient contact information should be configured with clear limits on what it can access and say, and a defined path for escalating anything sensitive to a person. This is a setup consideration to raise directly with whoever builds your system, not something to assume is handled by default. Applicable privacy and compliance requirements, the vendors involved, and how data flows between systems should be verified for your specific implementation rather than assumed.</p>

@@ -10,9 +10,9 @@
   if (navEl) {
     var onScroll = function () {
       if (window.scrollY > 40) {
-        navEl.classList.add("bg-charcoal/90", "backdrop-blur-md", "border-gold/10");
+        navEl.classList.add("border-gold/10");
       } else {
-        navEl.classList.remove("bg-charcoal/90", "backdrop-blur-md", "border-gold/10");
+        navEl.classList.remove("border-gold/10");
       }
     };
     onScroll();
@@ -227,12 +227,6 @@
     var roiAdminHours = document.getElementById("roi-admin-hours");
     var roiStaffCost = document.getElementById("roi-staff-cost");
     var roiAutomationCost = document.getElementById("roi-automation-cost");
-
-    // Default the automation-cost field from the centralized pricing config
-    // (see src/data/pricing-config.js) rather than hardcoding it here too.
-    if (roiAutomationCost && window.PricingConfig && window.PricingConfig.automate) {
-      roiAutomationCost.value = window.PricingConfig.automate.monthlyRecurring;
-    }
 
     var roiLeadsOut = document.getElementById("roi-leads-out");
     var roiMissedOut = document.getElementById("roi-missed-out");
@@ -615,9 +609,9 @@
         }
         return (
           "2S pricing is organized into three categories: " +
-          pc.build.label + " (" + pc.build.startingPriceText.toLowerCase() + "), " +
-          pc.automate.label + " (" + pc.automate.startingPriceText.toLowerCase() + "), and " +
-          pc.supportScale.label + " (" + pc.supportScale.startingPriceText.toLowerCase() + ")."
+          pc.build.label + " (" + pc.build.pricingLabel.toLowerCase() + "), " +
+          pc.automate.label + " (" + pc.automate.pricingLabel.toLowerCase() + "), and " +
+          pc.supportScale.label + " (" + pc.supportScale.pricingLabel.toLowerCase() + ")."
         );
       })(),
       options: [

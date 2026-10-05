@@ -268,9 +268,9 @@ const content = `
               <label for="roi-automation-cost" class="font-head text-sm text-slate2 block mb-2">Estimated automation cost / month (USD)</label>
               <div class="relative">
                 <span class="absolute left-4 top-1/2 -translate-y-1/2 text-muted" aria-hidden="true">$</span>
-                <input type="number" id="roi-automation-cost" min="0" max="50000" step="1" value="399" class="w-full bg-charcoal border border-gold/20 rounded-md pl-8 pr-4 py-3 text-ink focus-visible:border-gold" data-roi-cost-default />
+                <input type="number" id="roi-automation-cost" min="0" max="50000" step="1" value="0" class="w-full bg-charcoal border border-gold/20 rounded-md pl-8 pr-4 py-3 text-ink focus-visible:border-gold" data-roi-cost-default />
               </div>
-              <p class="text-muted text-xs mt-1.5">Defaults to the current Automate plan's monthly rate \u2014 adjust to match your situation.</p>
+              <p class="text-muted text-xs mt-1.5">Enter an estimated monthly cost for your scenario. Custom work is scoped and quoted after consultation.</p>
             </div>
           </div>
         </details>
@@ -279,7 +279,7 @@ const content = `
       <div class="mt-8 md:mt-0 pt-8 md:pt-0 border-t md:border-t-0 md:border-l border-gold/10 md:pl-10">
         <div class="rounded-lg border border-emerald2/40 bg-emerald2/5 px-5 py-5 mb-5" data-roi-result-card>
           <p class="text-xs font-head uppercase tracking-wide text-emerald2 mb-2">Estimated Net Benefit</p>
-          <p class="font-head font-bold text-emerald2 text-3xl md:text-4xl" id="roi-net-benefit" aria-live="polite">$301/mo</p>
+          <p class="font-head font-bold text-emerald2 text-3xl md:text-4xl" id="roi-net-benefit" aria-live="polite">$700/mo</p>
         </div>
 
         <div class="grid grid-cols-2 gap-4 mb-5" data-roi-mini-grid>
@@ -308,15 +308,15 @@ const content = `
           </div>
           <div class="flex items-center justify-between py-1">
             <span class="text-muted">Estimated Monthly Cost</span>
-            <span class="text-slate2 font-head font-semibold" id="roi-monthly-cost">$399/mo</span>
+            <span class="text-slate2 font-head font-semibold" id="roi-monthly-cost">$0/mo</span>
           </div>
           <div class="flex items-center justify-between py-1 border-t border-gold/10 mt-1 pt-2">
             <span class="text-muted">Value-to-Cost Multiple</span>
-            <span class="text-emerald2 font-head font-semibold" id="roi-value-to-cost">1.75\u00d7</span>
+            <span class="text-emerald2 font-head font-semibold" id="roi-value-to-cost">\u2014</span>
           </div>
           <div class="flex items-center justify-between py-1">
             <span class="text-muted">Estimated ROI</span>
-            <span class="text-emerald2 font-head font-semibold" id="roi-percent">75%</span>
+            <span class="text-emerald2 font-head font-semibold" id="roi-percent">\u2014</span>
           </div>
         </div>
 

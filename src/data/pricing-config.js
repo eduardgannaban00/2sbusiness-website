@@ -14,18 +14,17 @@ module.exports = {
   ],
   build: {
     label: "Build",
-    startingPriceText: "From $999",
+    pricingLabel: "Custom Quote",
+    description: "Websites, funnels, CRM foundations, lead capture and integrations — scoped around what the business actually needs.",
   },
   automate: {
     label: "Automate",
-    startingPriceText: "From $999 setup + $399/mo",
-    // The recurring monthly figure, as a number — used as the ROI
-    // calculator's default "Estimated Automation Cost / Month" since this
-    // is the tier the calculator's automation-focused math corresponds to.
-    monthlyRecurring: 399,
+    pricingLabel: "Custom Quote",
+    description: "AI and workflow automation designed around the client's processes, integrations, volume and required capabilities.",
   },
   supportScale: {
     label: "Support & Scale",
-    startingPriceText: "From $899/mo",
+    pricingLabel: "Custom Quote",
+    description: "Ongoing business support based on the roles, workload, hours and systems the business needs.",
   },
 };

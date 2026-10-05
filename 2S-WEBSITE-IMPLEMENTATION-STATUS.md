@@ -159,6 +159,24 @@ Milestone 4 validation:
 - Stale-copy, Netlify-marker, secret-signature, source-map, and diff checks: PASS
 - Rendered browser screenshots and interaction QA: PENDING HUMAN QA
 
+## Milestone 4.1 visual QA repair
+
+Human review identified two bounded issues: scrolling content was readable
+through the sticky header, and the custom Business OS cards exposed numeric
+prices despite variable scope. The shared header now keeps an opaque charcoal
+background while preserving sticky behavior and mobile menu behavior.
+
+The three packaged demo examples remain unchanged: Starter ($499 setup,
+$199/month), Growth ($799 setup, $299/month), and Premium ($1,299 setup,
+$499/month). Custom Build, Automate, and Support & Scale offerings now use
+Custom Quote labels with scope-based descriptions. The pricing config, pricing
+page, chatbot, dental pricing article, ROI defaults, generated HTML, and tests
+no longer treat the retired custom prices as public rates.
+
+Validation: `npm test` PASS, 27 routes built, verifier PASS with 0 errors and 0
+warnings, dead-link and release-quality checks PASS, contact architecture and
+demo registry intact. Rendered recheck remains required after this repair.
+
 ## Remaining work
 
 - P0: configure and preview-test Cloudflare, Resend, Turnstile, and the native
