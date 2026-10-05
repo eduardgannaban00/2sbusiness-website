@@ -1,0 +1,12 @@
+name = "2s-contact-rate-limiter"
+main = "index.mjs"
+compatibility_date = "2026-10-05"
+
+[durable_objects]
+bindings = [
+  { name = "CONTACT_RATE_LIMITER", class_name = "ContactRateLimiter" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ContactRateLimiter"]

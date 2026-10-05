@@ -46,7 +46,8 @@ Endpoint controls:
 - `CONTACT_ALLOWED_ORIGINS` — comma-separated exact origins
 - `CONTACT_MAX_BODY_BYTES` — optional; defaults to 16384
 - `CONTACT_PROVIDER_TIMEOUT_MS` — optional; defaults to 8000
-- `CONTACT_RATE_LIMIT_REQUIRED` — set `true` in production
+- `CONTACT_RATE_LIMIT_REQUIRED` — keep `false` until the Durable Object Worker
+  is deployed and bound as `CONTACT_RATE_LIMITER_DO`; then set `true`
 - `TURNSTILE_REQUIRED` — set `true` in production after widget setup
 
 Public build-time value:
@@ -59,17 +60,27 @@ Public build-time value:
 2. Add all server-only values as encrypted secrets or protected variables.
    Include the active preview origin in `CONTACT_ALLOWED_ORIGINS` while testing,
    then restrict the production value to approved canonical origins.
-3. Add a Cloudflare Rate Limiting binding named `CONTACT_RATE_LIMITER`.
-4. Configure a conservative contact-form rule, then set
+3. Deploy the separate Durable Object Worker in `rate-limit-worker/` using its
+   `wrangler.toml`. It allows five requests per client IP per ten-minute window.
+4. Create a Pages Durable Object binding named `CONTACT_RATE_LIMITER_DO` and
+   select the `ContactRateLimiter` namespace from that Worker. Configure it for
+   both preview and production, then redeploy Pages.
+5. Confirm the binding works in preview, then set
    `CONTACT_RATE_LIMIT_REQUIRED=true`.
-5. Configure Turnstile for the production hostname and set both keys.
-6. Build with `TURNSTILE_SITE_KEY` available.
-7. Confirm `dist/_headers` is applied and rendered pages work under CSP.
-8. Test the preview deployment before any domain or DNS change.
+6. Configure Turnstile for the production hostname and set both keys.
+7. Build with `TURNSTILE_SITE_KEY` available.
+8. Confirm `dist/_headers` is applied and rendered pages work under CSP.
+9. Test the preview deployment before any domain or DNS change.
 
-If the rate-limit binding or required Turnstile secret is missing while its
-corresponding `*_REQUIRED` flag is true, the endpoint fails closed with a safe
-503 response.
+The Pages Function does not assume a native rate-limit binding. It supports the
+legacy `CONTACT_RATE_LIMITER.limit({ key })` test/rollback interface and the
+Pages-compatible `CONTACT_RATE_LIMITER_DO` Durable Object namespace. The
+Durable Object binding is strongly consistent per client-IP key; KV is not used
+because eventual consistency is not sufficient for an enforcement counter.
+
+If the required Durable Object binding or required Turnstile secret is missing
+while its corresponding `*_REQUIRED` flag is true, the endpoint fails closed
+with a safe 503 response.
 
 ## Resend configuration still required
 

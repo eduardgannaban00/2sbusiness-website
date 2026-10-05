@@ -193,16 +193,41 @@ async function verifyTurnstile(token, ip, env, fetchImpl) {
 
 async function checkRateLimit(ip, env) {
   const required = parseBoolean(env.CONTACT_RATE_LIMIT_REQUIRED);
-  const limiter = env.CONTACT_RATE_LIMITER;
-  if (!limiter || typeof limiter.limit !== "function") {
+  const legacyLimiter = env.CONTACT_RATE_LIMITER;
+  const durableObjectNamespace = env.CONTACT_RATE_LIMITER_DO;
+
+  if (legacyLimiter && typeof legacyLimiter.limit === "function") {
+    try {
+      const result = await legacyLimiter.limit({ key: ip || "unknown" });
+      return { allowed: Boolean(result && result.success) };
+    } catch {
+      return { allowed: false, configurationError: true };
+    }
+  }
+
+  if (durableObjectNamespace && typeof durableObjectNamespace.idFromName === "function" && typeof durableObjectNamespace.get === "function") {
+    try {
+      const key = ip || "unknown";
+      const id = durableObjectNamespace.idFromName(key);
+      const stub = durableObjectNamespace.get(id);
+      const response = await stub.fetch("https://contact-rate-limit.internal/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key }),
+      });
+      if (!response.ok) return { allowed: false, configurationError: true };
+      const result = await response.json();
+      return { allowed: result && result.allowed === true };
+    } catch {
+      return { allowed: false, configurationError: true };
+    }
+  }
+
+  if (!legacyLimiter && !durableObjectNamespace) {
     return required ? { allowed: false, configurationError: true } : { allowed: true, skipped: true };
   }
-  try {
-    const result = await limiter.limit({ key: ip || "unknown" });
-    return { allowed: Boolean(result && result.success) };
-  } catch {
-    return { allowed: false, configurationError: true };
-  }
+
+  return { allowed: false, configurationError: true };
 }
 
 async function sendWithResend(fields, env, fetchImpl) {

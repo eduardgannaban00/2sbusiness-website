@@ -262,6 +262,38 @@ async function run() {
   }, { fetchImpl: resendSuccess([]), logger: silentLogger });
   check("required missing rate limiter fails closed", limiterMissing.status === 503);
 
+  let durableObjectRequest;
+  const durableObjectLimiter = {
+    idFromName(key) { return key; },
+    get() {
+      return {
+        async fetch(_url, options) {
+          durableObjectRequest = JSON.parse(options.body);
+          return new Response(JSON.stringify({ allowed: true }), { status: 200 });
+        },
+      };
+    },
+  };
+  const durableObjectAllowed = await core.handleContactRequest(request(), {
+    ...baseEnv,
+    CONTACT_RATE_LIMIT_REQUIRED: "true",
+    CONTACT_RATE_LIMITER_DO: durableObjectLimiter,
+  }, { fetchImpl: resendSuccess([]), logger: silentLogger, ip: "203.0.113.11" });
+  check("Durable Object limiter allows approved request", durableObjectAllowed.status === 200);
+  check("Durable Object limiter receives the client IP key", durableObjectRequest.key === "203.0.113.11");
+
+  const durableObjectRejected = await core.handleContactRequest(request(), {
+    ...baseEnv,
+    CONTACT_RATE_LIMIT_REQUIRED: "true",
+    CONTACT_RATE_LIMITER_DO: {
+      idFromName(key) { return key; },
+      get() {
+        return { async fetch() { return new Response(JSON.stringify({ allowed: false }), { status: 200 }); } };
+      },
+    },
+  }, { fetchImpl: resendSuccess([]), logger: silentLogger });
+  check("Durable Object limiter rejects limited request", durableObjectRejected.status === 429);
+
   const cloudflare = await import("./functions/api/contact.js");
   const realFetch = global.fetch;
   global.fetch = resendSuccess([]);
