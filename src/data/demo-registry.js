@@ -1,7 +1,4 @@
 // Central source of truth for the public demo portfolio.
-// Technical URLs remain active until branded subdomains are verified and DNS
-// migration is complete. Client Onboarding intentionally has no URL yet.
-const brandedBase = "https://2sbusinesssupport.com";
 
 const demos = [
   {
@@ -11,8 +8,7 @@ const demos = [
     description: "An illustrative receptionist workflow for common practice questions and booking-related conversations.",
     category: "booking-customer-experience",
     industries: ["Dental"],
-    technicalUrl: "https://2s-dental-ai-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/dental/`,
+    publicUrl: "https://dental.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the Dental Demo",
     order: 10,
@@ -24,8 +20,7 @@ const demos = [
     description: "An example of after-hours booking support and structured missed-call recovery for HVAC businesses.",
     category: "booking-customer-experience",
     industries: ["HVAC"],
-    technicalUrl: "https://2s-hvac-ai-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/hvac/`,
+    publicUrl: "https://hvac.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the HVAC Demo",
     order: 20,
@@ -37,8 +32,7 @@ const demos = [
     description: "A lead response and follow-up example shaped around the roofing sales process.",
     category: "lead-sales",
     industries: ["Roofing"],
-    technicalUrl: "https://2s-roofing-ai-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/roofing/`,
+    publicUrl: "https://roofing.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the Roofing Demo",
     order: 30,
@@ -50,8 +44,7 @@ const demos = [
     description: "A general-purpose example of capturing, tracking, and advancing leads through a CRM workflow.",
     category: "lead-sales",
     industries: ["Service businesses"],
-    technicalUrl: "https://2s-lead-crm-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/crm/`,
+    publicUrl: "https://crm.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the CRM Demo",
     order: 40,
@@ -63,8 +56,7 @@ const demos = [
     description: "An example of connecting a customer-facing website experience to lead capture and next steps.",
     category: "lead-sales",
     industries: ["Service businesses"],
-    technicalUrl: "https://website-lead-conversion-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/website/`,
+    publicUrl: "https://leads.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the Website Demo",
     order: 50,
@@ -76,8 +68,7 @@ const demos = [
     description: "An example of organizing common support requests, routing, and human escalation.",
     category: "booking-customer-experience",
     industries: ["Service businesses"],
-    technicalUrl: "https://customer-support-automation-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/support/`,
+    publicUrl: "https://support.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore Support Automation",
     order: 60,
@@ -89,8 +80,7 @@ const demos = [
     description: "An example of appointment reminders, confirmations, and no-show recovery workflows.",
     category: "booking-customer-experience",
     industries: ["Dental", "HVAC", "Service businesses"],
-    technicalUrl: "https://appointment-no-show-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/appointments/`,
+    publicUrl: "https://appointments.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore Appointment Automation",
     order: 70,
@@ -102,8 +92,7 @@ const demos = [
     description: "An example of keeping estimates visible and following up with prospects at the right time.",
     category: "lead-sales",
     industries: ["Roofing", "HVAC", "Service businesses"],
-    technicalUrl: "https://quote-estimate-follow-up-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/quotes/`,
+    publicUrl: "https://quotes.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore Quote Follow-Up",
     order: 80,
@@ -115,8 +104,7 @@ const demos = [
     description: "An example of requesting feedback and organizing reputation workflows with appropriate human oversight.",
     category: "retention-operations",
     industries: ["Service businesses"],
-    technicalUrl: "https://review-reputation-automation-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/reviews/`,
+    publicUrl: "https://reviews.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore Reputation Automation",
     order: 90,
@@ -128,8 +116,7 @@ const demos = [
     description: "The flagship example of a connected operating view where modules share customer, activity, and follow-up context.",
     category: "flagship",
     industries: ["Service businesses"],
-    technicalUrl: "https://2-s-business-os-demo.vercel.app/",
-    brandedUrl: `${brandedBase}/businessos/`,
+    publicUrl: "https://businessos.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore the Business OS",
     order: 1,
@@ -142,8 +129,7 @@ const demos = [
     description: "An illustrative screening, interview, and recruiter review workflow with structured evaluation steps.",
     category: "retention-operations",
     industries: ["Service businesses"],
-    technicalUrl: "https://2s-hr-ai-interview.vercel.app/",
-    brandedUrl: `${brandedBase}/hr/`,
+    publicUrl: "https://hr.2sbusinesssupport.com",
     status: "verified",
     ctaLabel: "Explore HR Intelligence",
     order: 110,
@@ -152,13 +138,12 @@ const demos = [
     id: "onboarding",
     name: "Client Onboarding Automation",
     shortName: "Client Onboarding",
-    description: "A complete onboarding workflow example whose public deployment URL is not yet verified.",
+    description: "A complete onboarding workflow example for moving new clients from signed agreement to operational handoff.",
     category: "retention-operations",
     industries: ["Service businesses"],
-    technicalUrl: null,
-    brandedUrl: `${brandedBase}/onboarding/`,
-    status: "unverified",
-    ctaLabel: "Preview Unavailable",
+    publicUrl: "https://onboarding.2sbusinesssupport.com",
+    status: "verified",
+    ctaLabel: "Explore Client Onboarding",
     order: 100,
   },
 ];
@@ -169,7 +154,7 @@ function getDemo(id) {
 
 function getPublicDemoUrl(id) {
   const demo = getDemo(id);
-  return demo && demo.status === "verified" ? demo.technicalUrl : null;
+  return demo && demo.status === "verified" ? demo.publicUrl : null;
 }
 
 function demosByCategory(category) {

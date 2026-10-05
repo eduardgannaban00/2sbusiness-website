@@ -14,9 +14,9 @@ const groups = [
 ];
 
 function demoCard(demo) {
-  const isAvailable = demo.status === "verified" && demo.technicalUrl;
+  const isAvailable = demo.status === "verified" && demo.publicUrl;
   const action = isAvailable
-    ? `<a href="${demo.technicalUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="demo-${demo.id}">${demo.ctaLabel}</a>`
+    ? `<a href="${demo.publicUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cta="demo-${demo.id}">${demo.ctaLabel}</a>`
     : `<span class="inline-flex items-center gap-2 text-muted text-sm border border-gold/15 rounded-md px-4 py-2.5"><span class="status-dot" aria-hidden="true"></span>${demo.ctaLabel}</span>`;
   return `
     <article class="card flex flex-col ${demo.flagship ? "border-gold/50 md:col-span-2" : ""}">
@@ -51,7 +51,7 @@ ${visibleBreadcrumbs(crumbs)}
         <p class="eyebrow mb-3">Flagship Example</p>
         <h2 class="text-2xl md:text-3xl mb-4">One operating view. The right modules connected.</h2>
         <p class="text-slate2 leading-relaxed mb-5">The Business OS demo shows how lead capture, appointments, quotes, onboarding, support, and reviews can share context without pretending every company needs the same setup.</p>
-        <a href="${demos.find((demo) => demo.id === "businessos").technicalUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" data-cta="demo-businessos-flagship">Explore the Business OS</a>
+        <a href="${demos.find((demo) => demo.id === "businessos").publicUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" data-cta="demo-businessos-flagship">Explore the Business OS</a>
       </div>
       <div class="border border-gold/15 rounded-md p-5">
         <p class="text-xs font-head uppercase tracking-wide text-muted mb-4">Example module mix</p>

@@ -5,15 +5,22 @@ const pricing = require("./src/data/pricing-config");
 
 assert.strictEqual(demos.length, 12, "registry should contain 12 demo modules");
 assert.strictEqual(
-  demos.filter((demo) => demo.status === "verified" && demo.technicalUrl).length,
-  11,
-  "registry should contain 11 verified URLs"
+  demos.filter((demo) => demo.status === "verified" && demo.publicUrl).length,
+  12,
+  "registry should contain 12 verified public URLs"
 );
-assert.strictEqual(getDemo("onboarding").technicalUrl, null);
-assert.strictEqual(getPublicDemoUrl("onboarding"), null);
-assert.ok(demos.every((demo) => demo.brandedUrl.startsWith("https://2sbusinesssupport.com/")));
-assert.strictEqual(getPublicDemoUrl("dental"), "https://2s-dental-ai-demo.vercel.app/");
-assert.strictEqual(getPublicDemoUrl("hr"), "https://2s-hr-ai-interview.vercel.app/");
+assert.strictEqual(getPublicDemoUrl("dental"), "https://dental.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("hvac"), "https://hvac.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("roofing"), "https://roofing.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("crm"), "https://crm.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("website"), "https://leads.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("support"), "https://support.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("appointments"), "https://appointments.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("quotes"), "https://quotes.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("reviews"), "https://reviews.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("onboarding"), "https://onboarding.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("businessos"), "https://businessos.2sbusinesssupport.com");
+assert.strictEqual(getPublicDemoUrl("hr"), "https://hr.2sbusinesssupport.com");
 
 const homepage = fs.readFileSync("src/pages/index.js", "utf8");
 assert.ok(homepage.includes('href="/demos/"'));
@@ -22,7 +29,7 @@ assert.ok(homepage.includes("Explore the full demo portfolio"));
 const demoPage = require("./src/pages/demos");
 assert.strictEqual(demoPage.path, "/demos/");
 assert.ok(demoPage.content.includes("Explore the Business OS"));
-assert.ok(demoPage.content.includes("Preview Unavailable"));
+assert.ok(demoPage.content.includes("https://onboarding.2sbusinesssupport.com"));
 
 const pricingPage = require("./src/pages/pricing");
 assert.ok(pricingPage.content.includes("Custom Quote"));

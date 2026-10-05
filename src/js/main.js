@@ -538,9 +538,9 @@
   function demoUrl(id) {
     var registry = window.DemoRegistry || [];
     var demo = registry.find(function (item) {
-      return item.id === id && item.status === "verified" && item.technicalUrl;
+      return item.id === id && item.status === "verified" && item.publicUrl;
     });
-    return demo ? demo.technicalUrl : "/demos/";
+    return demo ? demo.publicUrl : "/demos/";
   }
 
   var assistantNodes = {

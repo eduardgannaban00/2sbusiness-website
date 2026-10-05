@@ -131,7 +131,7 @@ for (const file of sourceFiles) {
 }
 
 assert.strictEqual(demos.length, 12, "demo registry count changed unexpectedly");
-assert.strictEqual(demos.filter((demo) => demo.status === "verified" && demo.technicalUrl).length, 11, "verified demo count changed unexpectedly");
+assert.strictEqual(demos.filter((demo) => demo.status === "verified" && demo.publicUrl).length, 12, "verified demo count changed unexpectedly");
 assert.ok(!files.some((file) => file.endsWith(".map")), "source maps must not ship");
 for (const asset of ["assets/styles.css", "assets/main.js", "assets/roi-formulas.js", "assets/pricing-config.js", "assets/demo-config.js", "_headers", "robots.txt", "sitemap.xml", "llms.txt"]) {
   assert.ok(fs.existsSync(path.join(dist, asset)), `missing release asset ${asset}`);
