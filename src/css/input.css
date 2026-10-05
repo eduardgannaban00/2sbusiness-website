@@ -38,6 +38,76 @@
   }
 }
 
+/* Milestone 4.3: spacing-only density polish. These rules intentionally
+   leave the approved atmosphere, artwork, type scale, cards, and motion
+   untouched while bringing page content into a tighter editorial rhythm. */
+@layer utilities {
+  .page-home .section:not(.home-hero):not(.home-final-cta) {
+    padding-block: clamp(4.25rem, 6vw, 6rem);
+  }
+  .page-home .home-hero {
+    padding-top: clamp(4.75rem, 7vw, 6.5rem) !important;
+    padding-bottom: clamp(4rem, 6vw, 5.5rem) !important;
+  }
+  .page-home .home-final-cta {
+    padding-block: clamp(6rem, 9vw, 8rem);
+  }
+
+  .page-services main > section:first-of-type,
+  .page-industries main > section:first-of-type,
+  .page-demos main > section:first-of-type,
+  .page-pricing main > section:first-of-type,
+  .page-about main > section:first-of-type,
+  .page-resources main > section:first-of-type,
+  .page-contact main > section:first-of-type,
+  .page-article main > section:first-of-type {
+    padding-top: clamp(2.75rem, 4vw, 4.5rem) !important;
+  }
+  .page-services main > section:not(:first-of-type),
+  .page-industries main > section:not(:first-of-type),
+  .page-demos main > section:not(:first-of-type),
+  .page-pricing main > section:not(:first-of-type),
+  .page-about main > section:not(:first-of-type),
+  .page-resources main > section:not(:first-of-type),
+  .page-contact main > section:not(:first-of-type),
+  .page-article main > section:not(:first-of-type) {
+    padding-block: clamp(4rem, 6vw, 6rem);
+  }
+
+  @media (max-width: 767px) {
+    .page-home .section:not(.home-hero):not(.home-final-cta) {
+      padding-block: 3.5rem;
+    }
+    .page-home .home-hero {
+      padding-top: 4rem !important;
+      padding-bottom: 4rem !important;
+    }
+    .page-home .home-final-cta {
+      padding-block: 5rem;
+    }
+    .page-services main > section:first-of-type,
+    .page-industries main > section:first-of-type,
+    .page-demos main > section:first-of-type,
+    .page-pricing main > section:first-of-type,
+    .page-about main > section:first-of-type,
+    .page-resources main > section:first-of-type,
+    .page-contact main > section:first-of-type,
+    .page-article main > section:first-of-type {
+      padding-top: 2.5rem !important;
+    }
+    .page-services main > section:not(:first-of-type),
+    .page-industries main > section:not(:first-of-type),
+    .page-demos main > section:not(:first-of-type),
+    .page-pricing main > section:not(:first-of-type),
+    .page-about main > section:not(:first-of-type),
+    .page-resources main > section:not(:first-of-type),
+    .page-contact main > section:not(:first-of-type),
+    .page-article main > section:not(:first-of-type) {
+      padding-block: 3.5rem;
+    }
+  }
+}
+
 @layer components {
   /* Shared 2S atmospheric background system. All layers are decorative and
      sit behind content; pages select a restrained composition via a theme

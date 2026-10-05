@@ -2,7 +2,7 @@ const config = require("../data/site-config");
 const { renderNav } = require("./nav");
 const { renderFooter } = require("./footer");
 const { renderAssistant } = require("./assistant");
-const { renderAtmosphere } = require("./atmosphere");
+const { renderAtmosphere, themeForPath } = require("./atmosphere");
 
 function breadcrumbSchema(path, crumbs) {
   return {
@@ -65,7 +65,7 @@ function renderPage({
 <link rel="stylesheet" href="/assets/styles.css">
 ${schemaScripts}
 </head>
-<body class="${bodyClass}">
+<body class="${bodyClass} page-${themeForPath(path)}">
 ${renderAtmosphere(path)}
 ${renderNav(path)}
 <main id="main">
