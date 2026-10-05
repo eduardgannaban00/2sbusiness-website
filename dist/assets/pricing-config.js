@@ -1,1 +1,0 @@
-window.PricingConfig = {"build":{"label":"Build","startingPriceText":"From $999"},"automate":{"label":"Automate","startingPriceText":"From $999 setup + $399/mo","monthlyRecurring":399},"supportScale":{"label":"Support & Scale","startingPriceText":"From $899/mo"}};

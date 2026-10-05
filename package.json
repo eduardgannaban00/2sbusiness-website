@@ -7,9 +7,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "node build.js && tailwindcss -i ./src/css/input.css -o ./dist/assets/styles.css --minify && cp ./src/js/roi-formulas.js ./dist/assets/roi-formulas.js && cp ./src/js/main.js ./dist/assets/main.js",
+    "build": "node build.js && tailwindcss -i ./src/css/input.css -o ./dist/assets/styles.css --minify && node scripts/copy-assets.js",
     "verify": "node verify.js",
-    "test": "node test-contact.js && node test-roi.js"
+    "test": "node test-contact.js && node test-roi.js && node test-verify.js"
   },
   "keywords": [],
   "author": "",

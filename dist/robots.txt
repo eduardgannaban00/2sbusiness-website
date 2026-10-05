@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://2sbusinesssupport.com/sitemap.xml
