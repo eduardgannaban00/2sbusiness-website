@@ -89,7 +89,7 @@ ${visibleBreadcrumbs(crumbs)}
   </div>
 </section>
 
-<section data-reveal class="section text-center">
+<section data-reveal class="section text-center cta-aurora">
   <div class="container-content">
     <a href="/contact/" class="btn-primary" data-cta="ai-automation-final" data-nav-event="service_to_contact_nav">${config.ctaPrimary}</a>
   </div>

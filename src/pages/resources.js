@@ -146,7 +146,7 @@ ${categorySections}
   </div>
 </section>
 
-<section data-reveal class="section bg-obsidian/40 text-center">
+<section data-reveal class="section bg-obsidian/40 text-center cta-aurora">
   <div class="container-content">
     <a href="/contact/" class="btn-primary" data-cta="resources-final">${config.ctaPrimary}</a>
   </div>

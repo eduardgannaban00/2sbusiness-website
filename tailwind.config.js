@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        charcoal: "#0B0D0E",
-        obsidian: "#121619",
+        charcoal: "#080B0B",
+        obsidian: "#101614",
         gold: "#D4AF37",
         champagne: "#F3E5AB",
         deepgold: "#B8860B",

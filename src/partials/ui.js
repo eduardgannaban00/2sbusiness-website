@@ -113,58 +113,44 @@ function socialLinks(social, extraClass) {
 }
 
 /**
- * Hero "network sphere" — lightweight SVG + CSS only (no WebGL/canvas).
- * The ring/node network rotates slowly via a CSS animation; the logo is a
- * separate, absolutely-positioned layer on top and never rotates. Under
- * prefers-reduced-motion, the site's existing global override (which forces
- * animation-duration to ~0 on every element) freezes the rotation and node
- * pulses automatically — no extra reduced-motion code needed here.
+ * Concept #3 system sphere. Decorative only: no logo, map, canvas, WebGL, or
+ * geography. The dim curved grid rotates slowly while a few short SVG traces
+ * and staggered intersections provide a restrained connected-systems signal.
  */
-function heroSphere(logoSrc, size) {
-  size = size || 280;
-  const cx = size / 2;
-  const cy = size / 2;
-  const ringR = size * 0.48;
-  const nodeCount = 8;
-  const nodes = [];
-  for (let i = 0; i < nodeCount; i++) {
-    const angle = (i / nodeCount) * Math.PI * 2;
-    nodes.push({
-      x: (cx + ringR * Math.cos(angle)).toFixed(1),
-      y: (cy + ringR * Math.sin(angle)).toFixed(1),
-      pulse: i % 3 === 0, // a few nodes pulse green, not all — restrained, not flashy
-    });
-  }
-  // Connect each node to its neighbor plus one cross-link for a network feel.
-  const lines = nodes
-    .map((n, i) => {
-      const next = nodes[(i + 1) % nodeCount];
-      const cross = nodes[(i + 3) % nodeCount];
-      return `<line x1="${n.x}" y1="${n.y}" x2="${next.x}" y2="${next.y}" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
-              <line x1="${n.x}" y1="${n.y}" x2="${cross.x}" y2="${cross.y}" stroke="rgba(212,175,55,0.12)" stroke-width="1"/>`;
-    })
+function heroSphere(size) {
+  size = size || 340;
+  const c = size / 2;
+  const r = size * 0.43;
+  const ellipses = [
+    `<ellipse class="sphere-grid sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r * 0.45}" ry="${r}" />`,
+    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r * 0.72}" ry="${r}" />`,
+    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
+    `<ellipse class="sphere-grid sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.42}" />`,
+    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.7}" />`,
+    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
+  ].join("\n");
+  const points = [
+    [c + r * 0.7, c - r * 0.42, "sphere-node-1"],
+    [c - r * 0.62, c - r * 0.08, "sphere-node-2"],
+    [c + r * 0.15, c + r * 0.74, "sphere-node-3"],
+    [c - r * 0.28, c - r * 0.7, "sphere-node-4"],
+    [c + r * 0.8, c + r * 0.28, "sphere-node-5"],
+  ];
+  const nodes = points
+    .map(([x, y, className], i) => `<circle class="sphere-node ${className}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i % 2 ? 2.5 : 3.2}" />`)
     .join("\n");
-  const nodeDots = nodes
-    .map(
-      (n, i) =>
-        `<circle cx="${n.x}" cy="${n.y}" r="3.5" fill="${n.pulse ? "#00E676" : "#D4AF37"}" class="${
-          n.pulse ? "sphere-node-pulse" : ""
-        }" style="animation-delay:${(i * 0.4).toFixed(1)}s"/>`
-    )
-    .join("\n");
-
   return `
-  <div class="relative mx-auto" style="width:${size}px;height:${size}px;max-width:100%" aria-hidden="true">
-    <div class="absolute inset-0 sphere-rotate">
-      <svg viewBox="0 0 ${size} ${size}" class="w-full h-full">
-        <circle cx="${cx}" cy="${cy}" r="${size * 0.49}" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="1"/>
-        <circle cx="${cx}" cy="${cy}" r="${size * 0.36}" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/>
-        ${lines}
-        ${nodeDots}
-      </svg>
-    </div>
-    <img src="${logoSrc}" alt="" width="96" height="96"
-         class="absolute inset-0 m-auto w-24 h-24 rounded-full shadow-goldglow" />
+  <div class="hero-sphere" style="width:${size}px;height:${size}px;max-width:100%">
+    <div class="sphere-aura"></div>
+    <svg class="sphere-svg" viewBox="0 0 ${size} ${size}" focusable="false">
+      <circle class="sphere-shell" cx="${c}" cy="${c}" r="${r}" />
+      <g class="sphere-rotate">${ellipses}</g>
+      <path class="sphere-network sphere-network-secondary" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" />
+      <path class="sphere-network" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" />
+      <path class="sphere-trace sphere-trace-a" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" pathLength="1" />
+      <path class="sphere-trace sphere-trace-b" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" pathLength="1" />
+      <g>${nodes}</g>
+    </svg>
   </div>`;
 }
 

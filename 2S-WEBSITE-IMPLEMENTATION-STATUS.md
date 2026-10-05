@@ -177,6 +177,29 @@ Validation: `npm test` PASS, 27 routes built, verifier PASS with 0 errors and 0
 warnings, dead-link and release-quality checks PASS, contact architecture and
 demo registry intact. Rendered recheck remains required after this repair.
 
+## Milestone 4.1 final visual system
+
+The old logo-centered orbit graphic and its dedicated sphere asset were
+removed. The homepage now uses a decorative concept #3 connected-system sphere
+with no logo inside it: slow 36-second rotation, sparse emerald/gold travelling
+traces, and staggered breathing nodes. The reusable atmospheric system lives
+in `src/partials/atmosphere.js` and `src/css/input.css`, with page variants for
+Home, diagonal-flow Demos, wave-oriented Services, geometric Industries, calm
+Pricing vignette, About dual tone, Resources grid texture, calmer Articles,
+Contact dot mesh, and selective CTA aurora glow.
+
+Atmospheric layers are decorative and `aria-hidden`, use lightweight CSS/SVG,
+have reduced-motion stop states, and simplify their paths, nodes, traces, glow,
+and sphere size on mobile. The sticky header remains in place with an opaque
+charcoal background. No content architecture, routes, contact backend, demo
+registry, canonical URLs, or production configuration changed.
+
+Validation: `npm ci` completed; `npm test` PASS including visual-system
+regressions; build PASS with 27 routes; verifier PASS with 0 errors and 0
+warnings; local preview representative routes returned HTTP 200; UTF-8,
+secrets, and source-map scans PASS. npm audit still reports the documented five
+high Tailwind 3 build-chain findings. Rendered human recheck is pending.
+
 ## Remaining work
 
 - P0: configure and preview-test Cloudflare, Resend, Turnstile, and the native

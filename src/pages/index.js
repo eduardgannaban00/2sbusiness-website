@@ -144,7 +144,7 @@ const content = `
     </div>
 
     <div>
-      ${heroSphere(config.logo.sphere, 260)}
+      ${heroSphere(340)}
       <div class="space-y-2.5 mt-8" data-signature-workflow>
         ${heroStatusList}
       </div>
@@ -451,7 +451,7 @@ const content = `
   </div>
 </section>
 
-<section data-reveal class="section">
+<section data-reveal class="section cta-aurora">
   <div class="container-content text-center">
     <h2 class="text-2xl md:text-3xl mb-6">Ready to build a smarter business?</h2>
     <a href="/contact/" class="btn-primary" data-cta="final-cta">Book a Free Consultation</a>

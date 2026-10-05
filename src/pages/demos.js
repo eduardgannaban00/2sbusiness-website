@@ -78,7 +78,7 @@ ${groups.map(([id, label, description]) => `
   </div>
 </section>`).join("\n")}
 
-<section data-reveal class="section bg-obsidian/40 text-center">
+<section data-reveal class="section bg-obsidian/40 text-center cta-aurora">
   <div class="container-content max-w-2xl">
     <p class="eyebrow mb-3">Build Your System</p>
     <h2 class="text-2xl md:text-3xl mb-4">Start with the workflow that matters most</h2>

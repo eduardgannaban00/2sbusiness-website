@@ -47,6 +47,5 @@ module.exports = {
   logo: {
     emblem: "/assets/brand/emblem.png", // compact mark — nav, mobile header, favicon source
     footer: "/assets/brand/footer-logo.png", // larger branding area — footer
-    sphere: "/assets/brand/sphere-logo.png", // stable, centered mark inside the hero sphere
   },
 };

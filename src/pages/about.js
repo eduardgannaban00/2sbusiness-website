@@ -96,7 +96,7 @@ ${visibleBreadcrumbs(crumbs)}
   </div>
 </section>
 
-<section data-reveal class="section text-center">
+<section data-reveal class="section text-center cta-aurora">
   <div class="container-content">
     <a href="/contact/" class="btn-primary" data-cta="about-final">${config.ctaPrimary}</a>
   </div>

@@ -20,12 +20,17 @@
   }
   body {
     @apply bg-charcoal text-ink font-body antialiased;
+    background: #080B0B;
   }
   h1, h2, h3, h4 {
     @apply font-head font-bold tracking-tight;
   }
   a {
     @apply transition-colors duration-200;
+  }
+  main, footer {
+    position: relative;
+    z-index: 1;
   }
   :focus-visible {
     outline: 2px solid #D4AF37;
@@ -34,6 +39,99 @@
 }
 
 @layer components {
+  /* Shared 2S atmospheric background system. All layers are decorative and
+     sit behind content; pages select a restrained composition via a theme
+     class emitted by partials/atmosphere.js. */
+  .site-atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 76% 14%, rgba(16, 185, 129, 0.08), transparent 30rem),
+      radial-gradient(circle at 18% 82%, rgba(212, 175, 55, 0.045), transparent 27rem),
+      linear-gradient(135deg, #080B0B 0%, #0D1211 52%, #080B0B 100%);
+  }
+  .atmosphere-glow {
+    position: absolute;
+    width: 42rem;
+    height: 42rem;
+    border-radius: 999px;
+    filter: blur(70px);
+    opacity: 0.22;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 68%);
+  }
+  .atmosphere-glow-a { top: -20rem; right: -12rem; }
+  .atmosphere-glow-b { bottom: -24rem; left: -16rem; background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 68%); }
+  .atmosphere-lines { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.7; }
+  .atmosphere-line,
+  .atmosphere-trace {
+    fill: none;
+    stroke-linecap: round;
+  }
+  .atmosphere-line { stroke: rgba(16, 185, 129, 0.12); stroke-width: 1; }
+  .atmosphere-line-b { stroke: rgba(212, 175, 55, 0.09); }
+  .atmosphere-line-c { stroke: rgba(203, 213, 225, 0.06); }
+  .atmosphere-trace {
+    stroke: rgba(16, 185, 129, 0.8);
+    stroke-width: 2;
+    stroke-dasharray: 0.07 0.93;
+    stroke-dashoffset: 1;
+    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.6));
+    animation: atmosphere-travel 24s linear infinite;
+  }
+  .atmosphere-trace-b {
+    stroke: rgba(212, 175, 55, 0.72);
+    animation-duration: 31s;
+    animation-delay: -11s;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.45));
+  }
+  .atmosphere-node { fill: #10B981; filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.65)); animation: atmosphere-breathe 7s ease-in-out infinite; }
+  .atmosphere-node-b { fill: #D4AF37; animation-delay: -2.5s; }
+  .atmosphere-node-c { animation-delay: -4.5s; }
+
+  .atmosphere-home .atmosphere-lines { opacity: 0.48; }
+  .atmosphere-demos { background: linear-gradient(135deg, #080B0B 0%, #0D1211 45%, #101614 100%); }
+  .atmosphere-demos .atmosphere-lines { transform: rotate(-7deg) scale(1.12); opacity: 0.8; }
+  .atmosphere-services .atmosphere-lines { transform: scaleY(0.78) translateY(10%); opacity: 0.72; }
+  .atmosphere-services .atmosphere-line { stroke: rgba(16, 185, 129, 0.16); stroke-width: 1.4; }
+  .atmosphere-industries .atmosphere-lines { opacity: 0.85; }
+  .atmosphere-industries .atmosphere-line { stroke: rgba(16, 185, 129, 0.15); }
+  .atmosphere-pricing { background: radial-gradient(ellipse at 50% -15%, rgba(16, 185, 129, 0.08), transparent 45%), #0D1211; }
+  .atmosphere-pricing .atmosphere-lines, .atmosphere-pricing .atmosphere-glow { opacity: 0.25; }
+  .atmosphere-about { background: linear-gradient(180deg, #080B0B 0%, #101614 47%, #080B0B 100%); }
+  .atmosphere-resources { background-color: #0D1211; background-image: linear-gradient(rgba(16,185,129,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.028) 1px, transparent 1px); background-size: 72px 72px; }
+  .atmosphere-article .atmosphere-lines { opacity: 0.25; }
+  .atmosphere-contact { background-color: #0D1211; background-image: radial-gradient(rgba(16,185,129,0.12) 1px, transparent 1px), radial-gradient(rgba(212,175,55,0.08) 1px, transparent 1px); background-position: 0 0, 36px 36px; background-size: 72px 72px; }
+  .atmosphere-contact .atmosphere-lines { opacity: 0.34; }
+
+  .cta-aurora { position: relative; isolation: isolate; overflow: hidden; }
+  .cta-aurora::before { content: ""; position: absolute; inset: -8rem 20% -10rem; z-index: -1; background: radial-gradient(ellipse, rgba(16,185,129,0.14), transparent 67%); animation: atmosphere-breathe 10s ease-in-out infinite; }
+
+  .hero-sphere { position: relative; margin-inline: auto; aspect-ratio: 1; }
+  .sphere-aura { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(16,185,129,0.22), rgba(8,11,11,0) 63%); filter: blur(18px); }
+  .sphere-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+  .sphere-shell { fill: rgba(13, 30, 25, 0.68); stroke: rgba(16,185,129,0.3); stroke-width: 1.2; filter: drop-shadow(0 0 24px rgba(16,185,129,0.12)); }
+  .sphere-grid, .sphere-network, .sphere-trace { fill: none; stroke-linecap: round; }
+  .sphere-grid { stroke: rgba(203,213,225,0.15); stroke-width: 0.9; }
+  .sphere-grid-secondary { stroke: rgba(212,175,55,0.1); }
+  .sphere-network { stroke: rgba(16,185,129,0.24); stroke-width: 1.1; }
+  .sphere-network-secondary { stroke: rgba(212,175,55,0.18); }
+  .sphere-trace { stroke: #10B981; stroke-width: 2.2; stroke-dasharray: 0.08 0.92; stroke-dashoffset: 1; filter: drop-shadow(0 0 6px rgba(16,185,129,0.75)); animation: sphere-trace 18s linear infinite; }
+  .sphere-trace-b { stroke: #D4AF37; animation-duration: 27s; animation-delay: -9s; filter: drop-shadow(0 0 6px rgba(212,175,55,0.65)); }
+  .sphere-rotate { transform-origin: center; transform-box: fill-box; animation: sphere-rotate 36s linear infinite; }
+  .sphere-node { fill: #10B981; filter: drop-shadow(0 0 6px rgba(16,185,129,0.8)); animation: sphere-breathe 7s ease-in-out infinite; }
+  .sphere-node-2, .sphere-node-4 { fill: #D4AF37; animation-delay: -2.5s; }
+  .sphere-node-3 { animation-delay: -4.5s; }
+  .sphere-node-5 { animation-delay: -6s; }
+
+  @keyframes atmosphere-travel { to { stroke-dashoffset: 0; } }
+  @keyframes atmosphere-breathe { 0%, 100% { opacity: 0.36; } 50% { opacity: 0.88; } }
+  @keyframes sphere-rotate { to { transform: rotate(360deg); } }
+  @keyframes sphere-trace { to { stroke-dashoffset: 0; } }
+  @keyframes sphere-breathe { 0%, 100% { opacity: 0.35; transform: scale(0.8); transform-origin: center; } 50% { opacity: 1; transform: scale(1.35); transform-origin: center; } }
+
   .container-content {
     @apply max-w-content mx-auto px-6 md:px-8;
   }
@@ -207,25 +305,29 @@
     }
   }
 
-  /* ---------------------------------------------------------------------
-     Hero network sphere. Pure CSS keyframe animation — the site's existing
-     global prefers-reduced-motion override (animation-duration: 0.001ms)
-     freezes both of these automatically; no extra reduced-motion code
-     needed here. The centered logo lives outside this rotating layer.
-     --------------------------------------------------------------------- */
-  @keyframes sphere-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @media (max-width: 767px) {
+    .site-atmosphere { opacity: 0.72; }
+    .site-atmosphere .atmosphere-line-c,
+    .site-atmosphere .atmosphere-node-c,
+    .site-atmosphere .atmosphere-trace-b,
+    .hero-sphere .sphere-grid-secondary,
+    .hero-sphere .sphere-network-secondary,
+    .hero-sphere .sphere-trace-b,
+    .hero-sphere .sphere-node-5 { display: none; }
+    .hero-sphere { width: min(285px, 84vw) !important; }
+    .sphere-aura { opacity: 0.72; }
   }
-  .sphere-rotate {
-    animation: sphere-spin 90s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-atmosphere *,
+    .hero-sphere * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .atmosphere-trace,
+    .sphere-trace { stroke-dashoffset: 0; opacity: 0.55; }
+    .atmosphere-node,
+    .sphere-node { opacity: 0.65; transform: none !important; }
   }
-  @keyframes sphere-pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-  .sphere-node-pulse {
-    animation: sphere-pulse 3.2s ease-in-out infinite;
-    transform-origin: center;
-  }
+
 }
