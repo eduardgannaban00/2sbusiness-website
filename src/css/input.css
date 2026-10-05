@@ -46,9 +46,16 @@
     padding-block: clamp(4.25rem, 6vw, 6rem);
   }
   .page-home .home-hero {
-    padding-top: clamp(4.75rem, 7vw, 6.5rem) !important;
-    padding-bottom: clamp(4rem, 6vw, 5.5rem) !important;
+    min-height: clamp(520px, calc(52vh + 120px), 680px);
+    padding-top: clamp(2.5rem, 5vh, 4.5rem) !important;
+    padding-bottom: clamp(2.5rem, 5vh, 4rem) !important;
   }
+  .page-home .home-hero-art { min-height: 0; }
+  .page-home .hero-sphere {
+    width: clamp(390px, min(36vw, 52vh), 500px) !important;
+    height: clamp(390px, min(36vw, 52vh), 500px) !important;
+  }
+  .page-home .home-hero-status { margin-top: .5rem; }
   .page-home .home-final-cta {
     padding-block: clamp(6rem, 9vw, 8rem);
   }
@@ -115,8 +122,13 @@
       padding-block: 3.5rem;
     }
     .page-home .home-hero {
-      padding-top: 4rem !important;
-      padding-bottom: 4rem !important;
+      min-height: 0;
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+    .page-home .hero-sphere {
+      width: min(285px, 84vw) !important;
+      height: min(285px, 84vw) !important;
     }
     .page-home .home-final-cta {
       padding-block: 5rem;
