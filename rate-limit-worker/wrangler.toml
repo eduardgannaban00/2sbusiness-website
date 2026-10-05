@@ -7,6 +7,6 @@ bindings = [
   { name = "CONTACT_RATE_LIMITER", class_name = "ContactRateLimiter" }
 ]
 
-[[migrations]]
-tag = "v1"
-new_sqlite_classes = ["ContactRateLimiter"]
+[exports.ContactRateLimiter]
+type = "durable-object"
+storage = "sqlite"
