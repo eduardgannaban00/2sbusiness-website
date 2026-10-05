@@ -301,47 +301,6 @@ async function run() {
   global.fetch = realFetch;
   check("Cloudflare adapter translates request and environment", adapterResponse.status === 200);
 
-  const diagnostic = await import("./functions/api/_rate-limit-check.js");
-  let diagnosticRequest;
-  let diagnosticProviderCalls = 0;
-  const diagnosticNamespace = {
-    idFromName(key) {
-      diagnosticRequest = { key };
-      return "diagnostic-id-not-exposed";
-    },
-    get() {
-      return {
-        async fetch(_url, options) {
-          diagnosticRequest.options = options;
-          return new Response(JSON.stringify({ allowed: true, remaining: 4, resetAt: 0 }), { status: 200 });
-        },
-      };
-    },
-  };
-  const diagnosticResponse = await diagnostic.onRequest({
-    request: request(validPayload, { method: "GET" }),
-    env: { CONTACT_RATE_LIMITER_DO: diagnosticNamespace },
-  });
-  const diagnosticBody = await diagnosticResponse.json();
-  check("diagnostic invokes the Durable Object binding", diagnosticResponse.status === 200 && diagnosticBody.ok === true);
-  check("diagnostic returns only the limiter decision", JSON.stringify(diagnosticBody) === '{"ok":true,"allowed":true}');
-  check("diagnostic uses a fixed diagnostic key", diagnosticRequest.key === "2s-rate-limit-diagnostic");
-  check("diagnostic does not invoke a provider", diagnosticProviderCalls === 0);
-
-  const diagnosticMissing = await diagnostic.onRequest({ request: request(validPayload, { method: "GET" }), env: {} });
-  check("diagnostic fails safely when binding is missing", diagnosticMissing.status === 503 && JSON.stringify(await diagnosticMissing.json()) === '{"ok":false}');
-
-  const diagnosticMalformed = await diagnostic.onRequest({
-    request: request(validPayload, { method: "GET" }),
-    env: {
-      CONTACT_RATE_LIMITER_DO: {
-        idFromName() { return "id"; },
-        get() { return { async fetch() { return new Response(JSON.stringify({ unexpected: true }), { status: 200 }); } }; },
-      },
-    },
-  });
-  check("diagnostic fails safely on malformed limiter response", diagnosticMalformed.status === 502 && JSON.stringify(await diagnosticMalformed.json()) === '{"ok":false}');
-
   const contactPage = require("./src/pages/contact");
   const frontendSource = fs.readFileSync("src/js/main.js", "utf8");
   check("frontend posts to /api/contact", frontendSource.includes('fetch("/api/contact"'));
