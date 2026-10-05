@@ -12,7 +12,13 @@ const brandFiles = fs.readdirSync("src/assets/brand");
 const { themeForPath } = require("./src/partials/atmosphere");
 
 assert.ok(home.includes('class="hero-sphere"'), "home must contain the new system sphere");
+assert.ok(home.includes("sphere-body"), "sphere must contain a dimensional body gradient");
+assert.ok(home.includes("sphere-rim-gold") && home.includes("sphere-rim-emerald"), "sphere must contain asymmetric gold and emerald rims");
+assert.ok(home.includes("sphere-rim-glow"), "sphere must contain a rim halo");
+assert.ok(home.includes("sphere-grid-front") && home.includes("sphere-grid-rear"), "sphere must contain foreground/rear grid hierarchy");
 assert.ok(home.includes("sphere-trace"), "sphere must contain travelling light traces");
+assert.ok(home.includes("sphere-trace-tail") && home.includes("sphere-trace-core"), "sphere must contain luminous signal trails");
+assert.ok(home.includes("sphere-node-halo"), "sphere must contain arrival pulse halos");
 assert.ok(home.includes("sphere-node"), "sphere must contain breathing intersection nodes");
 assert.ok(!home.includes("sphere-logo.png"), "old sphere logo must not be generated");
 assert.ok(!ui.includes("sphere-node-pulse"), "old sphere pulse class must be removed");
@@ -26,6 +32,8 @@ assert.ok(atmosphere.includes("atmosphere-demos") === false, "theme classes shou
 assert.ok(styles.includes("@keyframes sphere-rotate"), "sphere rotation must be compiled");
 assert.ok(styles.includes("@keyframes sphere-trace"), "sphere traces must be compiled");
 assert.ok(styles.includes("@keyframes atmosphere-travel"), "global travelling light must be compiled");
+assert.ok(styles.includes("@keyframes sphere-arrival"), "sphere arrival pulse must be compiled");
+assert.ok(styles.includes("sphere-trace-tail"), "signal trail styling must be compiled");
 assert.ok(styles.includes("prefers-reduced-motion"), "reduced-motion CSS must be compiled");
 assert.ok(css.includes("@media (max-width: 767px)"), "mobile visual simplification must be defined");
 assert.ok(css.includes(".atmosphere-pricing"), "pricing atmosphere variant must exist");

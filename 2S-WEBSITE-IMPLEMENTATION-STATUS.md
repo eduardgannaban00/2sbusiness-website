@@ -200,6 +200,35 @@ warnings; local preview representative routes returned HTTP 200; UTF-8,
 secrets, and source-map scans PASS. npm audit still reports the documented five
 high Tailwind 3 build-chain findings. Rendered human recheck is pending.
 
+## Milestone 4.2 visual intensity refinement
+
+The attached `Futuristic Dark UI Concept Board.png` was inspected and used as
+the visual source of truth for this refinement. Existing content, routes,
+functionality, navigation, SEO/AEO/GEO, contact architecture, demo registry,
+and Milestone 4.1 custom pricing were preserved.
+
+The concept #3 sphere is now materially more dimensional: it has a visible
+deep-emerald body gradient, asymmetric gold and emerald rim lighting, a halo,
+foreground/rear grid hierarchy, thicker primary paths, and two visible
+green/gold signal systems with luminous trail/core layering. Selected nodes
+have staggered breathing and arrival halos. The old logo-centered orbit and
+its asset remain removed; no logo is inside the new sphere.
+
+The shared atmospheric system now has stronger line hierarchy, glow, and
+section depth. Page treatments are mapped through the reusable system:
+diagonal Demos, wave Services, geometric Industries, calm vignette Pricing,
+grid Resources, dual-tone About, dot-mesh Contact, calmer Articles, and
+selective aurora CTA sections. Reduced-motion rules stop all animated signals,
+rotation, breathing, arrival pulses, and aurora movement while retaining the
+upgraded static design. Mobile removes secondary paths and traces, lowers
+coverage, and keeps a visible smaller sphere.
+
+Validation: `npm ci` completed; full tests, build, visual regression checks,
+verifier, local preview smoke, UTF-8 scan, secrets scan, and source-map scan
+passed. All 27 routes returned through the build; verifier reported 0 errors
+and 0 warnings. Human comparison against the rendered site and board remains
+pending. No deployment or production change was made.
+
 ## Remaining work
 
 - P0: configure and preview-test Cloudflare, Resend, Turnstile, and the native

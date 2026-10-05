@@ -49,9 +49,9 @@
     overflow: hidden;
     pointer-events: none;
     background:
-      radial-gradient(circle at 76% 14%, rgba(16, 185, 129, 0.08), transparent 30rem),
-      radial-gradient(circle at 18% 82%, rgba(212, 175, 55, 0.045), transparent 27rem),
-      linear-gradient(135deg, #080B0B 0%, #0D1211 52%, #080B0B 100%);
+      radial-gradient(ellipse at 78% 12%, rgba(16, 185, 129, 0.16), transparent 32rem),
+      radial-gradient(ellipse at 16% 82%, rgba(212, 175, 55, 0.08), transparent 29rem),
+      linear-gradient(135deg, #080B0B 0%, #0D1211 48%, #101614 74%, #080B0B 100%);
   }
   .atmosphere-glow {
     position: absolute;
@@ -59,8 +59,8 @@
     height: 42rem;
     border-radius: 999px;
     filter: blur(70px);
-    opacity: 0.22;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 68%);
+    opacity: 0.38;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.28), transparent 68%);
   }
   .atmosphere-glow-a { top: -20rem; right: -12rem; }
   .atmosphere-glow-b { bottom: -24rem; left: -16rem; background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 68%); }
@@ -70,58 +70,75 @@
     fill: none;
     stroke-linecap: round;
   }
-  .atmosphere-line { stroke: rgba(16, 185, 129, 0.12); stroke-width: 1; }
-  .atmosphere-line-b { stroke: rgba(212, 175, 55, 0.09); }
-  .atmosphere-line-c { stroke: rgba(203, 213, 225, 0.06); }
+  .atmosphere-line { stroke: rgba(16, 185, 129, 0.2); stroke-width: 1.35; filter: drop-shadow(0 0 3px rgba(16,185,129,0.1)); }
+  .atmosphere-line-a { stroke-width: 1.7; }
+  .atmosphere-line-b { stroke: rgba(212, 175, 55, 0.16); stroke-width: 1.45; filter: drop-shadow(0 0 4px rgba(212,175,55,0.14)); }
+  .atmosphere-line-c { stroke: rgba(203, 213, 225, 0.1); }
   .atmosphere-trace {
-    stroke: rgba(16, 185, 129, 0.8);
-    stroke-width: 2;
-    stroke-dasharray: 0.07 0.93;
+    stroke: rgba(16, 185, 129, 0.95);
+    stroke-width: 2.7;
+    stroke-dasharray: 0.08 0.92;
     stroke-dashoffset: 1;
     filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.6));
     animation: atmosphere-travel 24s linear infinite;
   }
   .atmosphere-trace-b {
-    stroke: rgba(212, 175, 55, 0.72);
+    stroke: rgba(212, 175, 55, 0.9);
     animation-duration: 31s;
     animation-delay: -11s;
     filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.45));
   }
-  .atmosphere-node { fill: #10B981; filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.65)); animation: atmosphere-breathe 7s ease-in-out infinite; }
+  .atmosphere-node { fill: #10B981; filter: drop-shadow(0 0 7px rgba(16, 185, 129, 0.85)); animation: atmosphere-breathe 7s ease-in-out infinite; }
   .atmosphere-node-b { fill: #D4AF37; animation-delay: -2.5s; }
   .atmosphere-node-c { animation-delay: -4.5s; }
 
-  .atmosphere-home .atmosphere-lines { opacity: 0.48; }
-  .atmosphere-demos { background: linear-gradient(135deg, #080B0B 0%, #0D1211 45%, #101614 100%); }
-  .atmosphere-demos .atmosphere-lines { transform: rotate(-7deg) scale(1.12); opacity: 0.8; }
-  .atmosphere-services .atmosphere-lines { transform: scaleY(0.78) translateY(10%); opacity: 0.72; }
-  .atmosphere-services .atmosphere-line { stroke: rgba(16, 185, 129, 0.16); stroke-width: 1.4; }
-  .atmosphere-industries .atmosphere-lines { opacity: 0.85; }
-  .atmosphere-industries .atmosphere-line { stroke: rgba(16, 185, 129, 0.15); }
-  .atmosphere-pricing { background: radial-gradient(ellipse at 50% -15%, rgba(16, 185, 129, 0.08), transparent 45%), #0D1211; }
-  .atmosphere-pricing .atmosphere-lines, .atmosphere-pricing .atmosphere-glow { opacity: 0.25; }
-  .atmosphere-about { background: linear-gradient(180deg, #080B0B 0%, #101614 47%, #080B0B 100%); }
-  .atmosphere-resources { background-color: #0D1211; background-image: linear-gradient(rgba(16,185,129,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.028) 1px, transparent 1px); background-size: 72px 72px; }
-  .atmosphere-article .atmosphere-lines { opacity: 0.25; }
-  .atmosphere-contact { background-color: #0D1211; background-image: radial-gradient(rgba(16,185,129,0.12) 1px, transparent 1px), radial-gradient(rgba(212,175,55,0.08) 1px, transparent 1px); background-position: 0 0, 36px 36px; background-size: 72px 72px; }
-  .atmosphere-contact .atmosphere-lines { opacity: 0.34; }
+  .atmosphere-home .atmosphere-lines { opacity: 0.72; }
+  .atmosphere-demos { background: linear-gradient(135deg, #080B0B 0%, #0D1211 36%, #10251e 72%, #080B0B 100%); }
+  .atmosphere-demos .atmosphere-lines { transform: rotate(-7deg) scale(1.12); opacity: 0.96; }
+  .atmosphere-demos .atmosphere-glow-a { opacity: 0.55; background: radial-gradient(circle, rgba(212,175,55,0.22), transparent 68%); }
+  .atmosphere-services .atmosphere-lines { transform: scaleY(0.78) translateY(10%); opacity: 0.94; }
+  .atmosphere-services .atmosphere-line { stroke: rgba(16, 185, 129, 0.26); stroke-width: 1.65; }
+  .atmosphere-services .atmosphere-line-b { stroke: rgba(212,175,55,0.22); }
+  .atmosphere-industries .atmosphere-lines { opacity: 1; }
+  .atmosphere-industries .atmosphere-line { stroke: rgba(16, 185, 129, 0.28); stroke-width: 1.55; }
+  .atmosphere-industries .atmosphere-line-b { stroke: rgba(212,175,55,0.27); }
+  .atmosphere-pricing { background: radial-gradient(ellipse at 50% -15%, rgba(16, 185, 129, 0.14), transparent 45%), radial-gradient(ellipse at 92% 52%, rgba(212,175,55,0.13), transparent 34%), #0D1211; }
+  .atmosphere-pricing .atmosphere-lines, .atmosphere-pricing .atmosphere-glow { opacity: 0.42; }
+  .atmosphere-about { background: linear-gradient(180deg, #080B0B 0%, #11261e 47%, #080B0B 100%); }
+  .atmosphere-about .atmosphere-lines { opacity: 0.82; }
+  .atmosphere-resources { background-color: #0D1211; background-image: linear-gradient(rgba(16,185,129,0.075) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.055) 1px, transparent 1px); background-size: 72px 72px; }
+  .atmosphere-resources .atmosphere-lines { opacity: 0.6; }
+  .atmosphere-article .atmosphere-lines { opacity: 0.38; }
+  .atmosphere-contact { background-color: #0D1211; background-image: radial-gradient(rgba(16,185,129,0.22) 1.2px, transparent 1.2px), radial-gradient(rgba(212,175,55,0.14) 1px, transparent 1px); background-position: 0 0, 36px 36px; background-size: 72px 72px; }
+  .atmosphere-contact .atmosphere-lines { opacity: 0.52; }
 
   .cta-aurora { position: relative; isolation: isolate; overflow: hidden; }
   .cta-aurora::before { content: ""; position: absolute; inset: -8rem 20% -10rem; z-index: -1; background: radial-gradient(ellipse, rgba(16,185,129,0.14), transparent 67%); animation: atmosphere-breathe 10s ease-in-out infinite; }
 
   .hero-sphere { position: relative; margin-inline: auto; aspect-ratio: 1; }
-  .sphere-aura { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(16,185,129,0.22), rgba(8,11,11,0) 63%); filter: blur(18px); }
+  .sphere-aura { position: absolute; inset: 4%; border-radius: 50%; background: radial-gradient(ellipse at 32% 28%, rgba(212,175,55,0.26), transparent 26%), radial-gradient(ellipse at 42% 72%, rgba(16,185,129,0.3), transparent 48%), radial-gradient(circle, rgba(16,185,129,0.16), transparent 65%); filter: blur(20px); opacity: 0.95; }
   .sphere-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
-  .sphere-shell { fill: rgba(13, 30, 25, 0.68); stroke: rgba(16,185,129,0.3); stroke-width: 1.2; filter: drop-shadow(0 0 24px rgba(16,185,129,0.12)); }
+  .sphere-shell { fill: url(#sphere-body); stroke: url(#sphere-rim); stroke-width: 2.2; filter: drop-shadow(0 0 22px rgba(16,185,129,0.22)); }
+  .sphere-rim { fill: none; stroke-linecap: round; pointer-events: none; }
+  .sphere-rim-glow { stroke: rgba(16,185,129,0.42); stroke-width: 9; filter: url(#sphere-bloom); opacity: 0.75; }
+  .sphere-rim-gold { stroke: #D4AF37; stroke-width: 2.8; filter: drop-shadow(0 0 7px rgba(212,175,55,0.9)); }
+  .sphere-rim-emerald { stroke: #10B981; stroke-width: 2.5; filter: drop-shadow(0 0 7px rgba(16,185,129,0.85)); }
   .sphere-grid, .sphere-network, .sphere-trace { fill: none; stroke-linecap: round; }
-  .sphere-grid { stroke: rgba(203,213,225,0.15); stroke-width: 0.9; }
-  .sphere-grid-secondary { stroke: rgba(212,175,55,0.1); }
-  .sphere-network { stroke: rgba(16,185,129,0.24); stroke-width: 1.1; }
-  .sphere-network-secondary { stroke: rgba(212,175,55,0.18); }
-  .sphere-trace { stroke: #10B981; stroke-width: 2.2; stroke-dasharray: 0.08 0.92; stroke-dashoffset: 1; filter: drop-shadow(0 0 6px rgba(16,185,129,0.75)); animation: sphere-trace 18s linear infinite; }
-  .sphere-trace-b { stroke: #D4AF37; animation-duration: 27s; animation-delay: -9s; filter: drop-shadow(0 0 6px rgba(212,175,55,0.65)); }
+  .sphere-grid { stroke: rgba(203,213,225,0.2); stroke-width: 1.35; }
+  .sphere-grid-front { stroke: rgba(221,245,231,0.42); stroke-width: 2; filter: drop-shadow(0 0 3px rgba(16,185,129,0.2)); }
+  .sphere-grid-rear { stroke: rgba(117,157,139,0.14); stroke-width: 1; }
+  .sphere-grid-secondary { stroke: rgba(212,175,55,0.22); }
+  .sphere-network { stroke: rgba(16,185,129,0.42); stroke-width: 1.8; filter: drop-shadow(0 0 4px rgba(16,185,129,0.25)); }
+  .sphere-network-secondary { stroke: rgba(212,175,55,0.3); stroke-width: 1.2; }
+  .sphere-trace { stroke: #10B981; stroke-width: 3.3; stroke-dashoffset: 1; filter: drop-shadow(0 0 7px rgba(16,185,129,0.95)); animation: sphere-trace 18s linear infinite; }
+  .sphere-trace-tail { stroke-width: 5; stroke-dasharray: 0.18 0.82; opacity: 0.38; filter: drop-shadow(0 0 9px rgba(16,185,129,0.85)); }
+  .sphere-trace-core { stroke-width: 2.2; stroke-dasharray: 0.045 0.955; }
+  .sphere-trace-b { stroke: #D4AF37; animation-duration: 27s; animation-delay: -9s; filter: drop-shadow(0 0 7px rgba(212,175,55,0.9)); }
+  .sphere-trace-b.sphere-trace-tail { filter: drop-shadow(0 0 9px rgba(212,175,55,0.8)); }
   .sphere-rotate { transform-origin: center; transform-box: fill-box; animation: sphere-rotate 36s linear infinite; }
-  .sphere-node { fill: #10B981; filter: drop-shadow(0 0 6px rgba(16,185,129,0.8)); animation: sphere-breathe 7s ease-in-out infinite; }
+  .sphere-node { fill: #10B981; filter: drop-shadow(0 0 8px rgba(16,185,129,0.95)); animation: sphere-breathe 7s ease-in-out infinite; }
+  .sphere-node-halo { fill: none; stroke: rgba(16,185,129,0.65); stroke-width: 1.8; opacity: 0; animation: sphere-arrival 9s ease-in-out infinite; }
+  .sphere-node-3-halo { stroke: rgba(212,175,55,0.7); animation-delay: -4.5s; }
   .sphere-node-2, .sphere-node-4 { fill: #D4AF37; animation-delay: -2.5s; }
   .sphere-node-3 { animation-delay: -4.5s; }
   .sphere-node-5 { animation-delay: -6s; }
@@ -130,7 +147,8 @@
   @keyframes atmosphere-breathe { 0%, 100% { opacity: 0.36; } 50% { opacity: 0.88; } }
   @keyframes sphere-rotate { to { transform: rotate(360deg); } }
   @keyframes sphere-trace { to { stroke-dashoffset: 0; } }
-  @keyframes sphere-breathe { 0%, 100% { opacity: 0.35; transform: scale(0.8); transform-origin: center; } 50% { opacity: 1; transform: scale(1.35); transform-origin: center; } }
+  @keyframes sphere-breathe { 0%, 100% { opacity: 0.42; transform: scale(0.82); transform-origin: center; } 50% { opacity: 1; transform: scale(1.38); transform-origin: center; } }
+  @keyframes sphere-arrival { 0%, 58%, 100% { opacity: 0; transform: scale(0.6); transform-origin: center; } 68% { opacity: 0.85; transform: scale(1.55); transform-origin: center; } 78% { opacity: 0; transform: scale(2.2); transform-origin: center; } }
 
   .container-content {
     @apply max-w-content mx-auto px-6 md:px-8;

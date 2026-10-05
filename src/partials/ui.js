@@ -122,12 +122,12 @@ function heroSphere(size) {
   const c = size / 2;
   const r = size * 0.43;
   const ellipses = [
-    `<ellipse class="sphere-grid sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r * 0.45}" ry="${r}" />`,
-    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r * 0.72}" ry="${r}" />`,
-    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
-    `<ellipse class="sphere-grid sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.42}" />`,
-    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.7}" />`,
-    `<ellipse class="sphere-grid" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
+    `<ellipse class="sphere-grid sphere-grid-rear sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r * 0.45}" ry="${r}" />`,
+    `<ellipse class="sphere-grid sphere-grid-rear" cx="${c}" cy="${c}" rx="${r * 0.72}" ry="${r}" />`,
+    `<ellipse class="sphere-grid sphere-grid-front" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
+    `<ellipse class="sphere-grid sphere-grid-rear sphere-grid-secondary" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.42}" />`,
+    `<ellipse class="sphere-grid sphere-grid-front" cx="${c}" cy="${c}" rx="${r}" ry="${r * 0.7}" />`,
+    `<ellipse class="sphere-grid sphere-grid-front" cx="${c}" cy="${c}" rx="${r}" ry="${r}" />`,
   ].join("\n");
   const points = [
     [c + r * 0.7, c - r * 0.42, "sphere-node-1"],
@@ -139,17 +139,43 @@ function heroSphere(size) {
   const nodes = points
     .map(([x, y, className], i) => `<circle class="sphere-node ${className}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i % 2 ? 2.5 : 3.2}" />`)
     .join("\n");
+  const arrivalHalos = points
+    .filter(([, , className]) => className === "sphere-node-1" || className === "sphere-node-3")
+    .map(([x, y, className]) => `<circle class="sphere-node-halo ${className}-halo" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8" />`)
+    .join("\n");
   return `
   <div class="hero-sphere" style="width:${size}px;height:${size}px;max-width:100%">
     <div class="sphere-aura"></div>
     <svg class="sphere-svg" viewBox="0 0 ${size} ${size}" focusable="false">
+      <defs>
+        <radialGradient id="sphere-body" cx="31%" cy="24%" r="76%">
+          <stop offset="0%" stop-color="#3b7656" stop-opacity="0.72" />
+          <stop offset="32%" stop-color="#17392a" stop-opacity="0.92" />
+          <stop offset="70%" stop-color="#0b211a" stop-opacity="0.98" />
+          <stop offset="100%" stop-color="#050b0a" stop-opacity="0.99" />
+        </radialGradient>
+        <linearGradient id="sphere-rim" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.95" />
+          <stop offset="34%" stop-color="#10B981" stop-opacity="0.8" />
+          <stop offset="73%" stop-color="#0b3d2d" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.72" />
+        </linearGradient>
+        <filter id="sphere-bloom" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+      </defs>
       <circle class="sphere-shell" cx="${c}" cy="${c}" r="${r}" />
+      <path class="sphere-rim sphere-rim-glow" d="M${(c - r * 0.72).toFixed(1)} ${(c - r * 0.62).toFixed(1)} A${r} ${r} 0 0 1 ${(c + r * 0.88).toFixed(1)} ${(c + r * 0.25).toFixed(1)}" />
+      <path class="sphere-rim sphere-rim-gold" d="M${(c - r * 0.45).toFixed(1)} ${(c - r * 0.84).toFixed(1)} A${r} ${r} 0 0 1 ${(c + r * 0.92).toFixed(1)} ${(c - r * 0.05).toFixed(1)}" />
+      <path class="sphere-rim sphere-rim-emerald" d="M${(c - r * 0.9).toFixed(1)} ${(c + r * 0.2).toFixed(1)} A${r} ${r} 0 0 0 ${(c + r * 0.18).toFixed(1)} ${(c + r * 0.94).toFixed(1)}" />
       <g class="sphere-rotate">${ellipses}</g>
       <path class="sphere-network sphere-network-secondary" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" />
       <path class="sphere-network" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" />
-      <path class="sphere-trace sphere-trace-a" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" pathLength="1" />
-      <path class="sphere-trace sphere-trace-b" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" pathLength="1" />
-      <g>${nodes}</g>
+      <path class="sphere-trace sphere-trace-tail sphere-trace-a" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" pathLength="1" />
+      <path class="sphere-trace sphere-trace-core sphere-trace-a" d="M${(c - r * 0.62).toFixed(1)} ${(c - r * 0.08).toFixed(1)} Q${c} ${(c - r * 0.25).toFixed(1)} ${(c + r * 0.7).toFixed(1)} ${(c - r * 0.42).toFixed(1)}" pathLength="1" />
+      <path class="sphere-trace sphere-trace-tail sphere-trace-b" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" pathLength="1" />
+      <path class="sphere-trace sphere-trace-core sphere-trace-b" d="M${(c - r * 0.28).toFixed(1)} ${(c - r * 0.7).toFixed(1)} Q${(c + r * 0.15).toFixed(1)} ${c} ${(c + r * 0.8).toFixed(1)} ${(c + r * 0.28).toFixed(1)}" pathLength="1" />
+      <g>${arrivalHalos}${nodes}</g>
     </svg>
   </div>`;
 }
