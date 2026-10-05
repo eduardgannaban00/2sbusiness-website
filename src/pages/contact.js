@@ -1,5 +1,6 @@
 const { visibleBreadcrumbs, socialLinks } = require("../partials/ui");
 const config = require("../data/site-config");
+const turnstileSiteKey = process.env.TURNSTILE_SITE_KEY || "";
 
 const crumbs = [
   { name: "Home", href: "/" },
@@ -37,8 +38,7 @@ ${visibleBreadcrumbs(crumbs)}
       </div>
     </div>
 
-    <form data-contact-form name="consultation" method="POST" data-netlify="true" netlify-honeypot="company_website_url" class="card space-y-5" novalidate>
-      <input type="hidden" name="form-name" value="consultation" />
+    <form data-contact-form class="card space-y-5" novalidate>
       <div>
         <label for="name" class="block text-sm font-head text-slate2 mb-1.5">Name <span class="text-gold">*</span></label>
         <input id="name" name="name" type="text" required maxlength="200" autocomplete="name"
@@ -110,6 +110,13 @@ ${visibleBreadcrumbs(crumbs)}
         <label for="company_website_url">Leave this field blank</label>
         <input id="company_website_url" name="company_website_url" type="text" tabindex="-1" autocomplete="off" />
       </div>
+
+      ${
+        turnstileSiteKey
+          ? `<div class="cf-turnstile" data-sitekey="${turnstileSiteKey}"></div>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>`
+          : ""
+      }
 
       <div role="status" aria-live="polite" class="hidden text-sm" data-form-status tabindex="-1"></div>
 

@@ -92,6 +92,13 @@ fs.writeFileSync(
   "utf8"
 );
 
+// Cloudflare Pages reads response-header rules from the generated _headers
+// file. Keep the source policy reviewable under src/static/.
+fs.copyFileSync(
+  path.join(__dirname, "src", "static", "_headers"),
+  path.join(distDir, "_headers")
+);
+
 // Copy brand assets (official logo derivatives) into dist/assets/brand/
 const brandSrc = path.join(__dirname, "src", "assets", "brand");
 const brandDest = path.join(distDir, "assets", "brand");

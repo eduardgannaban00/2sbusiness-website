@@ -403,23 +403,28 @@
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending\u2026";
 
-      // Netlify Forms expects a standard URL-encoded form POST (not JSON),
-      // submitted to the page the form lives on. Field length is still
-      // capped client-side as a courtesy; Netlify's own honeypot handling
-      // (via netlify-honeypot on the <form>) backs up the client-side check
-      // above.
       var formData = new FormData(form);
-      var encoded = [];
-      formData.forEach(function (value, key) {
-        encoded.push(
-          encodeURIComponent(key) + "=" + encodeURIComponent(String(value).slice(0, 2000))
-        );
+      var payload = {};
+      [
+        "name",
+        "business_name",
+        "email",
+        "phone",
+        "interest",
+        "preferred_date",
+        "preferred_time",
+        "timezone",
+        "message",
+        "company_website_url",
+      ].forEach(function (key) {
+        payload[key] = String(formData.get(key) || "");
       });
+      payload.turnstile_token = String(formData.get("cf-turnstile-response") || "");
 
-      fetch("/contact/", {
+      fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encoded.join("&"),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       })
         .then(function (res) {
           if (!res.ok) throw new Error("submission_failed");

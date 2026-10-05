@@ -16,7 +16,7 @@ ${visibleBreadcrumbs(crumbs)}
     <div class="space-y-8 text-slate2 leading-relaxed">
       <div>
         <h2 class="text-xl font-head font-bold text-ink mb-2">Information we collect</h2>
-        <p>When you submit the consultation request form on this website, we collect the information you provide: your name, business name, email address, website (if provided), industry, what you've identified as time-consuming in your business, and any optional process description you include.</p>
+        <p>When you submit the consultation request form, we collect the information you provide: your name, business name, email address, optional phone number, service interest, preferred consultation date and time, timezone, and any optional message.</p>
       </div>
 
       <div>
@@ -26,7 +26,7 @@ ${visibleBreadcrumbs(crumbs)}
 
       <div>
         <h2 class="text-xl font-head font-bold text-ink mb-2">Third-party processors</h2>
-        <p>We use third-party service providers to operate parts of this website, such as delivering form submissions and hosting analytics. We do not sell or share the information you submit with third parties for their own marketing purposes.</p>
+        <p>We use service providers to host the website, protect the form from abuse, and deliver inquiry notifications by email. These providers process information only as needed to provide those services. We do not sell submitted inquiry information or share it with third parties for their own marketing purposes.</p>
       </div>
 
       <div>

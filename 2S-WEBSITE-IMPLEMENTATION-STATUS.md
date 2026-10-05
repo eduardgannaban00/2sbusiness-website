@@ -45,6 +45,56 @@ Validation completed:
   dependency tree; a major upgrade is intentionally deferred
 - Browser QA: pending; no browser automation was available
 
+## Milestone 3
+
+Milestone 3 replaces the source-level Netlify Forms dependency with a portable
+JSON `POST /api/contact` architecture. The browser now sends only the expected
+contact fields to the API. Generated contact HTML contains no `data-netlify`,
+`netlify-honeypot`, or hidden `form-name` markers.
+
+The portable core in `shared/contact-core.mjs` owns:
+
+- method, content-type, origin, payload-size, schema, length, enumeration,
+  email, calendar-date, and time validation
+- honeypot absorption and unknown-field exclusion
+- plain-text normalization and HTML-email escaping
+- fixed environment-controlled recipient and sender
+- validated Reply-To behavior and header-injection protection
+- Resend timeout, failure, and malformed-response handling
+- optional server-side Turnstile verification
+- a Cloudflare rate-limiter binding seam that fails closed when required
+- safe JSON errors without stack traces, secrets, or submitted personal data
+
+`functions/api/contact.js` is the thin Cloudflare Pages adapter. The retained
+`functions/contact.js` is a clearly labeled legacy Netlify rollback adapter
+using the same core. It can be removed after Cloudflare cutover, delivery
+verification, monitoring, and the rollback window.
+
+Configuration is documented in `.env.example` and `CLOUDFLARE-MIGRATION.md`.
+Production requires Resend secrets, exact allowed origins, a verified sender,
+Turnstile keys, and a `CONTACT_RATE_LIMITER` Cloudflare binding. No real values
+were configured in this milestone.
+
+Cloudflare response headers are generated from `src/static/_headers`, including
+CSP, HSTS, frame protection, MIME sniffing protection, referrer policy, and a
+restrictive permissions policy. CSP allows the existing Google Fonts and the
+prepared Turnstile integration; rendered verification remains pending.
+
+Milestone 3 validation:
+
+- `npm ci`: PASS
+- Contact/security/frontend/adapter checks: 44 passed
+- ROI checks: 37 passed
+- Demo registry and verifier regression suites: PASS
+- `npm run build`: PASS — 27 routes
+- `npm run verify`: PASS — 0 errors, 0 warnings, 0 dead links
+- Generated replacement contact HTML has no Netlify Forms markers
+- Secrets and UTF-8 scans: PASS
+- Generated source maps: none
+- `npm audit`: 5 known high findings in the Tailwind 3 development dependency
+  tree; the required major upgrade remains deferred
+- Browser QA: pending; browser automation was unavailable
+
 Repair commit: recorded after final validation. The build now succeeds after
 `npm ci`, generates all 26 routes, and copies browser assets through Node-based
 file operations. The verifier now normalizes both Windows and POSIX paths.
@@ -63,13 +113,14 @@ Validation completed:
 
 ## Remaining work
 
-- P0: migrate the contact form away from Netlify Forms in a later milestone.
+- P0: configure and preview-test Cloudflare, Resend, Turnstile, and the native
+  rate-limiter binding before production cutover.
 - P1: complete rendered browser QA and verify every technical demo endpoint.
-- P1: select and implement the target hosting architecture.
+- P1: verify CSP and contact success/failure states in the rendered preview.
 - P2: complete AEO/GEO, security hardening, and performance budgets.
 - P3: optional content, industry, and interaction polish.
 
 ## Next milestone
 
-Hosting/contact migration and final rendered QA remain explicitly out of scope
-for Milestone 2.
+Cloudflare preview deployment, controlled email delivery testing, final browser
+QA, DNS changes, and production cutover remain out of scope for Milestone 3.
