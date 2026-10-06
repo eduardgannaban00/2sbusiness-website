@@ -465,7 +465,7 @@ module.exports = {
   path: "/",
   title: "AI Automation & Business Support | 2S Business Support Service",
   description:
-    "2S builds AI assistants, automated workflows, CRM systems, and human-in-the-loop support that handle repetitive operations, follow up with leads, and keep your business moving.",
+    "2S Business Support helps service businesses automate lead follow-up, customer support, appointments, CRM workflows, and daily operations.",
   h1: "Automate the Work. Keep the Human Touch.",
   content,
   schemas: [
