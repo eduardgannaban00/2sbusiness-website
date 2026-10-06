@@ -150,7 +150,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/dental/ai-receptionist-cost-dental-practice/",
-  title: "How Much Does an AI Receptionist Cost for a Dental Practice? | 2S Business Support Service",
+  title: "How Much Does an AI Receptionist Cost for a Dental Practice?",
   description:
     "What setup, monthly, and usage-based costs to expect for a dental AI receptionist, what affects the price, and 2S's actual published starting rate.",
   h1: "How Much Does an AI Receptionist Cost for a Dental Practice?",

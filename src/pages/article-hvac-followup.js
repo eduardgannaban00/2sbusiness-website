@@ -44,7 +44,7 @@ ${visibleBreadcrumbs(crumbs)}
 module.exports = {
   path: "/resources/hvac/what-happens-when-an-hvac-lead-does-not-book-right-away/",
   title:
-    "What Happens When an HVAC Lead Doesn't Book Right Away? | 2S Business Support Service",
+    "What Happens When an HVAC Lead Doesn't Book Right Away?",
   description:
     "How structured follow-up keeps HVAC leads that don't book immediately from being forgotten.",
   h1: "What Happens When an HVAC Lead Doesn't Book Right Away?",

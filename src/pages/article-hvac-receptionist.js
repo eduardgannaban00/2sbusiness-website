@@ -115,7 +115,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/hvac/ai-receptionist-for-hvac-companies-how-it-works/",
-  title: "AI Receptionist for HVAC Companies: How It Works | 2S Business Support Service",
+  title: "AI Receptionist for HVAC Companies: How It Works",
   description:
     "How an AI receptionist handles HVAC calls \u2014 the workflow, inquiry types, what it should never decide, and how integration and failures are handled.",
   h1: "AI Receptionist for HVAC Companies: How It Works",

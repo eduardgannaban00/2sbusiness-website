@@ -58,7 +58,7 @@ ${visibleBreadcrumbs(crumbs)}
 module.exports = {
   path: "/resources/dental/how-ai-receptionists-handle-after-hours-dental-inquiries/",
   title:
-    "How AI Receptionists Handle After-Hours Dental Inquiries | 2S Business Support Service",
+    "How AI Receptionists Handle After-Hours Dental Inquiries",
   description:
     "How an AI receptionist answers routine dental practice questions, guides booking requests, and hands off to your team after hours.",
   h1: "How AI Receptionists Handle After-Hours Dental Inquiries",

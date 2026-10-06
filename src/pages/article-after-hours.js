@@ -57,7 +57,7 @@ ${visibleBreadcrumbs(crumbs)}
 module.exports = {
   path: "/resources/roofing/how-ai-follows-up-roofing-leads-after-hours/",
   title:
-    "How AI Can Follow Up With Roofing Leads After Hours | 2S Business Support Service",
+    "How AI Can Follow Up With Roofing Leads After Hours",
   description:
     "What happens when a roofing inquiry comes in after hours, and how AI-assisted acknowledgment and qualification keep the lead from going cold overnight.",
   h1: "How AI Can Follow Up With Roofing Leads After Hours",

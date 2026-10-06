@@ -128,7 +128,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/roofing/what-happens-when-a-roofing-lead-is-not-contacted-quickly/",
-  title: "What Happens When a Roofing Lead Is Not Contacted Quickly? | 2S Business Support Service",
+  title: "What Happens When a Roofing Lead Is Not Contacted Quickly?",
   description:
     "The practical consequences of delayed roofing lead follow-up, and the difference between a fast response and a genuinely useful one.",
   h1: "What Happens When a Roofing Lead Is Not Contacted Quickly?",

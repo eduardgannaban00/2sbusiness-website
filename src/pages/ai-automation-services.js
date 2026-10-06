@@ -98,7 +98,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/ai-automation-services/",
-  title: "AI Automation Services (AI Assistants + n8n) | 2S Business Support Service",
+  title: "AI Automation Services for Service Businesses",
   description:
     "AI assistants, AI agents, and n8n workflow automation that respond to leads, update your CRM, and follow up automatically \u2014 with human escalation built in.",
   h1: "AI assistants, AI agents, and n8n workflow automation",

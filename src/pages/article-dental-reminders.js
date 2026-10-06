@@ -116,7 +116,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/dental/dental-appointment-reminder-automation/",
-  title: "How Dental Appointment Reminder Automation Works | 2S Business Support Service",
+  title: "How Dental Appointment Reminder Automation Works",
   description:
     "How automated appointment reminders work for dental practices \u2014 the workflow, what happens in each scenario, implementation, and privacy considerations.",
   h1: "How Dental Appointment Reminder Automation Works",

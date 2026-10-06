@@ -107,7 +107,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/hvac/how-ai-follows-up-with-hvac-leads-after-hours/",
-  title: "How AI Can Follow Up With HVAC Leads After Hours | 2S Business Support Service",
+  title: "How AI Can Follow Up With HVAC Leads After Hours",
   description:
     "How after-hours HVAC calls can be acknowledged, qualified, and routed \u2014 what automation handles, what stays with staff, and how failures are managed.",
   h1: "How AI Can Follow Up With HVAC Leads After Hours",

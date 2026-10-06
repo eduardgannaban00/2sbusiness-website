@@ -144,7 +144,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/roofing/roofing-crm-and-lead-follow-up-automation-explained/",
-  title: "Roofing CRM and Lead Follow-Up Automation Explained | 2S Business Support Service",
+  title: "Roofing CRM and Lead Follow-Up Automation Explained",
   description:
     "What a CRM does in a roofing lead pipeline, how automation connects to each stage, and why stopping conditions and manual override matter.",
   h1: "Roofing CRM and Lead Follow-Up Automation Explained",

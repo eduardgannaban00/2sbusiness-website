@@ -138,7 +138,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/dental/ai-receptionist-vs-traditional-receptionist-dentists/",
-  title: "AI Receptionist vs Traditional Receptionist for Dentists | 2S Business Support Service",
+  title: "AI Receptionist vs Traditional Receptionist for Dentists",
   description:
     "A task-by-task comparison of what an AI receptionist and a human receptionist are each better at, with a hybrid model in mind.",
   h1: "AI Receptionist vs Traditional Receptionist for Dentists",

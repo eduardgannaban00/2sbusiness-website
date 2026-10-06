@@ -43,7 +43,7 @@ ${visibleBreadcrumbs(crumbs)}
 module.exports = {
   path: "/resources/roofing/what-happens-when-roofing-ai-doesnt-know-the-answer/",
   title:
-    "What Happens When a Roofing AI Assistant Doesn't Know the Answer? | 2S Business Support Service",
+    "What Happens When a Roofing AI Assistant Doesn't Know the Answer?",
   description:
     "How escalation and human handoff work when a roofing AI assistant reaches the edge of its approved scope.",
   h1: "What Happens When a Roofing AI Assistant Doesn't Know the Answer?",

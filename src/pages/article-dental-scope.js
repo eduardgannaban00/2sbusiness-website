@@ -73,7 +73,7 @@ ${visibleBreadcrumbs(crumbs)}
 module.exports = {
   path: "/resources/dental/what-a-dental-ai-receptionist-should-and-should-not-answer/",
   title:
-    "What a Dental AI Receptionist Should — and Should Not — Answer | 2S Business Support Service",
+    "What a Dental AI Receptionist Should — and Should Not — Answer",
   description:
     "Where administrative dental front-desk automation ends and clinical advice begins, and when a conversation should escalate to your team.",
   h1: "What a Dental AI Receptionist Should — and Should Not — Answer",

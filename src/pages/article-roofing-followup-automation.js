@@ -127,7 +127,7 @@ ${visibleBreadcrumbs(crumbs)}
 
 module.exports = {
   path: "/resources/roofing/how-roofing-companies-can-automate-lead-follow-up/",
-  title: "How Roofing Companies Can Automate Lead Follow-Up | 2S Business Support Service",
+  title: "How Roofing Companies Can Automate Lead Follow-Up",
   description:
     "A realistic workflow for automating roofing lead follow-up \u2014 lead sources, what to automate, what stays human, and operational details like opt-outs and duplicates.",
   h1: "How Roofing Companies Can Automate Lead Follow-Up",
