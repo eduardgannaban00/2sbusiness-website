@@ -36,6 +36,18 @@ const faq = faqAccordion(
       q: "When does a human get involved?",
       a: "Automation handles repetitive, well-defined steps. A person becomes involved for exceptions, complex questions, and anything requiring judgment \u2014 the workflow is designed to escalate rather than guess.",
     },
+    {
+      q: "How long does implementation take?",
+      a: "Implementation timelines depend on your workflow, integrations, access and approval readiness, data migration, testing, and security requirements. 2S reviews the scope before confirming a delivery schedule.",
+    },
+    {
+      q: "What happens after an automation workflow launches?",
+      a: "Initial setup, testing, and launch are separate from ongoing monitoring, troubleshooting, maintenance, new features, and additional integrations. What happens after launch depends on the support package or custom scope agreed for the engagement.",
+    },
+    {
+      q: "Are third-party software subscriptions included?",
+      a: "Not automatically. AI usage, CRM, telephony, messaging, calendar, and other third-party costs may be separate. Any required subscriptions or usage-based costs should be explained before implementation.",
+    },
   ],
   `${config.url}/ai-automation-services/`
 );
@@ -79,6 +91,37 @@ ${visibleBreadcrumbs(crumbs)}
       <p class="font-head font-bold text-ink mb-2">Human involvement</p>
       <p class="text-slate2 text-sm leading-relaxed">Exceptions, complex or sensitive conversations, and quality control remain with your team. Automation handles the repetitive steps in between.</p>
     </div>
+  </div>
+</section>
+
+<section data-reveal class="section bg-obsidian/40">
+  <div class="container-content">
+    <h2 class="text-2xl md:text-3xl mb-4">A practical implementation process</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">The exact engagement varies by scope, but a useful implementation usually moves through these stages:</p>
+    <div data-reveal-group class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="card"><p class="font-head font-bold text-ink mb-2">1. Discovery</p><p class="text-slate2 text-sm leading-relaxed">Understand the current workflow, requirements, tools, and constraints.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">2. Workflow design</p><p class="text-slate2 text-sm leading-relaxed">Define tasks, integrations, approvals, exceptions, and handoff points.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">3. Setup and testing</p><p class="text-slate2 text-sm leading-relaxed">Configure the approved systems and test realistic scenarios before launch.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">4. Launch</p><p class="text-slate2 text-sm leading-relaxed">Activate the approved workflow after validation and agreed readiness checks.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">5. Monitor and improve</p><p class="text-slate2 text-sm leading-relaxed">Review issues and refine the workflow according to the agreed support scope.</p></div>
+    </div>
+    <p class="text-muted text-sm leading-relaxed max-w-2xl mt-6">This is an illustrative process, not a promise that every engagement includes the same steps or delivery schedule.</p>
+  </div>
+</section>
+
+<section data-reveal class="section">
+  <div class="container-content">
+    <h2 class="text-2xl md:text-3xl mb-4">How connected tools fit together</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">A workflow can connect the systems a business already uses, but each connection needs to be checked against the tool's access, API, subscription, and business rules.</p>
+    <div data-reveal-group class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card"><p class="font-head font-bold text-ink mb-2">CRM</p><p class="text-slate2 text-sm leading-relaxed">GoHighLevel is a core 2S capability. Other compatible CRMs can be considered after reviewing their access and integration options.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Workflow orchestration</p><p class="text-slate2 text-sm leading-relaxed">n8n, APIs, and webhooks can move approved information between systems. Other tools such as Make require technical validation for the specific workflow.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Scheduling</p><p class="text-slate2 text-sm leading-relaxed">Calendars and booking systems may support availability checks, requests, reminders, or confirmations when a compatible connection is available.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Messaging</p><p class="text-slate2 text-sm leading-relaxed">Email, SMS, and other approved channels may be used for responses and follow-up, subject to provider access, consent, and usage costs.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Telephony</p><p class="text-slate2 text-sm leading-relaxed">Compatible calling or receptionist providers can be evaluated for voice workflows, routing, and human handoff.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Business operations</p><p class="text-slate2 text-sm leading-relaxed">Forms, spreadsheets, reporting, and approved external services can be included when their role, access, and data handling are understood.</p></div>
+    </div>
+    <p class="text-muted text-sm leading-relaxed max-w-2xl mt-6">Public demos show illustrative workflows, not automatic compatibility with every tool or a guarantee that a connection will be included in a package.</p>
   </div>
 </section>
 
