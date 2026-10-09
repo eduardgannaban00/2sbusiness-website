@@ -37,6 +37,24 @@ const canonicals = new Set();
 const inbound = new Map([...routeSet].map((route) => [route, 0]));
 const pricingHtml = routes.get("/pricing/");
 assert.ok(pricingHtml, "pricing route must be generated");
+const homepageHtml = routes.get("/");
+const aboutHtml = routes.get("/about/");
+assert.ok(homepageHtml && aboutHtml, "homepage and About routes must be generated");
+const organizationSchemas = [...homepageHtml.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+  .map((match) => JSON.parse(match[1]))
+  .filter((schema) => schema["@type"] === "Organization");
+assert.strictEqual(organizationSchemas.length, 1, "homepage must contain exactly one Organization schema");
+const organization = organizationSchemas[0];
+assert.strictEqual(organization.name, config.entityName, "Organization name must use the official business name");
+assert.strictEqual(organization.email, config.contactEmail, "Organization email must use the public contact email");
+assert.strictEqual(organization.logo, `${config.url}${config.logo.footer}`, "Organization logo must use the official public logo");
+assert.strictEqual(organization.founder["@type"], "Person", "Organization founder must be a Person");
+assert.strictEqual(organization.founder.name, config.founder.name, "Organization founder name must match config");
+assert.strictEqual(organization.founder.url, config.founder.url, "Organization founder URL must match the verified profile");
+assert.deepStrictEqual(organization.sameAs, [config.social.facebook, config.social.instagram], "Organization sameAs must contain official business profiles only");
+assert.ok(!organization.sameAs.includes(config.social.linkedin), "founder LinkedIn must not be represented as the company sameAs profile");
+assert.ok(aboutHtml.includes(`Founded by <a href="${config.founder.url}"`), "About page must visibly identify the founder");
+assert.ok(aboutHtml.includes(config.founder.name), "About page founder name must match config");
 for (const stalePrice of ["From $999", "From $999 setup + $399/mo", "From $899/mo", "$399/mo", "$899/mo"]) {
   assert.ok(!pricingHtml.includes(stalePrice), `pricing page contains stale custom price ${stalePrice}`);
 }

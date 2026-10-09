@@ -17,6 +17,7 @@ ${visibleBreadcrumbs(crumbs)}
     <p class="eyebrow mb-4">About</p>
     <h1 class="text-4xl md:text-5xl mb-6">About 2S Business Support Service</h1>
     <p class="text-slate2 text-lg leading-relaxed mb-6">2S Business Support Service builds AI assistants, workflow automation, CRM systems, and human-in-the-loop support for small and growing service businesses. The goal is a practical Business OS made from the modules that fit—not a one-size-fits-all bundle.</p>
+    <p class="text-slate2 leading-relaxed mb-6">Founded by <a href="${config.founder.url}" target="_blank" rel="noopener noreferrer" class="link-inline">${config.founder.name}</a>, 2S Business Support Service helps service businesses simplify repetitive operations through practical automation, connected systems, and reliable human support.</p>
     <p class="text-slate2 leading-relaxed mb-6">Our approach starts from a simple principle: automate what machines do well \u2014 repetitive, well-defined, high-volume work \u2014 and keep people involved where judgment, exceptions, and quality matter. We'd rather build a smaller number of workflows that actually hold up in daily use than a long feature list that looks impressive and doesn't get used.</p>
     <p class="text-slate2 leading-relaxed">We started by validating this approach deeply in roofing, and have since expanded the same underlying systems into dental and HVAC \u2014 with more industries planned as each vertical proves out.</p>
   </div>

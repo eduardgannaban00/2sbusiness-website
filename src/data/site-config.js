@@ -1,6 +1,10 @@
 module.exports = {
   entityName: "2S Business Support Service",
   url: "https://2sbusinesssupport.com",
+  founder: {
+    name: "Eduard Gannaban",
+    url: "https://www.linkedin.com/in/aiseduardgannaban",
+  },
   tagline: "Smart Automation. Reliable Support. Real Results.",
   category: "AI automation and business operations service provider",
   capabilities: [
