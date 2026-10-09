@@ -16,6 +16,7 @@ ${visibleBreadcrumbs(crumbs)}
       <h1 class="text-4xl md:text-5xl mb-6">Request a Free Consultation</h1>
       <p class="text-slate2 text-lg leading-relaxed mb-6">Tell us a bit about what you need. We'll review it and follow up to confirm a time \u2014 no pressure, no obligation.</p>
       <p class="text-muted text-sm mb-6">We typically respond within a few business days. Response times are not guaranteed for every inquiry.</p>
+      <p class="text-slate2 text-sm mb-6">Prefer to choose a time now? <a href="/book/" class="link-inline">Book a consultation</a> through Google Calendar.</p>
 
       <!-- Populated only if the visitor arrived from a /pricing/ category button -->
       <p class="hidden text-sm text-emerald2 mb-4" data-consult-category-note></p>

@@ -17,7 +17,7 @@ const pages = [
   require("./src/pages/article-dental-comparison"), require("./src/pages/article-dental-reminders"),
   require("./src/pages/article-hvac-after-hours"), require("./src/pages/article-hvac-receptionist"),
   require("./src/pages/article-hvac-crm-explained"), require("./src/pages/article-hvac-followup"),
-  require("./src/pages/about"), require("./src/pages/contact"), require("./src/pages/privacy"),
+  require("./src/pages/about"), require("./src/pages/contact"), require("./src/pages/book"), require("./src/pages/privacy"),
 ];
 
 const distDir = path.join(__dirname, "dist");

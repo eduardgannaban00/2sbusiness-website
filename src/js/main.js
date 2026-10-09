@@ -5,6 +5,28 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+  /* ---------- Booking context ----------
+     Keep future attribution limited to known, non-personal values. The
+     approved Google booking URL is never modified with visitor data. */
+  var bookingLink = document.querySelector("[data-booking-link]");
+  if (bookingLink) {
+    var allowedBookingValues = {
+      source: ["homepage", "pricing", "industry", "demo", "resource", "contact"],
+      demo: ["dental", "hvac", "roofing", "crm", "support", "appointments", "quotes", "reviews", "onboarding", "businessos", "hr", "leads"],
+      industry: ["dental", "hvac", "roofing"],
+      category: ["BUILD", "AUTOMATE", "SUPPORT_SCALE"],
+    };
+    var bookingContext = {};
+    new URLSearchParams(window.location.search).forEach(function (value, key) {
+      if (allowedBookingValues[key] && allowedBookingValues[key].indexOf(value) !== -1) {
+        bookingContext[key] = value;
+      }
+    });
+    if (Object.keys(bookingContext).length) {
+      bookingLink.setAttribute("data-booking-context", JSON.stringify(bookingContext));
+    }
+  }
+
   /* ---------- Nav scroll state ---------- */
   var navEl = document.querySelector("[data-nav]");
   if (navEl) {

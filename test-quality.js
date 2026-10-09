@@ -27,7 +27,7 @@ function match(html, expression, message) {
 
 const files = walk(dist);
 const htmlFiles = files.filter((file) => path.basename(file) === "index.html");
-assert.strictEqual(htmlFiles.length, 29, "release candidate must contain exactly 29 routes");
+assert.strictEqual(htmlFiles.length, 30, "release candidate must contain the 29 existing routes plus /book/");
 
 const routes = new Map(htmlFiles.map((file) => [webPath(file), fs.readFileSync(file, "utf8")]));
 const routeSet = new Set(routes.keys());
@@ -39,7 +39,10 @@ const pricingHtml = routes.get("/pricing/");
 assert.ok(pricingHtml, "pricing route must be generated");
 const homepageHtml = routes.get("/");
 const aboutHtml = routes.get("/about/");
-assert.ok(homepageHtml && aboutHtml, "homepage and About routes must be generated");
+const bookingHtml = routes.get("/book/");
+assert.ok(homepageHtml && aboutHtml && bookingHtml, "homepage, About, and booking routes must be generated");
+assert.ok(bookingHtml.includes("https://calendar.app.google/5qgdXS8GEKUd2L1dA"), "booking page must use the approved Google Calendar URL");
+assert.ok(bookingHtml.includes("Choose an Available Time"), "booking page must include the availability CTA");
 const organizationSchemas = [...homepageHtml.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
   .map((match) => JSON.parse(match[1]))
   .filter((schema) => schema["@type"] === "Organization");
@@ -159,4 +162,4 @@ for (const asset of ["assets/styles.css", "assets/main.js", "assets/roi-formulas
   assert.ok(fs.existsSync(path.join(dist, asset)), `missing release asset ${asset}`);
 }
 
-console.log("PASS  release quality: 29 routes, metadata, links, schemas, accessibility hooks, sitemap, llms.txt, demos, contact, secrets, and artifacts");
+console.log("PASS  release quality: 30 routes (29 existing + /book/), metadata, links, schemas, accessibility hooks, sitemap, llms.txt, demos, contact, secrets, and artifacts");
