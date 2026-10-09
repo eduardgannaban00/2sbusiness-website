@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Local experiment: metric-compatible system fallbacks used only while the
+   approved Google fonts are loading. Values are based on Chrome canvas font
+   metrics measured against the current Inter and Space Grotesk assets. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  font-weight: 400;
+  size-adjust: 107.05%;
+  ascent-override: 100%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  font-weight: 500;
+  size-adjust: 108.72%;
+  ascent-override: 100%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  font-weight: 600;
+  size-adjust: 101.64%;
+  ascent-override: 100%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Space Grotesk Fallback";
+  src: local("Arial");
+  font-weight: 500;
+  size-adjust: 111.53%;
+  ascent-override: 96.875%;
+  descent-override: 28.125%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Space Grotesk Fallback";
+  src: local("Arial");
+  font-weight: 700;
+  size-adjust: 100.29%;
+  ascent-override: 97.917%;
+  descent-override: 29.167%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -20,10 +69,12 @@
   }
   body {
     @apply bg-charcoal text-ink font-body antialiased;
+    font-family: "Inter", "Inter Fallback", sans-serif;
     background: #080B0B;
   }
   h1, h2, h3, h4 {
     @apply font-head font-bold tracking-tight;
+    font-family: "Space Grotesk", "Space Grotesk Fallback", sans-serif;
   }
   a {
     @apply transition-colors duration-200;
