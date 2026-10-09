@@ -27,7 +27,7 @@ function match(html, expression, message) {
 
 const files = walk(dist);
 const htmlFiles = files.filter((file) => path.basename(file) === "index.html");
-assert.strictEqual(htmlFiles.length, 27, "release candidate must contain exactly 27 routes");
+assert.strictEqual(htmlFiles.length, 29, "release candidate must contain exactly 29 routes");
 
 const routes = new Map(htmlFiles.map((file) => [webPath(file), fs.readFileSync(file, "utf8")]));
 const routeSet = new Set(routes.keys());
@@ -135,6 +135,10 @@ const llms = fs.readFileSync(path.join(dist, "llms.txt"), "utf8");
 for (const route of ["/services/", "/pricing/", "/demos/", "/industries/", "/resources/", "/contact/", "/privacy/"]) {
   assert.ok(llms.includes(`${config.url}${route}`), `llms.txt missing ${route}`);
 }
+for (const route of ["/industries/dental/", "/industries/hvac/"]) {
+  assert.ok(routeSet.has(route), `missing industry route ${route}`);
+  assert.ok(llms.includes(`${config.url}${route}`), `llms.txt missing ${route}`);
+}
 assert.ok(llms.includes(config.contactEmail), "llms.txt missing public contact email");
 assert.ok(llms.includes("not client case studies"), "llms.txt missing demo disclosure");
 
@@ -155,4 +159,4 @@ for (const asset of ["assets/styles.css", "assets/main.js", "assets/roi-formulas
   assert.ok(fs.existsSync(path.join(dist, asset)), `missing release asset ${asset}`);
 }
 
-console.log("PASS  release quality: 27 routes, metadata, links, schemas, accessibility hooks, sitemap, llms.txt, demos, contact, secrets, and artifacts");
+console.log("PASS  release quality: 29 routes, metadata, links, schemas, accessibility hooks, sitemap, llms.txt, demos, contact, secrets, and artifacts");

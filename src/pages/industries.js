@@ -24,14 +24,14 @@ ${visibleBreadcrumbs(crumbs)}
         <p class="text-slate2 text-sm leading-relaxed">AI-assisted lead response, follow-up automation, and CRM workflows built around how roofing companies actually operate.</p>
         <span class="link-inline text-sm inline-block mt-4">See roofing automation &rarr;</span>
       </a>
-      <a href="/about/#dental-demo" class="card block hover:border-gold/40">
+      <a href="/industries/dental/" class="card block hover:border-gold/40">
         <p class="font-head font-bold text-ink text-lg mb-2">Dental</p>
-        <p class="text-slate2 text-sm leading-relaxed">An AI receptionist for common practice questions and booking-related inquiries \u2014 with a live demo and guides on where it should and shouldn't answer.</p>
-        <span class="link-inline text-sm inline-block mt-4">Try the demo &rarr;</span>
+        <p class="text-slate2 text-sm leading-relaxed">Administrative AI reception, appointment requests, reminders, and after-hours communication \u2014 with clear clinical boundaries.</p>
+        <span class="link-inline text-sm inline-block mt-4">See dental automation &rarr;</span>
       </a>
-      <a href="/resources/hvac/how-ai-follows-up-with-hvac-leads-after-hours/" class="card block hover:border-gold/40">
+      <a href="/industries/hvac/" class="card block hover:border-gold/40">
         <p class="font-head font-bold text-ink text-lg mb-2">HVAC</p>
-        <p class="text-slate2 text-sm leading-relaxed">After-hours lead response and structured follow-up so no-heat and no-cooling calls don't go cold before someone calls back.</p>
+        <p class="text-slate2 text-sm leading-relaxed">AI receptionist, missed-call recovery, follow-up, and scheduling workflows with human escalation for urgent or uncertain requests.</p>
         <span class="link-inline text-sm inline-block mt-4">See HVAC automation &rarr;</span>
       </a>
     </div>

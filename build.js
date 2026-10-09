@@ -7,7 +7,8 @@ const { demos } = require("./src/data/demo-registry");
 const pages = [
   require("./src/pages/index"), require("./src/pages/services"), require("./src/pages/pricing"),
   require("./src/pages/demos"), require("./src/pages/ai-automation-services"), require("./src/pages/industries"),
-  require("./src/pages/industries-roofing"), require("./src/pages/ai-assistant-roofing"),
+  require("./src/pages/industries-roofing"), require("./src/pages/industries-dental"), require("./src/pages/industries-hvac"),
+  require("./src/pages/ai-assistant-roofing"),
   require("./src/pages/roofing-lead-follow-up"), require("./src/pages/resources"),
   require("./src/pages/article-after-hours"), require("./src/pages/article-doesnt-know"),
   require("./src/pages/article-roofing-followup-automation"), require("./src/pages/article-roofing-delayed-contact"),

@@ -32,6 +32,7 @@ ${visibleBreadcrumbs(crumbs)}
 
     <div class="border-t border-gold/10 pt-8 mt-10">
       <p class="text-slate2 mb-4">Related reading and next steps.</p>
+      <a href="/industries/hvac/" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">See HVAC AI Receptionist &amp; Lead Follow-Up Automation &rarr;</a>
       <a href="/resources/hvac/how-ai-follows-up-with-hvac-leads-after-hours/" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">How AI Can Follow Up With HVAC Leads After Hours &rarr;</a>
       <a href="/resources/hvac/hvac-lead-follow-up-automation-explained/" class="link-inline text-sm block mb-2">HVAC Lead Follow-Up Automation Explained &rarr;</a>
       <a href="/ai-automation-services/" class="link-inline text-sm block mb-6">See AI Automation Services &rarr;</a>

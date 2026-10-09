@@ -44,7 +44,7 @@ const categories = [
         href: "/resources/dental/what-a-dental-ai-receptionist-should-and-should-not-answer/",
       },
     ],
-    footerLink: { href: "/about/#dental-demo", label: "Try the Dental AI Receptionist demo" },
+    footerLink: { href: "/industries/dental/", label: "See Dental AI Receptionist & Appointment Automation" },
   },
   {
     label: "Roofing Automation",

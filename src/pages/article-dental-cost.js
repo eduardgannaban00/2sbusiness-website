@@ -140,6 +140,7 @@ ${visibleBreadcrumbs(crumbs)}
     ${related}
 
     <div class="border-t border-gold/10 pt-8 mt-10">
+      <a href="/industries/dental/" class="link-inline text-sm block mb-2">See Dental AI Receptionist &amp; Appointment Automation &rarr;</a>
       <a href="${getPublicDemoUrl("dental")}" target="_blank" rel="noopener noreferrer" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">Try the Dental AI Receptionist demo &rarr;</a>
       <a href="/pricing/" class="link-inline text-sm block mb-6">See full 2S pricing &rarr;</a>
       <a href="/contact/" class="btn-primary" data-cta="article-dental-cost">${config.ctaPrimary}</a>

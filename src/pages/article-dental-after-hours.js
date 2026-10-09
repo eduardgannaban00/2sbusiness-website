@@ -46,6 +46,7 @@ ${visibleBreadcrumbs(crumbs)}
 
     <div class="border-t border-gold/10 pt-8 mt-10">
       <p class="text-slate2 mb-4">See this in action, or learn where the line is drawn.</p>
+      <a href="/industries/dental/" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">See Dental AI Receptionist &amp; Appointment Automation &rarr;</a>
       <a href="/about/#dental-demo" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">Try the Dental AI Receptionist demo &rarr;</a>
       <a href="/resources/dental/what-a-dental-ai-receptionist-should-and-should-not-answer/" class="link-inline text-sm block mb-2">What a Dental AI Receptionist Should \u2014 and Should Not \u2014 Answer &rarr;</a>
       <a href="/resources/dental/ai-receptionist-cost-dental-practice/" class="link-inline text-sm block mb-6">How Much Does an AI Receptionist Cost for a Dental Practice? &rarr;</a>

@@ -45,8 +45,8 @@ const industries = industrySelector([
     description:
       "A simple example of how our Dental AI Receptionist works, from an incoming call to a confirmed, tracked appointment.",
     steps: ["Incoming Call", "AI Receptionist", "FAQ / Qualification", "Appointment", "Reminder", "CRM / Staff Notification"],
-    linkHref: "/about/#dental-demo",
-    linkLabel: "Try the Dental AI Demo",
+    linkHref: "/industries/dental/",
+    linkLabel: "See Dental Automation",
   },
   {
     id: "roofing",
@@ -65,7 +65,7 @@ const industries = industrySelector([
     description:
       "How an HVAC company responds immediately to a missed call or web lead, even after hours.",
     steps: ["Missed Call / Form Lead", "Immediate AI Response", "Service Qualification", "Booking", "Reminder", "CRM Update"],
-    linkHref: "/resources/hvac/how-ai-follows-up-with-hvac-leads-after-hours/",
+    linkHref: "/industries/hvac/",
     linkLabel: "See HVAC Automation",
   },
   {

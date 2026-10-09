@@ -61,6 +61,7 @@ ${visibleBreadcrumbs(crumbs)}
 
     <div class="border-t border-gold/10 pt-8 mt-10">
       <p class="text-slate2 mb-4">See this scope in practice.</p>
+      <a href="/industries/dental/" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">See Dental AI Receptionist &amp; Appointment Automation &rarr;</a>
       <a href="/about/#dental-demo" data-nav-event="resource_to_service_nav" class="link-inline text-sm block mb-2">Try the Dental AI Receptionist demo &rarr;</a>
       <a href="/resources/dental/how-ai-receptionists-handle-after-hours-dental-inquiries/" class="link-inline text-sm block mb-2">How AI Receptionists Handle After-Hours Dental Inquiries &rarr;</a>
       <a href="/resources/dental/ai-receptionist-vs-traditional-receptionist-dentists/" class="link-inline text-sm block mb-6">AI Receptionist vs Traditional Receptionist for Dentists &rarr;</a>

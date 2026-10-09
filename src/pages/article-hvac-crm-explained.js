@@ -107,6 +107,7 @@ ${visibleBreadcrumbs(crumbs)}
     ${related}
 
     <div class="border-t border-gold/10 pt-8 mt-10">
+      <a href="/industries/hvac/" class="link-inline text-sm block mb-2">See HVAC AI Receptionist &amp; Lead Follow-Up Automation &rarr;</a>
       <a href="/ai-automation-services/" class="link-inline text-sm block mb-6">See AI Automation Services &rarr;</a>
       <a href="/contact/" class="btn-primary" data-cta="article-hvac-followup-explained">${config.ctaPrimary}</a>
     </div>
