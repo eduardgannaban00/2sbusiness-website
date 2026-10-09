@@ -33,6 +33,22 @@ const faq = faqAccordion(
       a: "n8n is a workflow automation tool that connects different systems (forms, CRMs, calendars, messaging platforms) so information moves between them automatically, based on rules you define.",
     },
     {
+      q: "Can AI automation work with my existing CRM?",
+      a: "Often, yes. 2S reviews your CRM's available integrations, APIs, permissions, and current process before deciding what can connect safely. GoHighLevel is one of the CRM platforms 2S works with, but the right setup depends on your actual tools and workflow.",
+    },
+    {
+      q: "Do I need to replace my existing software?",
+      a: "Not necessarily. Many workflows can connect tools you already use through supported integrations, APIs, or webhooks. Replacement is considered only when the current system cannot support the workflow or creates avoidable complexity.",
+    },
+    {
+      q: "Can AI automate lead follow-up and appointment booking?",
+      a: "Yes, when the required forms, CRM, calendar, and messaging tools can be connected. A workflow can capture an inquiry, trigger follow-up, offer supported scheduling options, and hand exceptions to a person. Availability and confirmation rules still belong to the connected booking system.",
+    },
+    {
+      q: "Do you build custom n8n and Python workflows?",
+      a: "Yes. 2S can combine n8n, Python, APIs, webhooks, and suitable AI services when they fit the workflow. The implementation is scoped around the business process, access requirements, safeguards, and human handoffs rather than a fixed technology stack.",
+    },
+    {
       q: "When does a human get involved?",
       a: "Automation handles repetitive, well-defined steps. A person becomes involved for exceptions, complex questions, and anything requiring judgment \u2014 the workflow is designed to escalate rather than guess.",
     },
@@ -58,7 +74,23 @@ ${visibleBreadcrumbs(crumbs)}
   <div class="container-content max-w-2xl">
     <p class="eyebrow mb-4">AI Automation Services</p>
     <h1 class="text-4xl md:text-5xl mb-6">AI assistants, AI agents, and n8n workflow automation</h1>
-    <p class="text-slate2 text-lg leading-relaxed">2S builds AI-driven systems that respond to inquiries, qualify leads, update your CRM, and trigger follow-up automatically \u2014 connected through n8n workflows so information moves between your tools without manual re-entry.</p>
+    <p class="text-slate2 text-lg leading-relaxed">2S helps small and growing service businesses spend less time on repetitive tasks. We design AI automation systems that connect your existing tools, respond to customer inquiries, qualify leads, update your CRM, and trigger follow-up through n8n workflows \u2014 without assuming every decision should be automated.</p>
+    <p class="text-slate2 leading-relaxed mt-5">Depending on the workflow, that can include GoHighLevel CRM integration, AI receptionist support, Python or API connections, and human review where judgment still matters.</p>
+  </div>
+</section>
+
+<section data-reveal class="section">
+  <div class="container-content">
+    <h2 class="text-2xl md:text-3xl mb-4">What can AI automation do for a small business?</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">The useful starting point is usually a repetitive process that already happens every week. 2S maps that process, connects the systems involved, and defines what should happen automatically versus what should go to a person.</p>
+    <div data-reveal-group class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Lead follow-up automation</p><p class="text-slate2 text-sm leading-relaxed">Capture new inquiries, send timely acknowledgements, route qualified opportunities, and keep follow-up visible instead of leaving it in an inbox.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">AI receptionists</p><p class="text-slate2 text-sm leading-relaxed">Handle supported questions, collect information, guide booking-related conversations, and escalate anything sensitive or uncertain to your team.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">GoHighLevel CRM integration</p><p class="text-slate2 text-sm leading-relaxed">Connect forms, pipelines, contact records, appointment steps, and follow-up so the next action is easier to see and manage.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Client onboarding</p><p class="text-slate2 text-sm leading-relaxed">Automate information collection, reminders, notifications, and routine handoff steps after a client decides to move forward.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Custom business systems</p><p class="text-slate2 text-sm leading-relaxed">Connect the tools and rules behind your actual operation using n8n, Python, APIs, and suitable AI services where they add practical value.</p></div>
+      <div class="card"><p class="font-head font-bold text-ink mb-2">Human-in-the-loop support</p><p class="text-slate2 text-sm leading-relaxed">Keep people involved for exceptions, approvals, complex conversations, quality checks, and decisions that should not be delegated to automation.</p></div>
+    </div>
   </div>
 </section>
 
@@ -125,6 +157,19 @@ ${visibleBreadcrumbs(crumbs)}
   </div>
 </section>
 
+<section data-reveal class="section bg-obsidian/40">
+  <div class="container-content">
+    <h2 class="text-2xl md:text-3xl mb-4">Explore working examples</h2>
+    <p class="text-slate2 leading-relaxed max-w-2xl mb-8">These examples show how different workflows can fit together. They are illustrative 2S demo builds, not client case studies or guarantees of a particular implementation.</p>
+    <div data-reveal-group class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="/demos/" class="card block hover:border-gold/40"><p class="font-head font-bold text-ink mb-2">Business automation demos</p><p class="text-slate2 text-sm leading-relaxed">Browse lead, booking, CRM, support, and Business OS examples.</p><span class="link-inline text-sm inline-block mt-4">Explore all demos &rarr;</span></a>
+      <a href="https://businessos.2sbusinesssupport.com" target="_blank" rel="noopener noreferrer" class="card block hover:border-gold/40"><p class="font-head font-bold text-ink mb-2">Business OS</p><p class="text-slate2 text-sm leading-relaxed">See how connected modules can share operational context in one illustrative workspace.</p><span class="link-inline text-sm inline-block mt-4">Open Business OS demo &rarr;</span></a>
+      <a href="https://dental.2sbusinesssupport.com" target="_blank" rel="noopener noreferrer" class="card block hover:border-gold/40"><p class="font-head font-bold text-ink mb-2">Dental AI receptionist</p><p class="text-slate2 text-sm leading-relaxed">Explore supported front-desk and booking-related conversations with clear clinical boundaries.</p><span class="link-inline text-sm inline-block mt-4">Open Dental demo &rarr;</span></a>
+      <a href="https://hvac.2sbusinesssupport.com" target="_blank" rel="noopener noreferrer" class="card block hover:border-gold/40"><p class="font-head font-bold text-ink mb-2">HVAC booking and recovery</p><p class="text-slate2 text-sm leading-relaxed">See an example of missed-call recovery, qualification, and scheduling support.</p><span class="link-inline text-sm inline-block mt-4">Open HVAC demo &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
 <section data-reveal class="section bg-obsidian/40 max-w-3xl mx-auto">
   <div class="container-content">
     <h2 class="text-2xl md:text-3xl mb-8">FAQ</h2>
@@ -134,7 +179,11 @@ ${visibleBreadcrumbs(crumbs)}
 
 <section data-reveal class="section text-center cta-aurora">
   <div class="container-content">
-    <a href="/contact/" class="btn-primary" data-cta="ai-automation-final" data-nav-event="service_to_contact_nav">${config.ctaPrimary}</a>
+    <p class="text-slate2 text-lg max-w-2xl mx-auto mb-6">Have a repetitive workflow you want to improve? Choose a time for a free 30-minute consultation, or send a general inquiry if you would rather explain the process first.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/book/" class="btn-primary" data-cta="ai-automation-booking">Book a Free Consultation</a>
+      <a href="/contact/" class="btn-secondary" data-cta="ai-automation-contact" data-nav-event="service_to_contact_nav">${config.ctaPrimary}</a>
+    </div>
   </div>
 </section>
 `;
@@ -151,11 +200,11 @@ module.exports = {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "AI Automation Services",
-      serviceType: "AI automation and workflow automation",
+      serviceType: "AI automation, n8n workflow automation, GoHighLevel CRM integration, and AI receptionist systems",
       provider: { "@type": "Organization", name: config.entityName, url: config.url },
       areaServed: "Remote",
       description:
-        "AI assistants, AI agents, and n8n workflow automation for lead response, qualification, CRM updates, and follow-up.",
+        "AI assistants, n8n workflow automation, GoHighLevel CRM integration, AI receptionist support, and custom business workflows for lead response, qualification, CRM updates, and follow-up.",
     },
     faq.schema,
   ],
