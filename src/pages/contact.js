@@ -11,7 +11,7 @@ const content = `
 ${visibleBreadcrumbs(crumbs)}
 <section data-reveal class="section pt-8">
   <div class="container-content grid md:grid-cols-2 gap-12">
-    <div>
+    <div class="min-w-0">
       <p class="eyebrow mb-4">Free Consultation</p>
       <h1 class="text-4xl md:text-5xl mb-6">Request a Free Consultation</h1>
       <p class="text-slate2 text-lg leading-relaxed mb-6">Tell us a bit about what you need. We'll review it and follow up to confirm a time \u2014 no pressure, no obligation.</p>
@@ -29,16 +29,16 @@ ${visibleBreadcrumbs(crumbs)}
         </ul>
       </div>
 
-      <div class="flex items-center gap-4 mt-6">
+      <div class="flex flex-wrap items-center gap-4 mt-6">
         <p class="text-muted text-sm">Or reach us directly:</p>
-        <a href="mailto:${config.contactEmail}" class="text-slate2 hover:text-gold text-sm">${config.contactEmail}</a>
+        <a href="mailto:${config.contactEmail}" class="min-w-0 break-all text-slate2 hover:text-gold text-sm">${config.contactEmail}</a>
       </div>
       <div class="flex items-center gap-4 mt-3">
         ${socialLinks(config.social)}
       </div>
     </div>
 
-    <form data-contact-form class="card space-y-5" novalidate>
+    <form data-contact-form class="card min-w-0 space-y-5" novalidate>
       <div>
         <label for="name" class="block text-sm font-head text-slate2 mb-1.5">Name <span class="text-gold">*</span></label>
         <input id="name" name="name" type="text" required maxlength="200" autocomplete="name"

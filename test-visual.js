@@ -5,6 +5,7 @@ const home = fs.readFileSync("dist/index.html", "utf8");
 const styles = fs.readFileSync("dist/assets/styles.css", "utf8");
 const ui = fs.readFileSync("src/partials/ui.js", "utf8");
 const nav = fs.readFileSync("src/partials/nav.js", "utf8");
+const contact = fs.readFileSync("src/pages/contact.js", "utf8");
 const atmosphere = fs.readFileSync("src/partials/atmosphere.js", "utf8");
 const css = fs.readFileSync("src/css/input.css", "utf8");
 const config = fs.readFileSync("src/data/site-config.js", "utf8");
@@ -45,6 +46,8 @@ assert.ok(nav.includes("xl:hidden") && nav.includes("md:top-20"), "mobile/tablet
 const main = fs.readFileSync("src/js/main.js", "utf8");
 assert.ok(main.includes("var mobileMenuToggle") && main.includes("var assistantToggle"), "mobile menu and assistant toggles must be independently scoped");
 assert.ok(!main.includes('var toggle = assistantRoot.querySelector'), "assistant must not overwrite the mobile menu toggle variable");
+assert.ok(contact.includes('class="min-w-0"') && contact.includes("flex flex-wrap items-center gap-4 mt-6"), "contact layout must allow the mobile column and direct-contact row to shrink or wrap");
+assert.ok(contact.includes("min-w-0 break-all text-slate2"), "contact email must wrap safely on narrow screens");
 assert.ok(fs.existsSync("src/assets/brand/footer-logo.png"), "footer logo must remain");
 
 const expectedThemes = {
