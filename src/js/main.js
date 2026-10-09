@@ -20,26 +20,30 @@
   }
 
   /* ---------- Mobile menu ---------- */
-  var toggle = document.querySelector("[data-mobile-menu-toggle]");
+  var mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
   var menu = document.querySelector("[data-mobile-menu]");
-  if (toggle && menu) {
-    var iconOpen = toggle.querySelector("[data-icon-open]");
-    var iconClose = toggle.querySelector("[data-icon-close]");
+  if (mobileMenuToggle && menu) {
+    var iconOpen = mobileMenuToggle.querySelector("[data-icon-open]");
+    var iconClose = mobileMenuToggle.querySelector("[data-icon-close]");
     var setMenuOpen = function (open) {
       menu.setAttribute("data-open", String(open));
       menu.setAttribute("aria-hidden", String(!open));
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      mobileMenuToggle.setAttribute("aria-expanded", String(open));
+      mobileMenuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       iconOpen.classList.toggle("hidden", open);
       iconClose.classList.toggle("hidden", !open);
       document.body.classList.toggle("overflow-hidden", open);
     };
-    toggle.addEventListener("click", function () {
+    mobileMenuToggle.addEventListener("click", function () {
       var opening = menu.getAttribute("data-open") !== "true";
       setMenuOpen(opening);
       if (opening) {
         var firstLink = menu.querySelector("a");
-        if (firstLink) firstLink.focus();
+        if (firstLink) {
+          window.setTimeout(function () {
+            if (menu.getAttribute("data-open") === "true") firstLink.focus();
+          }, 250);
+        }
       }
     });
     menu.querySelectorAll("a").forEach(function (link) {
@@ -47,10 +51,20 @@
         setMenuOpen(false);
       });
     });
+    document.addEventListener("click", function (e) {
+      if (
+        menu.getAttribute("data-open") === "true" &&
+        !menu.contains(e.target) &&
+        !mobileMenuToggle.contains(e.target)
+      ) {
+        setMenuOpen(false);
+        mobileMenuToggle.focus();
+      }
+    });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && menu.getAttribute("data-open") === "true") {
         setMenuOpen(false);
-        toggle.focus();
+        mobileMenuToggle.focus();
       }
       if (e.key === "Tab" && menu.getAttribute("data-open") === "true") {
         var focusable = Array.prototype.slice.call(menu.querySelectorAll("a"));
@@ -628,7 +642,7 @@
 
   var assistantRoot = document.querySelector("[data-assistant]");
   if (assistantRoot) {
-    var toggle = assistantRoot.querySelector("[data-assistant-toggle]");
+    var assistantToggle = assistantRoot.querySelector("[data-assistant-toggle]");
     var panel = assistantRoot.querySelector("[data-assistant-panel]");
     var closeBtn = assistantRoot.querySelector("[data-assistant-close]");
     var thread = assistantRoot.querySelector("[data-assistant-thread]");
@@ -668,7 +682,7 @@
     function openPanel() {
       panel.setAttribute("data-open", "true");
       panel.setAttribute("aria-hidden", "false");
-      toggle.setAttribute("aria-expanded", "true");
+      assistantToggle.setAttribute("aria-expanded", "true");
       if (!started) {
         started = true;
         renderNode("root");
@@ -681,11 +695,11 @@
     function closePanel() {
       panel.setAttribute("data-open", "false");
       panel.setAttribute("aria-hidden", "true");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.focus();
+      assistantToggle.setAttribute("aria-expanded", "false");
+      assistantToggle.focus();
     }
 
-    toggle.addEventListener("click", function () {
+    assistantToggle.addEventListener("click", function () {
       var isOpen = panel.getAttribute("data-open") === "true";
       if (isOpen) closePanel();
       else openPanel();

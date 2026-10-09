@@ -40,6 +40,11 @@ assert.ok(css.includes(".atmosphere-pricing"), "pricing atmosphere variant must 
 assert.ok(css.includes(".atmosphere-contact"), "contact dot-mesh atmosphere variant must exist");
 assert.ok(nav.includes('class="sticky top-0 z-50"'), "sticky header must be preserved");
 assert.ok(nav.includes("bg-charcoal"), "sticky header must have an opaque background");
+assert.ok(nav.includes("hidden xl:flex") && nav.includes("hidden xl:block"), "desktop navigation must wait until the tablet header can fit");
+assert.ok(nav.includes("xl:hidden") && nav.includes("md:top-20"), "mobile/tablet navigation must cover tablet widths with the correct header offset");
+const main = fs.readFileSync("src/js/main.js", "utf8");
+assert.ok(main.includes("var mobileMenuToggle") && main.includes("var assistantToggle"), "mobile menu and assistant toggles must be independently scoped");
+assert.ok(!main.includes('var toggle = assistantRoot.querySelector'), "assistant must not overwrite the mobile menu toggle variable");
 assert.ok(fs.existsSync("src/assets/brand/footer-logo.png"), "footer logo must remain");
 
 const expectedThemes = {

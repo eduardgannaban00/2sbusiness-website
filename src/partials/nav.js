@@ -27,22 +27,22 @@ function renderNav(currentPath) {
         <span class="hidden lg:block font-head font-bold text-slate2 text-sm tracking-wide leading-tight">2S <span class="text-ink">Business Support</span></span>
       </a>
 
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden xl:flex items-center gap-8">
         ${links}
       </div>
 
-      <div class="hidden md:block">
+      <div class="hidden xl:block">
         <a href="/contact/" class="btn-primary text-xs md:text-sm px-4 md:px-5 py-2.5">${config.ctaPrimary}</a>
       </div>
 
-      <button type="button" class="md:hidden text-ink p-2 -mr-2 min-w-11 min-h-11 inline-flex items-center justify-center" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <button type="button" class="xl:hidden text-ink p-2 -mr-2 min-w-11 min-h-11 inline-flex items-center justify-center" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <svg data-icon-open width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <svg data-icon-close class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-charcoal z-40 overflow-y-auto" data-open="false" data-mobile-menu aria-hidden="true">
+  <div id="mobile-menu" class="xl:hidden fixed inset-0 top-16 md:top-20 bg-charcoal z-40 overflow-y-auto" data-open="false" data-mobile-menu aria-hidden="true">
     <div class="container-content py-4">
       ${mobileLinks}
       <a href="/contact/" class="btn-primary w-full mt-6">${config.ctaPrimary}</a>
