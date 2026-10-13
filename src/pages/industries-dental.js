@@ -160,4 +160,5 @@ module.exports = {
     faq.schema,
   ],
   breadcrumbs: crumbs,
+  lastModified: "2026-10-13",
 };

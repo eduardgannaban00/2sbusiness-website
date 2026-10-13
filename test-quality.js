@@ -28,6 +28,10 @@ function match(html, expression, message) {
 const files = walk(dist);
 const htmlFiles = files.filter((file) => path.basename(file) === "index.html");
 assert.strictEqual(htmlFiles.length, 30, "release candidate must contain the 29 existing routes plus /book/");
+const notFoundHtml = fs.readFileSync(path.join(dist, "404.html"), "utf8");
+assert.ok(notFoundHtml.includes('<meta name="robots" content="noindex, nofollow">'), "404 page must be non-indexable");
+assert.ok(notFoundHtml.includes("Page not found"), "404 page must provide a useful not-found heading");
+assert.ok(!notFoundHtml.includes('rel="canonical"'), "404 page must not claim a canonical content URL");
 
 const routes = new Map(htmlFiles.map((file) => [webPath(file), fs.readFileSync(file, "utf8")]));
 const routeSet = new Set(routes.keys());

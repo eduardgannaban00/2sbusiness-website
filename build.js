@@ -42,9 +42,23 @@ pages.forEach((page) => {
   seenTitle.set(page.title, page.path);
 });
 
-const urls = pages.map((page) => `  <url><loc>${config.url}${page.path}</loc></url>`).join("\n");
-fs.writeFileSync(path.join(distDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`, "utf8");
+const sitemapUrls = pages.map((page) => {
+  const lastmod = page.lastModified ? `<lastmod>${page.lastModified}</lastmod>` : "";
+  return `  <url><loc>${config.url}${page.path}</loc>${lastmod}</url>`;
+}).join("\n");
+fs.writeFileSync(path.join(distDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`, "utf8");
 fs.writeFileSync(path.join(distDir, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${config.url}/sitemap.xml\n`, "utf8");
+
+const notFoundHtml = renderPage({
+  path: "/404.html",
+  title: "Page Not Found | 2S Business Support Service",
+  description: "The requested 2S Business Support Service page could not be found.",
+  h1: "Page not found",
+  content: `<section class="section pt-16"><div class="container-content max-w-2xl"><h1 class="text-4xl md:text-5xl mb-6">Page not found</h1><p class="text-slate2 text-lg leading-relaxed mb-8">That address does not match a published page. You can return to the homepage or explore the services and resources.</p><div class="flex flex-wrap gap-4"><a class="btn-primary" href="/">Go to homepage</a><a class="btn-secondary" href="/services/">Explore solutions</a></div></div></section>`,
+  robots: "noindex, nofollow",
+  canonical: null,
+});
+fs.writeFileSync(path.join(distDir, "404.html"), notFoundHtml, "utf8");
 
 const staticSrc = path.join(__dirname, "src", "static");
 fs.readdirSync(staticSrc, { withFileTypes: true }).forEach((entry) => {

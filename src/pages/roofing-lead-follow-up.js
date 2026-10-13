@@ -48,6 +48,7 @@ ${visibleBreadcrumbs(crumbs)}
     <h1 class="text-4xl md:text-5xl mb-6">Roofing lead follow-up automation</h1>
     <p class="text-2xl font-head font-bold text-gold mb-4">The lead already raised their hand. Don't let the follow-up disappear.</p>
     <p class="text-slate2 text-lg leading-relaxed">Automated acknowledgment, qualification, and follow-up for every roofing lead \u2014 from Facebook, your website, a referral, or a missed call \u2014 so none go cold.</p>
+    <p class="text-slate2 leading-relaxed mt-5"><strong class="text-ink">In practice, the workflow responds quickly, records the lead, follows approved follow-up steps, and hands the conversation to a person when the lead is ready to book or asks for something outside the configured process.</strong></p>
   </div>
 </section>
 
@@ -110,4 +111,5 @@ module.exports = {
     faq.schema,
   ],
   breadcrumbs: crumbs,
+  lastModified: "2026-10-13",
 };

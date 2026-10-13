@@ -95,6 +95,8 @@ ${visibleBreadcrumbs(crumbs)}
 
     <p class="text-slate2 text-lg leading-relaxed mb-6">An AI receptionist and a human receptionist are good at different things. The practical question for most dental practices isn't which one to choose \u2014 it's which parts of front-desk work make sense to automate, and which parts genuinely need a person. Here's a direct comparison of both, by task.</p>
 
+    <p class="text-slate2 leading-relaxed mb-6"><strong class="text-ink">Short answer: an AI receptionist is best for routine, repeatable, and after-hours inquiries; a human receptionist remains essential for judgment, sensitive conversations, complex exceptions, and in-person coordination.</strong></p>
+
     <h2 class="text-xl md:text-2xl mt-10 mb-3">Side-by-side comparison</h2>
     ${comparisonTable}
 
@@ -156,4 +158,5 @@ module.exports = {
     faq.schema,
   ],
   breadcrumbs: crumbs,
+  lastModified: "2026-10-13",
 };

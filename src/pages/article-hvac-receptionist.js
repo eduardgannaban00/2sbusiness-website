@@ -67,6 +67,8 @@ ${visibleBreadcrumbs(crumbs)}
 
     <p class="text-slate2 text-lg leading-relaxed mb-6">An AI receptionist for an HVAC company answers incoming calls, identifies what the caller needs, collects basic information, and either books an appointment or routes the caller to staff \u2014 following rules your business defines in advance, not judgment it makes on its own.</p>
 
+    <p class="text-slate2 leading-relaxed mb-6"><strong class="text-ink">Short answer: an AI receptionist for an HVAC company answers incoming calls, identifies the request, collects basic information, and either books an appointment or routes the caller to staff.</strong> It follows rules defined in advance; it does not diagnose equipment or make safety decisions on its own.</p>
+
     <div class="card my-10">
       <p class="text-xs font-head uppercase tracking-wide text-muted mb-4">The general call workflow</p>
       ${wf}
@@ -133,4 +135,5 @@ module.exports = {
     faq.schema,
   ],
   breadcrumbs: crumbs,
+  lastModified: "2026-10-13",
 };
